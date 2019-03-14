@@ -60,13 +60,15 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
               }
         }
 
-    if(length(grep("ftp.nccs.nasa.gov", readLines('~/_netrc')))==0)
-        {
-          if(file.exists('~/_netrc')==TRUE)
-              {
-                write(x='machine ftp.nccs.nasa.gov login NEXGDDP password   ','~/_netrc', append=T , ncolumns = 1, sep = "\t")
-              }
-          }
+    if(file.exists('~/_netrc')==TRUE)
+    {
+      if(length(grep("ftp.nccs.nasa.gov", readLines('~/_netrc')))==0)
+      {
+        write(x='machine ftp.nccs.nasa.gov login NEXGDDP password   ','~/_netrc', append=T , ncolumns = 1, sep = "\t")
+
+      }
+    }
+
 
       url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.05/'
       url.GDDP.input <- 'ftp://ftp.nccs.nasa.gov/BCSD/'
