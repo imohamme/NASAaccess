@@ -113,7 +113,7 @@ GPMswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lower
       study_area_records_IMERG<-data.frame(ID=unlist(cell.no),cell.longlat,cell.rowCol,Elevation=points_elevation)
       sp::coordinates (study_area_records_IMERG)<- ~x+y
       rm(data,IMERG)
-      unlink(x='./temp/', recursive = TRUE)
+      unlink(x='./temp', recursive = TRUE)
     }
 
     # The TRMM data grid information
@@ -156,7 +156,7 @@ GPMswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lower
       study_area_records_TRMM<-data.frame(TRMM_ID=unlist(cell.no),cell.longlat,cell.rowCol)
       sp::coordinates (study_area_records_TRMM)<- ~x+y
       rm(data,TRMM)
-      unlink(x='./temp/', recursive = TRUE)
+      unlink(x='./temp', recursive = TRUE)
     }
 
 
@@ -243,7 +243,7 @@ GPMswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lower
             write(x=cell.values[jj],filenameSWAT_TXT[[jj]],append=T,ncolumns = 1)
           }
           #}
-          unlink(x='./temp/', recursive = TRUE)
+          unlink(x='./temp', recursive = TRUE)
         }
       }
 
@@ -291,7 +291,7 @@ GPMswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lower
             }
 
           }
-          unlink(x='./temp/', recursive = TRUE)
+          unlink(x='./temp', recursive = TRUE)
         }
       }
 

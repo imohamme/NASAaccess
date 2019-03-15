@@ -100,7 +100,7 @@ GLDASwat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lowe
       study_area_records<-data.frame(ID=unlist(cell.no),cell.longlat,cell.rowCol,Elevation=points_elevation)
       #sp::coordinates (study_area_records)<- ~x+y
       rm(data,GLDAS)
-      unlink(x='./temp/', recursive = TRUE)
+      unlink(x='./temp', recursive = TRUE)
 
 
 
@@ -184,7 +184,7 @@ GLDASwat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lowe
       cell.temp.values<-list()
       SubdailyTemp<- list()
       rm(data,GLDAS)
-      unlink(x='./temp/', recursive = TRUE)
+      unlink(x='./temp', recursive = TRUE)
     }
 
 

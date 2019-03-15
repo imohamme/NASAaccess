@@ -160,7 +160,7 @@ GLDASpolyCentroid=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DE
       #empty memory and getting ready for next day!
       cell.temp.values<-list()
       rm(data,GLDAS)
-      unlink(x='./temp/', recursive = TRUE)
+      unlink(x='./temp', recursive = TRUE)
     }
 
 

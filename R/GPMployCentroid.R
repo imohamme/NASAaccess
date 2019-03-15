@@ -150,7 +150,7 @@ GPMpolyCentroid=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM 
             write(x=cell.values[jj],filenameSWAT_TXT[[jj]],append=T,ncolumns = 1)
           }
 
-          unlink(x='./temp/', recursive = TRUE)
+          unlink(x='./temp', recursive = TRUE)
         }
       }
 
@@ -205,7 +205,7 @@ GPMpolyCentroid=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM 
             }
 
           }
-          unlink(x='./temp/', recursive = TRUE)
+          unlink(x='./temp', recursive = TRUE)
         }
       }
 
