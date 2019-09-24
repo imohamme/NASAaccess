@@ -1,13 +1,13 @@
 ###3/11/19
 #' Generate rainfall input files as well as rain station file from NASA GPM remote sensing products.
 #'
-#' This function downloads rainfall remote sensing data of \acronym{TRMM} and \acronym{IMERG} from \acronym{NASA} \acronym{GSFC} servers, extracts data from grids falling within a specified sub-basin(s) watershed shapefile and assigns a pseudo rainfall gauge located at the centeroid of the sub-basin(s) watershed a weighted-average daily rainfall data.  The function generates rainfall tables in a format that \acronym{SWAT} or other rainfall-runoff hydrological model requires for rainfall data input. The function also generates the rainfall stations file summary input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those pseudo grids that correspond to the centroids of the watershed sub-basins.
+#' This function downloads rainfall remote sensing data of \acronym{TRMM} and \acronym{IMERG} from \acronym{NASA} \acronym{GSFC} servers, extracts data from grids falling within a specified sub-basin(s) watershed shapefile and assigns a pseudo rainfall gauge located at the centroid of the sub-basin(s) watershed a weighted-average daily rainfall data.  The function generates rainfall tables in a format that \acronym{SWAT} or other rainfall-runoff hydrological model requires for rainfall data input. The function also generates the rainfall stations file summary input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those pseudo grids that correspond to the centroids of the watershed sub-basins.
 #' @param Dir A directory name to store gridded rainfall and rain stations files.
 #' @param watershed A study watershed shapefile spatially describing polygon(s) in a geographic projection sp::CRS('+proj=longlat +datum=WGS84').
 #' @param DEM A study watershed digital elevation model raster in a geographic projection sp::CRS('+proj=longlat +datum=WGS84').
 #' @param start Begining date for gridded rainfall data.
 #' @param end Ending date for gridded rainfall data.
-#' @details A user should visit \url{https://disc.gsfc.nasa.gov/data-access} to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} GESDISC Data Access to successfuly work with this function. The function accesses \acronym{NASA} Goddard Space Flight Center server address for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.05/}), and \acronym{NASA} Goddard Space Flight Center server address for \acronym{TRMM} remote sensing data products (\url{https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_RT/TRMM_3B42RT_Daily.7}).  The function uses varible name ('precipitationCal') for rainfall in \acronym{IMERG} data products and variable name ('precipitation') for \acronym{TRMM} rainfall data products. Units for gridded rainfall data are 'mm'.
+#' @details A user should visit \url{https://disc.gsfc.nasa.gov/data-access} to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} GESDISC Data Access to successfuly work with this function. The function accesses \acronym{NASA} Goddard Space Flight Center server address for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/}), and \acronym{NASA} Goddard Space Flight Center server address for \acronym{TRMM} remote sensing data products (\url{https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_RT/TRMM_3B42RT_Daily.7}).  The function uses varible name ('precipitationCal') for rainfall in \acronym{IMERG} data products and variable name ('precipitation') for \acronym{TRMM} rainfall data products. Units for gridded rainfall data are 'mm'.
 #'
 #' \acronym{IMERG} dataset is the GPM Level 3 \acronym{IMERG} *Final* Daily 0.1 x 0.1 deg (GPM_3IMERGDF) derived from the half-hourly GPM_3IMERGHH. The derived result represents the final estimate of the daily accumulated precipitation. The dataset is produced at the \acronym{NASA} Goddard Earth Sciences (GES) Data and Information Services Center (DISC) by simply summing the valid precipitation retrievals for the day in GPM_3IMERGHH and giving the result in (mm) \url{https://pmm.nasa.gov/data-access/downloads/gpm}.
 #'
@@ -21,8 +21,8 @@
 #' \command{start} should be equal to or greater than 2000-Mar-01.
 #' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
 #' @keywords NASA IMERG TRMM Precipitation
-#' @return A table that includes Points ID, Point file name, Lat, Long, and Elevation information formated to be read with \acronym{SWAT} or other hydrological model, and
-#' a scalar of rainfall gridded data values at a pseudo rain grid located at the centeroid of each sub-basin within the study watershed provided in ascii format needed by \acronym{SWAT} model or other hydrological model weather inputs. All rain tables will be stored at \code{Dir}.
+#' @return A table that includes Points ID, Point file name, Lat, Long, and Elevation information formatted to be read with \acronym{SWAT} or other hydrological model, and
+#' a scalar of rainfall gridded data values at a pseudo rain grid located at the centroid of each sub-basin within the study watershed provided in ascii format needed by \acronym{SWAT} model or other hydrological model weather inputs. All rain tables will be stored at \code{Dir}.
 #' @examples
 #' #Lower Mekong basin example
 #' \donttest{GPMpolyCentroid(Dir = "./SWAT_INPUT/", watershed = "LowerMekong.shp",
@@ -43,7 +43,7 @@ GPMpolyCentroid=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM 
     if(length(grep("urs.earthdata.nasa.gov", readLines('~/.netrc')))==!0||length(grep("urs.earthdata.nasa.gov", readLines('~/_netrc')))==!0)
     {
 
-  url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.05/'
+  url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/'
   url.TRMM.input <- 'https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_RT/TRMM_3B42RT_Daily.7'
   myvarIMERG <- 'precipitationCal'
   myvarTRMM <- 'precipitation'
