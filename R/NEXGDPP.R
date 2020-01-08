@@ -169,7 +169,7 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
       #### Get the SWAT file names and then put the first record date
       for(jj in 1:dim(FinalTable)[1])
       {
-        if(dir.exists(Dir)==FALSE){dir.create(Dir)}
+        if(dir.exists(Dir)==FALSE){dir.create(Dir,recursive = TRUE)}
         filenameSWAT[[jj]]<-paste(myvarNAME,FinalTable$ID[jj],sep='')
         filenameSWAT_TXT[[jj]]<-paste(Dir,filenameSWAT[[jj]],'.txt',sep='')
         #write the data begining date once!
