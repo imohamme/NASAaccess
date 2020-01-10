@@ -69,7 +69,7 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
       # Reading the study Watershed shapefile
       polys <- rgdal::readOGR(dsn=watershed,verbose = F)
       # SWAT climate master file name
-      filenametableKEY<-paste(Dir,'Grid_Master.txt',sep='')
+      filenametableKEY<-paste(Dir,type, 'Grid_Master.txt',sep='')
       # Creating empty lists
       filenameSWAT     <- list()
       filenameSWAT_TXT <- list()
@@ -170,7 +170,7 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
       for(jj in 1:dim(FinalTable)[1])
       {
         if(dir.exists(Dir)==FALSE){dir.create(Dir,recursive = TRUE)}
-        filenameSWAT[[jj]]<-paste(myvarNAME,FinalTable$ID[jj],sep='')
+        filenameSWAT[[jj]]<-paste(type, myvarNAME,FinalTable$ID[jj],sep='')
         filenameSWAT_TXT[[jj]]<-paste(Dir,filenameSWAT[[jj]],'.txt',sep='')
         #write the data begining date once!
         write(x=format(time_period[1],'%Y%m%d'),file=filenameSWAT_TXT[[jj]])
@@ -257,7 +257,7 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
             write(x=cell.temp.values[[k]],filenameSWAT_TXT[[k]],append=T,ncolumns = 1)
           }
           #empty memory and getting ready for the next day!
-          cell.temp.values<-list();rm(NEX_min,NEX_max)
+          cell.temp.values<-list();rm(NEX_min,NEX_max);unlink(x='./temp', recursive = TRUE)
         }
 
       }
