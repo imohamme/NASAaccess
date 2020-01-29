@@ -211,7 +211,7 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
           else
           {
             ###the date is Feb 29th and NEX-GDPP has no value for it
-            cell.values <- rep('-99.0',dim(FinalTable)[1])
+            cell.values <- rep('-99.000000000',dim(FinalTable)[1])
 
           }
 
@@ -269,8 +269,8 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
           else
           {
             ###the date is Feb 29th and NEX-GDPP has no value for it
-            cell.values_min <- rep('-99.0', dim(FinalTable)[1]) #filling missing data
-            cell.values_max <- rep('-99.0', dim(FinalTable)[1]) #filling missing data
+            cell.values_min <- rep('-99.000000000', dim(FinalTable)[1]) #filling missing data
+            cell.values_max <- rep('-99.000000000', dim(FinalTable)[1]) #filling missing data
 
           }
           ### Looping through the NEX points and writing out the daily climate data in SWAT format
