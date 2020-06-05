@@ -109,7 +109,7 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
         ###save the daily climate data values in a raster
         IMERG<-raster::raster(x=as.matrix(data),xmn=nc.long.IMERG[1],xmx=nc.long.IMERG[NROW(nc.long.IMERG)],ymn=nc.lat.IMERG[1],ymx=nc.lat.IMERG[NROW(nc.lat.IMERG)],crs=sp::CRS('+proj=longlat +datum=WGS84'))
         #obtain cell numbers within the IMERG raster
-        cell.no<-raster::cellFromPolygon(IMERG, polys)
+        cell.no<-raster::cellFromPolygon(IMERG, polys,suppressMessages=T)
         #obtain lat/long values corresponding to watershed cells
         cell.longlat<-raster::xyFromCell(IMERG,unlist(cell.no))
         cell.rowCol <- raster::rowColFromCell(IMERG,unlist(cell.no))
@@ -143,11 +143,11 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
         ###rotate the raster to obtain the longitudes extent -180 to 180
         NEX<-raster::rotate(NEX)
         #obtain cell numbers within the NEX-GDPP raster
-        cell.no<-raster::cellFromPolygon(NEX, polys)
+        cell.no<-raster::cellFromPolygon(NEX, polys,suppressMessages=T)
         ##check cell.no to address small watershed
         if(length(unlist(cell.no))==0)
           {
-          cell.no<-raster::cellFromPolygon(NEX, polys, weights = TRUE)[[1]][,"cell"][1]
+          cell.no<-raster::cellFromPolygon(NEX, polys, weights = TRUE,suppressMessages=T)[[1]][,"cell"][1]
           }
         #obtain lat/long values corresponding to watershed cells
         cell.longlat<-raster::xyFromCell(NEX,unlist(cell.no))
