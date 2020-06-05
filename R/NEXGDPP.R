@@ -68,6 +68,8 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
       watershed.elevation <- raster::raster(DEM)
       # Reading the study Watershed shapefile
       polys <- rgdal::readOGR(dsn=watershed,verbose = F)
+      # To address missing parameters in projection strings
+      polys <- sp::spTransform(polys,CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'))
       # SWAT climate master file name
       filenametableKEY<-paste(Dir,type, 'Grid_Master.txt',sep='')
       # Creating empty lists
