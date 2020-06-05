@@ -143,7 +143,12 @@ NEX_GDPPswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = '
         ###rotate the raster to obtain the longitudes extent -180 to 180
         NEX<-raster::rotate(NEX)
         #obtain cell numbers within the NEX-GDPP raster
-        cell.no<-raster::cellFromPolygon(NEX, polys, weights = TRUE)[[1]][,"cell"]
+        cell.no<-raster::cellFromPolygon(NEX, polys)
+        ##check cell.no to address small watershed
+        if(length(unlist(cell.no))==0)
+          {
+          cell.no<-raster::cellFromPolygon(NEX, polys, weights = TRUE)[[1]][,"cell"][1]
+          }
         #obtain lat/long values corresponding to watershed cells
         cell.longlat<-raster::xyFromCell(NEX,unlist(cell.no))
         cell.rowCol <- raster::rowColFromCell(NEX,unlist(cell.no))
