@@ -23,7 +23,7 @@
 #' \code{start} should be equal to or greater than 1950-Jan-01 and \code{end} should be equal to or less than 2005-Dec-31 for the \acronym{'historical'} \acronym{GCM} retrospective climate data.
 #' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
 #'
-#' @keywords NASA NEX-GDPP Climate Change CIMP5
+#' @keywords NASA NEX-GDPP Climate Change CMIP5
 #' @return A table that includes points ID, Point file name, Lat, Long, and Elevation information formated to be read with \acronym{SWAT}, and
 #' a scalar of climate change gridded data values at each point within the study watershed in ascii format needed by \acronym{SWAT} model weather inputs will be stored at \code{Dir}.
 #' @references Maurer, E. P. and Hidalgo, H. G., 2008: Utility of daily vs. monthly large-scale climate data: an intercomparison of two statistical downscaling methods. Hydrology and Earth System Sciences, 12, 551-563, doi:10.5194/hess-12-551-2008.
@@ -36,8 +36,9 @@
 #'
 #' @examples
 #' #Lower Mekong basin example
-#' \donttest{NEX_GDPPswat(Dir = "./SWAT_INPUT/", watershed = "LowerMekong.shp",
-#' DEM = "LowerMekong_dem.tif", start = "2060-12-1", end = "2060-12-3", model = 'IPSL-CM5A-MR', type = 'pr', slice = 'rcp85')}
+#' \dontrun{NEX_GDPPswat(Dir = "./SWAT_INPUT/", watershed = "LowerMekong.shp",
+#' DEM = "LowerMekong_dem.tif", start = "2060-12-1", end = "2060-12-3",
+#' model = 'IPSL-CM5A-MR', type = 'pr', slice = 'rcp85')}
 #' @import ncdf4 shapefiles rgeos maptools httr stringr rgdal XML utils sp methods
 #' @importFrom stats na.exclude
 #' @importFrom raster raster cellFromPolygon xyFromCell rowColFromCell extract
