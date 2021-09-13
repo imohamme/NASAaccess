@@ -60,11 +60,10 @@ ggmap(myMap)
 #          colour = 'red', 
 #          inherit.aes = FALSE) 
 ggmap(myMap) +
-  geom_sf(data = shape,
+  geom_sf(data = shape$geometry,
                fill = NA, 
                 colour = 'red', 
-                inherit.aes = FALSE,
-                aes(geometry = geometry))
+                inherit.aes = FALSE)
 ```
 
 
