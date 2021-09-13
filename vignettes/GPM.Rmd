@@ -43,6 +43,13 @@ shape_path <- system.file("extdata",
 dem <- raster(dem_path)
 shape <- sf::st_read(shape_path)
 
+library(rgdal)
+shape.2 <- readOGR(shape_path)
+shape.2.df <- ggplot2::fortify(shape.2)
+
+
+
+
 
 #plot the watershed data
 myMap <- get_stamenmap(bbox = c(left = -96,
@@ -54,16 +61,19 @@ myMap <- get_stamenmap(bbox = c(left = -96,
                                              zoom = 10)
 
 
-ggmap(myMap) 
+ggmap(myMap) +
+  geom_polygon(data = shape.2.df, 
+               aes(x = long, y = lat, group = group), 
+               fill = NA, size = 0.5, color = 'red')
+
+#ggmap(myMap) 
 #  geom_sf(data = shape, 
 #          fill = NA, 
 #          colour = 'red', 
 #          inherit.aes = FALSE) 
-ggmap(myMap) +
-  geom_sf(data = shape$geometry,
-               fill = NA, 
-                colour = 'red', 
-                inherit.aes = FALSE)
+
+
+  
 ```
 
 
