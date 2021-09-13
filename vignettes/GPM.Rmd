@@ -31,18 +31,21 @@ library(sf)
 library(ggplot2)
 
 #Reading input data
-dem_path <- system.file('extdata', 'DEM_TX.tif', 
-                        package = 'NASAaccess')
-shape_path <- system.file('extdata', 'basin.shp', 
-                          package = 'NASAaccess')
+dem_path <- system.file("extdata", 
+                        "DEM_TX.tif", 
+                        package = "NASAaccess")
+
+shape_path <- system.file("extdata", 
+                          "basin.shp", 
+                          package = "NASAaccess")
 
 
-dem <- raster::raster(dem_path)
-shape <- sf::st_read(shape_path)
+dem <- raster(dem_path)
+shape <- st_read(shape_path)
 
 
 #plot the watershed data
-myMap <- ggmap::get_stamenmap(bbox = c(left = -96,
+myMap <- get_stamenmap(bbox = c(left = -96,
                                 bottom = 29.7,
                                 right = -95.2,
                                 top = 30),
@@ -51,8 +54,8 @@ myMap <- ggmap::get_stamenmap(bbox = c(left = -96,
                                              zoom = 10)
 
 
-ggmap::ggmap(myMap) + 
-  ggplot2::geom_sf(data = shape, 
+ggmap(myMap) + 
+  geom_sf(data = shape, 
           fill = NA, 
           colour = 'red', 
           inherit.aes = FALSE) 
