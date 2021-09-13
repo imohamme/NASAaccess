@@ -41,7 +41,7 @@ shape_path <- system.file("extdata",
 
 
 dem <- raster(dem_path)
-shape <- st_read(shape_path)
+shape <- sf::st_read(shape_path)
 
 
 #plot the watershed data
