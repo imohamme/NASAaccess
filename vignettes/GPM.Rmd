@@ -88,8 +88,8 @@ image(dem,
       xlab='lon', 
       ylab='lat')
 
-plot(shape$geometry,add=TRUE)
-
+#plot(shape$geometry,add=TRUE)
+plot(shape.2 , add = TRUE)
 ```
 
 
