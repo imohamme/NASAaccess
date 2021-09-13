@@ -54,11 +54,11 @@ myMap <- get_stamenmap(bbox = c(left = -96,
                                              zoom = 10)
 
 
-ggmap(myMap) + 
-  geom_sf(data = shape, 
-          fill = NA, 
-          colour = 'red', 
-          inherit.aes = FALSE) 
+ggmap(myMap) 
+#  geom_sf(data = shape, 
+#          fill = NA, 
+#          colour = 'red', 
+#          inherit.aes = FALSE) 
 
 ```
 
