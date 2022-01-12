@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generate SWAT rainfall or air temperature input files as well as climate input stations file from NASA NEX-GDPP remote sensing climate change data products. — NEX_GDPPswat • NASAaccess</title>
+<title>Generate rainfall or air temperature as well as climate input stations file from NASA NEX-GDPP remote sensing climate change data products needed to drive various hydrological models. — NEX_GDPPswat • NASAaccess</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Generate SWAT rainfall or air temperature input files as well as climate input stations file from NASA NEX-GDPP remote sensing climate change data products. — NEX_GDPPswat" />
+<meta property="og:title" content="Generate rainfall or air temperature as well as climate input stations file from NASA NEX-GDPP remote sensing climate change data products needed to drive various hydrological models. — NEX_GDPPswat" />
 <meta property="og:description" content="This function downloads climate change data of rainfall and air temperature from NASA Earth Exchange Global Daily Downscaled Projections NEX-GDDP GSFC servers, extracts data from grids within a specified watershed shapefile, and then generates tables in a format that SWAT requires for rainfall or air temperature data input. The function also generates the climate stations file input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected climatological grids that fall within the specified watershed. The NASA Earth Exchange Global Daily Downscaled Projections NEX-GDDP dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model GCM runs conducted under the Coupled Model Intercomparison Project Phase 5 CMIP5 and across two of the four greenhouse gas emissions scenarios known as Representative Concentration Pathways RCPs (rcp45, rcp85)." />
 
 
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
       </span>
     </div>
 
@@ -104,6 +104,9 @@
       <a href="../articles/GPM.html">Getting started with GPM data</a>
     </li>
     <li>
+      <a href="../articles/NEXGDDP-CMIP6.html">Getting started with NEXGDDP-CMIP6 data</a>
+    </li>
+    <li>
       <a href="../articles/NEXGDPP.html">Getting started with NEXGDPP data</a>
     </li>
   </ul>
@@ -132,7 +135,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generate SWAT rainfall or air temperature input files as well as climate input stations file from NASA NEX-GDPP remote sensing climate change data products.</h1>
+    <h1>Generate rainfall or air temperature as well as climate input stations file from NASA NEX-GDPP remote sensing climate change data products needed to drive various hydrological models.</h1>
     <small class="dont-index">Source: <a href='https://github.com/nasa/NASAaccess/blob/master/R/NEXGDPP.R'><code>R/NEXGDPP.R</code></a></small>
     <div class="hidden name"><code>NEX_GDPPswat.Rd</code></div>
     </div>

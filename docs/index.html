@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Downloading and Reformatting Tool for NASA Earth Observation Data Products">
-<meta property="og:description" content='A tool to generate gridded ascii tables and station files needed by SWAT or any other hydrological model for weather and climate inputs. The package assumes that users have already set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. 
+<meta property="og:description" content='A tool to generate gridded ascii tables and station files needed by hydrological models for weather and climate inputs. The package assumes that users have already set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. 
               Please refer to  &lt;https://disc.gsfc.nasa.gov/data-access&gt; for further details. The package relies on curl &lt;https://curl.se/&gt; commands and library to access NASA remote sensing servers.  
               Users should make sure that their local machines have curl installed properly.  Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at &lt;https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget&gt;. 
               Creating the ".netrc" file at the user machine Home directory and storing the NASA GES DISC user logging information in it is needed to execute the package commands.   '>
@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
       </span>
     </div>
 
@@ -64,6 +64,9 @@
     </li>
     <li>
       <a href="articles/GPM.html">Getting started with GPM data</a>
+    </li>
+    <li>
+      <a href="articles/NEXGDDP-CMIP6.html">Getting started with NEXGDDP-CMIP6 data</a>
     </li>
     <li>
       <a href="articles/NEXGDPP.html">Getting started with NEXGDPP data</a>
@@ -103,7 +106,7 @@
 <h2 class="hasAnchor">
 <a href="#what-is-nasaaccess" class="anchor"></a><strong>What is NASAaccess?</strong>
 </h2>
-<p><em>NASAaccess</em> is a software application in the form of a <a href="https://www.r-project.org/about.html">R</a> package and a web application. <em>NASAaccess</em> software can generate gridded ascii tables of climate <a href="https://pcmdi.llnl.gov/mips/cmip5/" title="Coupled Model Intercomparison Project Phase 5">CMIP5</a> and weather data (<a href="https://gpm.nasa.gov/data/directory" title="Global Precipitation Measurement">GPM</a>, <a href="https://gpm.nasa.gov/missions/trmm" title="Tropical Rainfall Measuring Mission">TRMM</a>, <a href="https://ldas.gsfc.nasa.gov/gldas" title="Global Land Data Assimilation System">GLDAS</a>) needed to drive various hydrological models (e.g., <a href="https://swat.tamu.edu/" title="Soil &amp; Water Assessment Tool">SWAT</a>, <a href="https://github.com/UW-Hydro/VIC" title="Variable Infiltration Capacity">VIC</a>, <a href="https://github.com/RHESSys/RHESSys" title="The Regional Hydro-Ecological Simulation System">RHESSys</a>, …etc.).</p>
+<p><em>NASAaccess</em> is a software application in the form of a <a href="https://www.r-project.org/about.html">R</a> package and a web application. <em>NASAaccess</em> software can generate gridded ascii tables of climate <a href="https://pcmdi.llnl.gov/mips/cmip5/" title="Coupled Model Intercomparison Project Phase 5">CMIP5</a>, <a href="https://pcmdi.llnl.gov/CMIP6/" title="Coupled Model Intercomparison Project Phase 6">CMIP6</a>, and weather data (<a href="https://gpm.nasa.gov/data/directory" title="Global Precipitation Measurement">GPM</a>, <a href="https://gpm.nasa.gov/missions/trmm" title="Tropical Rainfall Measuring Mission">TRMM</a>, <a href="https://ldas.gsfc.nasa.gov/gldas" title="Global Land Data Assimilation System">GLDAS</a>) needed to drive various hydrological models (e.g., <a href="https://swat.tamu.edu/" title="Soil &amp; Water Assessment Tool">SWAT</a>, <a href="https://github.com/UW-Hydro/VIC" title="Variable Infiltration Capacity">VIC</a>, <a href="https://github.com/RHESSys/RHESSys" title="The Regional Hydro-Ecological Simulation System">RHESSys</a>, …etc.).</p>
 </div>
 <div id="where-to-find-the-nasaaccess-software" class="section level2">
 <h2 class="hasAnchor">
@@ -140,6 +143,13 @@
 </li>
 </ul>
 <p>Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of <em>NASAaccess</em>.</p>
+</div>
+<div id="is-there-a-walkthrough-examples-for-nasaaccess-software" class="section level2">
+<h2 class="hasAnchor">
+<a href="#is-there-a-walkthrough-examples-for-nasaaccess-software" class="anchor"></a><strong>Is there a walkthrough examples for NASAaccess software?</strong>
+</h2>
+<p><em>Yes!</em></p>
+<p>Software users are encouraged to visit (<a href="https://imohamme.github.io/NASAaccess/" class="uri">https://imohamme.github.io/NASAaccess/</a>) to learn more on <em>NASAaccess</em> functionality and capabilities.</p>
 </div>
 <div id="how-to-cite-the-nasaaccess-software" class="section level2">
 <h2 class="hasAnchor">
