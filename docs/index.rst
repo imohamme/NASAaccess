@@ -15,6 +15,13 @@ License
 The NASAaccess software package is an open source software package under `NASA Open Source Agreement v1.3 <https://opensource.org/licenses/NASA-1.3>`_
 
 
+Source Code
+***********
+
+The NASAaccess source code is available on Github:
+
+  - https://github.com/nasa/NASAaccess
+
 
 
 Citation
