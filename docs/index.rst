@@ -10,7 +10,6 @@ NASAaccess is a software application in the form of a `R <https://www.r-project.
 
 .. toctree::
   :caption: Table of Contents
-  :titlesonly:
   :maxdepth: 2
   :numbered:
 
