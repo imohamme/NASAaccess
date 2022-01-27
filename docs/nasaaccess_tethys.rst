@@ -1,5 +1,5 @@
 ===============================
-|wde| NASAaccess Tethys Guide
+NASAaccess Tethys Guide
 ===============================
 
 

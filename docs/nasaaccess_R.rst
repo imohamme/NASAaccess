@@ -1,5 +1,5 @@
 ===============================
-|wde| NASAaccess R Guide
+NASAaccess R Guide
 ===============================
 
 

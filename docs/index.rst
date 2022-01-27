@@ -1,10 +1,11 @@
 ===============================
-|wde| NASAaccess Guide
+NASAaccess Guide
 ===============================
 
 
 .. toctree::
   :caption: Introduction
+  :titlesonly:
   :maxdepth: 2
   :numbered:
 
