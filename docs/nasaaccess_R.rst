@@ -27,7 +27,7 @@ On a local machine the user should have installed the following programs as well
   * Within Rstudio or R terminal run the following commands to install NASAaccess:
 
 
-      .. code-block:: ${2:type}
+      .. code-block::
 
 
           library(devtools)
