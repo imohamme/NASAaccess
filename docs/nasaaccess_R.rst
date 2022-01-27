@@ -26,19 +26,16 @@ On a local machine the user should have installed the following programs as well
 
   * Within Rstudio or R terminal run the following commands to install NASAaccess:
 
-      <snippet>
-          <content><![CDATA[
+
       .. code-block:: ${1:type}
-          :linenos:
+
 
           library(devtools)
           install_github("nasa/NASAaccess", build_vignettes = TRUE)
           library(NASAaccess)
 
 
-      ]]></content>
-        <tabTrigger>code</tabTrigger>
-      </snippet>
+
 
    Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess.
 
