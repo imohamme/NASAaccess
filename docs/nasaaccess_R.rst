@@ -3,8 +3,8 @@ NASAaccess R Guide
 ===============================
 
 
-Prerequisites
-#############
+Prerequisites & Installation
+############################
 
 On a local machine the user should have installed the following programs as well as setting up a user account.  The list below gives a summary of what is needed to be done prior to work with NASAaccess software on any local machine:
 
@@ -27,7 +27,7 @@ On a local machine the user should have installed the following programs as well
   * Within Rstudio or R terminal run the following commands to install NASAaccess:
 
 
-      .. code-block:: ${1:type}
+      .. code-block:: ${2:type}
 
 
           library(devtools)
