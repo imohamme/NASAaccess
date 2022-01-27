@@ -25,11 +25,20 @@ On a local machine the user should have installed the following programs as well
   * Checking if you can run `curl <https://curl.se/>`_ from your command prompt.  Type `curl --help` and you should see the help pages for the `curl <https://curl.se/>`_ program once everything is defined correctly.
 
   * Within Rstudio or R terminal run the following commands to install NASAaccess:
-      #. library(devtools)
 
-      #. install_github("nasa/NASAaccess", build_vignettes = TRUE)
+      <snippet>
+          <content><![CDATA[
+      .. code-block:: ${1:type}
+          :linenos:
 
-      #. library(NASAaccess)
+          library(devtools)
+          install_github("nasa/NASAaccess", build_vignettes = TRUE)
+          library(NASAaccess)
+
+
+      ]]></content>
+        <tabTrigger>code</tabTrigger>
+      </snippet>
 
    Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess.
 
