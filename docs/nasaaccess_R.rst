@@ -3,8 +3,8 @@ NASAaccess R Guide
 ===============================
 
 
-Prerequisites & Installation
-############################
+Prerequisites
+#############
 
 On a local machine the user should have installed the following programs as well as setting up a user account.  The list below gives a summary of what is needed to be done prior to work with NASAaccess software on any local machine:
 
@@ -24,7 +24,11 @@ On a local machine the user should have installed the following programs as well
 
   * Checking if you can run `curl <https://curl.se/>`_ from your command prompt.  Type `curl --help` and you should see the help pages for the `curl <https://curl.se/>`_ program once everything is defined correctly.
 
-  * Within Rstudio or R terminal run the following commands to install NASAaccess:
+
+Installation
+############
+
+Within Rstudio or R terminal run the following commands to install NASAaccess:
 
 
       .. code-block::
@@ -37,16 +41,11 @@ On a local machine the user should have installed the following programs as well
 
 
 
-   Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess.
+Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess.
 
 
 
-Source Code
-***********
 
-The NASAaccess source code is available on Github:
-
-  - https://github.com/nasa/NASAaccess
 
 
 
