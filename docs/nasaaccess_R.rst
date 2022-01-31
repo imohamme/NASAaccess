@@ -46,7 +46,7 @@ Here are some instructions that might help in installing curl on Windows OS mach
                    echo. > .urs_cookies
 
 
-    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The netrc file should look like
+    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The _netrc/.netrc file should look like
 
     .. figure::  images/netrc.png
           :scale: 50%
@@ -65,8 +65,8 @@ Here are some instructions that might help in installing curl on Windows OS mach
 
 
 
-Installation
-************
+NASAaccess R Package Installation
+*********************************
 
 Within Rstudio or R terminal run the following commands to install NASAaccess:
 
@@ -139,7 +139,8 @@ Let's explore `GPMpolyCentroid` function at an example watershed near Houston, T
    :align: center
    :alt: White Oak Bayou watershed
 
-    The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).
+
+   The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).
 
 
 
