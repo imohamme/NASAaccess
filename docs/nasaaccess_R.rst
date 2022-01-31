@@ -95,7 +95,7 @@ Within Rstudio or R terminal run the following commands to install NASAaccess:
 
 Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess. The help pages index should be similar to this
 
-.. image::  images/'R help.png'
+.. image::  images/R-help.png
    :scale: 50%
    :align: center
 
