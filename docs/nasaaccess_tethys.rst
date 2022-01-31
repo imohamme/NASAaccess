@@ -4,7 +4,7 @@ NASAaccess Tethys Guide
 
 
 .. image:: images/nasaaccess.png
-   :scale: 5%
+   :scale: 10%
    :align: center
 
 
