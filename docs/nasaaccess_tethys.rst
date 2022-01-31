@@ -7,7 +7,7 @@ NASAaccess Tethys Guide
 ==================================
 
 
-|logo|
+ |logo|
 
 
 About
