@@ -49,9 +49,9 @@ Here are some instructions that might help in installing curl on Windows OS mach
     #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The netrc file should look like
 
     .. figure::  images/netrc.png
-   :scale: 50%
-   :align: center
-   :alt: netrc file layout
+          :scale: 50%
+          :align: center
+          :alt: netrc file layout
 
 
     #. Download the 'curl' with the right built for your machine from https://curl.haxx.se/.
