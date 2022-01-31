@@ -20,7 +20,7 @@ On a local machine the user should have installed the following programs as well
 
 
         .. figure::  images/netrc.png
-               :scale: 40%
+               :scale: 50%
                :align: center
                :alt: netrc file layout
 
@@ -64,7 +64,7 @@ Here are some instructions that might help in installing curl on Windows OS mach
                   Replace <uid> with your user name and <password> with your Earthdata Login password.
 
 
-    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The _netrc/.netrc file should be identical.
+    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The `_netrc` and `.netrc` files should be identical.
 
     #. Download the 'curl' with the right built for your machine from https://curl.haxx.se/.
 
@@ -93,7 +93,17 @@ Within Rstudio or R terminal run the following commands to install NASAaccess:
 
 
 
-Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess.
+Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess. The help pages index should be similar to this
+
+.. image::  images/'R help.png'
+   :scale: 50%
+   :align: center
+
+
+
+.. note::
+
+        NASAaccess R package version installed here is 3.0.0.
 
 
 
