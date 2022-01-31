@@ -126,17 +126,19 @@ Let's explore `GPMpolyCentroid` function at an example watershed near Houston, T
 
 
 
-|watershed|
-
-
-The geographic layout of the White Oak Bayou watershed example used in this demonstration is depicted above. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).
 
 
 
-.. figure::  https://github.com/imohamme/NASAaccess/blob/master/docs/articles/GPM_files/figure-html/unnamed-chunk-2-1.png
+
+
+
+.. figure::  images/unnamed-chunk-2-1.png
    :scale: 50%
    :alt: White Oak Bayou watershed
 
 
    The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).
+
+
+In order to use NASAaccess we also need a digital elevation model (DEM) raster layer. Let’s see the White Oak Bayou watershed DEM and a more closer look at the study watershed example.
 
