@@ -25,6 +25,12 @@ On a local machine the user should have installed the following programs as well
                :alt: netrc file layout
 
 
+
+        .. note::
+
+                  In your *.netrc* file <uid> is your user name and <password> is your Earthdata Login password.
+
+
       * For Windows users the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* beside the *.netrc* file explained above.
 
   * Installing `curl <https://curl.se/>`_ software .  Since Mac users have `curl <https://curl.se/>`_ as part of macOS build, Windows users should make sure that their local machines build have `curl <https://curl.se/>`_ installed properly.
@@ -52,7 +58,11 @@ Here are some instructions that might help in installing curl on Windows OS mach
                    echo. > .urs_cookies
 
 
-      `where <uid> is your user name and <password> is your Earthdata Login password without the brackets.`
+
+          .. note::
+
+                  Replace <uid> with your user name and <password> with your Earthdata Login password.
+
 
     #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The _netrc/.netrc file should be identical.
 
