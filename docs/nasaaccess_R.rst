@@ -133,6 +133,10 @@ The geographic layout of the White Oak Bayou watershed example used in this demo
 
 
 
-.. image:: ../articles/GPM_files/figure-html/unnamed-chuck-2-1.png
-   :width: 1000
-   :align: center
+.. figure::  articles/GPM_files/figure-html/unnamed-chuck-2-1.png
+   :scale: 50%
+   :alt: White Oak Bayou watershed
+
+
+   The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).
+
