@@ -1,4 +1,4 @@
-.. |watershed| image:: ./articles/GPM_files/figure-html/unnamed-chuck-2-1.png
+.. |watershed| image:: ../articles/GPM_files/figure-html/unnamed-chuck-2-1.png
    :scale: 10%
 
 

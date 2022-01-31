@@ -25,6 +25,38 @@ On a local machine the user should have installed the following programs as well
   * Checking if you can run `curl <https://curl.se/>`_ from your command prompt.  Type `curl --help` and you should see the help pages for the `curl <https://curl.se/>`_ program once everything is defined correctly.
 
 
+
+Curl installation on Windows
+*****************************
+
+Here are some instructions that might help in installing curl on Windows OS machines:
+
+
+    #. Define `%HOME%` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory.
+
+    #. Create _ntrc file in your home directory. Run these commands in your command prompt.
+          .. code-block::
+
+
+                   cd %HOME%
+                   echo. > _netrc
+                   echo "machine urs.earthdata.nasa.gov login <uid> password <password>" >>  _netrc
+                   #(where <uid> is your user name and <password> is your Earthdata Login password without the brackets)
+                   echo. > .urs_cookies
+
+    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working.
+
+    #. Download the 'curl' with the right built for your machine from https://curl.haxx.se/.
+
+    #. Unpack the zip file in a location at your discretion.
+
+    #. Add the curl.exe file location to your Environment Variables. Once you unpack the zip file you will find the curl.exe file in bin folder.
+
+    #. Close the Environment Variables and check if you can run curl from your command prompt. Type curl --help and you should see the help pages for the curl program once everything is defined correctly.
+
+
+
+
 Installation
 ************
 
@@ -101,6 +133,6 @@ The geographic layout of the White Oak Bayou watershed example used in this demo
 
 
 
-.. image:: ./articles/GPM_files/figure-html/unnamed-chuck-2-1.png
+.. image:: ../articles/GPM_files/figure-html/unnamed-chuck-2-1.png
    :width: 1000
    :align: center
