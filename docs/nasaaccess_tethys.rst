@@ -1,6 +1,10 @@
-===============================
-NASAaccess Tethys Guide
-===============================
+.. |logo| image:: images/nasaaccess.png
+   :scale: 10%
+
+
+==================================
+|logo|   NASAaccess Tethys Guide
+==================================
 
 
 About

@@ -1,9 +1,3 @@
-.. |watershed| image:: images/unnamed-chunk-2-1.png
-   :scale: 10%
-
-
-
-
 ===============================
 NASAaccess Guide
 ===============================
