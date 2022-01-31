@@ -101,6 +101,6 @@ The geographic layout of the White Oak Bayou watershed example used in this demo
 
 
 
-.. image:: articles/GPM_files/figure-html/unnamed-chuck-2-1.png
+.. image:: ./articles/GPM_files/figure-html/unnamed-chuck-2-1.png
    :width: 1000
    :align: center
