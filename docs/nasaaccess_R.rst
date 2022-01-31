@@ -45,9 +45,62 @@ Within the Rstudio help tab the user can verify that the package has been instal
 
 
 
+Getting Started with the NASAaccess R package
+*********************************************
+
+NASAaccess R package has multiple functions such as `GPMpolyCentroid`, `GPMswat`, and `NEX_GDPP_CMIP6` that download, extract, and reformat rainfall remote sensing data from `NASA servers <https://gpm.nasa.gov/data/directory>`_ for grids within a specified watershed shapefile.
+
+Let's explore `GPMpolyCentroid` function at an example watershed near Houston, TX.
+
+     .. code-block::
+
+          library(ggmap)
+          library(raster)
+          library(ggplot2)
+          library(rgdal)
+
+          #Reading input data
+          dem_path <- system.file("extdata",
+                        "DEM_TX.tif",
+                        package = "NASAaccess")
+
+          shape_path <- system.file("extdata",
+                          "basin.shp",
+                          package = "NASAaccess")
+
+
+           dem <- raster(dem_path)
+
+
+
+           shape <- readOGR(shape_path)
+
+           shape.df <- ggplot2::fortify(shape)
+
+           #plot the watershed data
+           myMap <- get_stamenmap(bbox = c(left = -96,
+                                bottom = 29.7,
+                                right = -95.2,
+                                top = 30),
+                                            maptype = "terrain",
+                                            crop = TRUE,
+                                             zoom = 10)
+
+           ggmap(myMap) +
+                          geom_polygon(data = shape.df,
+                                aes(x = long, y = lat, group = group),
+                                fill = NA, size = 0.5, color = 'red')
 
 
 
 
+|watershed|
 
 
+The geographic layout of the White Oak Bayou watershed example used in this demonstration is depicted above. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).
+
+
+
+.. image:: articles/GPM_files/figure-html/unnamed-chuck-2-1.png
+   :width: 1000
+   :align: center
