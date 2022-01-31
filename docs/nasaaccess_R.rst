@@ -133,7 +133,7 @@ The geographic layout of the White Oak Bayou watershed example used in this demo
 
 
 
-.. figure::  articles/GPM_files/figure-html/unnamed-chuck-2-1.png
+.. figure::  https://github.com/imohamme/NASAaccess/blob/master/docs/articles/GPM_files/figure-html/unnamed-chunk-2-1.png
    :scale: 50%
    :alt: White Oak Bayou watershed
 
