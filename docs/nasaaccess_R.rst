@@ -16,7 +16,14 @@ On a local machine the user should have installed the following programs as well
 
   * After registration with `Earthdata <https://earthdata.nasa.gov/>`_ NASAaccess software package users should create a reference file (*netrc*) with `Earthdata <https://earthdata.nasa.gov/>`_ credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers.
 
-      * Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at `NASA earth data wiki <https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget>`_.
+      * Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at `NASA earth data wiki <https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget>`_. The *.netrc* file should look like:
+
+
+        .. figure::  images/netrc.png
+               :scale: 30%
+               :align: center
+               :alt: netrc file layout
+
 
       * For Windows users the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* beside the *.netrc* file explained above.
 
@@ -46,13 +53,7 @@ Here are some instructions that might help in installing curl on Windows OS mach
                    echo. > .urs_cookies
 
 
-    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The _netrc/.netrc file should look like
-
-    .. figure::  images/netrc.png
-          :scale: 50%
-          :align: center
-          :alt: netrc file layout
-
+    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The _netrc/.netrc file should be identical.
 
     #. Download the 'curl' with the right built for your machine from https://curl.haxx.se/.
 
