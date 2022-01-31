@@ -20,7 +20,7 @@ On a local machine the user should have installed the following programs as well
 
 
         .. figure::  images/netrc.png
-               :scale: 50%
+               :scale: 30%
                :align: center
                :alt: netrc file layout
 
@@ -96,7 +96,7 @@ Within Rstudio or R terminal run the following commands to install NASAaccess:
 Within the Rstudio help tab the user can verify that the package has been installed and browse the help pages of the various functions of NASAaccess. The help pages index should be similar to this
 
 .. image::  images/R-help.png
-   :scale: 50%
+   :scale: 30%
    :align: center
 
 
