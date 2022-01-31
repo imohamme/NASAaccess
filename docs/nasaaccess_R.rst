@@ -49,7 +49,7 @@ Here are some instructions that might help in installing curl on Windows OS mach
 
     #. Create _ntrc file in your home directory. Run these commands in your command prompt.
 
-          .. code-block::
+          ::
 
 
                    cd %HOME%
