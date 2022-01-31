@@ -47,7 +47,7 @@ Here are some instructions that might help in installing curl on Windows OS mach
 
     #. Define `%HOME%` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory.
 
-    #. Create _ntrc file in your home directory. Run these commands in your command prompt.
+    #. Create _netrc file in your home directory. Run these commands in your command prompt.
 
           ::
 
