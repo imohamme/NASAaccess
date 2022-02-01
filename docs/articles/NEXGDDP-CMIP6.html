@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -76,7 +72,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/nasa/NASAaccess/">
+  <a href="https://github.com/nasa/NASAaccess/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -91,30 +87,30 @@
 
       
 
-      </header><script src="NEXGDDP-CMIP6_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started with NEXGDDP-CMIP6 data</h1>
-                        <h4 class="author">Ibrahim N. Mohammed</h4>
+                        <h4 data-toc-skip class="author">Ibrahim N. Mohammed</h4>
             
-            <h4 class="date">2022-01-12</h4>
+            <h4 data-toc-skip class="date">2022-02-01</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/master/vignettes/NEXGDDP-CMIP6.Rmd"><code>vignettes/NEXGDDP-CMIP6.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/NEXGDDP-CMIP6.Rmd" class="external-link"><code>vignettes/NEXGDDP-CMIP6.Rmd</code></a></small>
       <div class="hidden name"><code>NEXGDDP-CMIP6.Rmd</code></div>
 
     </div>
 
     
     
-<p><em>NASAaccess</em> has a handy tool to access, extract, and reformat climate change data of rainfall and air temperature from <a href="https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6">NASA Earth Exchange Global Daily Downscaled Projections NEX-GDDP-CMIP6 AMES servers</a> for grids within a specified watershed.</p>
-<p><a href="https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf">NEX-GDDP-CMIP6</a> dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model GCM runs conducted under the Coupled Model Intercomparison Project Phase 6 CMIP6 <span class="citation">(Eyring et al. 2016)</span> and across two of the four “Tier 1” greenhouse gas emissions scenarios known as Shared Socioeconomic Pathways (SSPs) <span class="citation">(O’Neill et al. 2016; Meinshausen et al. 2020)</span>. The CMIP6 GCM runs were developed in support of the Sixth Assessment Report of the Intergovernmental Panel on Climate Change IPCC AR6. This dataset includes downscaled projections from the <a href="https://pcmdi.llnl.gov/CMIP6/">35 models and scenarios</a> for which daily scenarios were produced and distributed under CMIP6.</p>
-<p>The Bias-Correction Spatial Disaggregation BCSD method used in generating the <a href="https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6">NEX-GDDP-CMIP6 dataset</a> is a statistical downscaling algorithm specifically developed to address the current limitations of the global GCM outputs <span class="citation">(Andrew W. Wood et al. 2002; A. W. Wood et al. 2004; Maurer and Hidalgo 2008; Thrasher et al. 2012)</span>. The NEX-GDPP-CMIP6 climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km). The NEX_GDPP_CMIP6 downscales the NEX-GDPP-CMIP6 data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by <span class="citation">Mohammed et al. (2018)</span>.</p>
-<div id="basic-use" class="section level2">
-<h2 class="hasAnchor">
-<a href="#basic-use" class="anchor"></a>Basic use</h2>
+<p><em>NASAaccess</em> has a handy tool to access, extract, and reformat climate change data of rainfall and air temperature from <a href="https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6" class="external-link">NASA Earth Exchange Global Daily Downscaled Projections NEX-GDDP-CMIP6 AMES servers</a> for grids within a specified watershed.</p>
+<p><a href="https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf" class="external-link">NEX-GDDP-CMIP6</a> dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model GCM runs conducted under the Coupled Model Intercomparison Project Phase 6 CMIP6 <span class="citation">(Eyring et al. 2016)</span> and across two of the four “Tier 1” greenhouse gas emissions scenarios known as Shared Socioeconomic Pathways (SSPs) <span class="citation">(O’Neill et al. 2016; Meinshausen et al. 2020)</span>. The CMIP6 GCM runs were developed in support of the Sixth Assessment Report of the Intergovernmental Panel on Climate Change IPCC AR6. This dataset includes downscaled projections from the <a href="https://pcmdi.llnl.gov/CMIP6/" class="external-link">35 models and scenarios</a> for which daily scenarios were produced and distributed under CMIP6.</p>
+<p>The Bias-Correction Spatial Disaggregation BCSD method used in generating the <a href="https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6" class="external-link">NEX-GDDP-CMIP6 dataset</a> is a statistical downscaling algorithm specifically developed to address the current limitations of the global GCM outputs <span class="citation">(Andrew W. Wood et al. 2002; A. W. Wood et al. 2004; Maurer and Hidalgo 2008; Thrasher et al. 2012)</span>. The NEX-GDPP-CMIP6 climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km). The NEX_GDPP_CMIP6 downscales the NEX-GDPP-CMIP6 data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by <span class="citation">Mohammed et al. (2018)</span>.</p>
+<div class="section level2">
+<h2 id="basic-use">Basic use<a class="anchor" aria-label="anchor" href="#basic-use"></a>
+</h2>
 <p>Let’s use the example watersheds that we introduced with <code>GPMswat</code> and <code>GPMpolyCentroid</code>. Please visit <em>NASAaccess</em> <a href=".%5CGPM.html">GPM</a> functions for more information.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nasa/NASAaccess">NASAaccess</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nasa/NASAaccess" class="external-link">NASAaccess</a></span><span class="op">)</span>
 
 <span class="fu"><a href="../reference/NEX_GDPP_CMIP6.html">NEX_GDPP_CMIP6</a></span><span class="op">(</span>Dir <span class="op">=</span> <span class="st">"./NEX_GDPP_CMIP6/"</span>, 
                watershed <span class="op">=</span> <span class="va">shape_path</span>,
@@ -126,13 +122,13 @@
               slice <span class="op">=</span> <span class="st">'ssp245'</span><span class="op">)</span></code></pre></div>
 <p>Let’s examine the air temperature station file</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">NEX_GDPP_CMIP6.temperature.Master</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">'extdata/NEX_GDPP_CMIP6'</span>,
+<code class="sourceCode R"><span class="va">NEX_GDPP_CMIP6.temperature.Master</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/NEX_GDPP_CMIP6'</span>,
                                          <span class="st">'tasGrid_Master.txt'</span>, 
                                          package <span class="op">=</span> <span class="st">'NASAaccess'</span><span class="op">)</span>
 
-<span class="va">NEX_GDPP_CMIP6.table</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">NEX_GDPP_CMIP6.temperature.Master</span><span class="op">)</span>
+<span class="va">NEX_GDPP_CMIP6.table</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">NEX_GDPP_CMIP6.temperature.Master</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">NEX_GDPP_CMIP6.table</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">NEX_GDPP_CMIP6.table</span><span class="op">)</span>
 <span class="co">#&gt;        ID              NAME      LAT      LONG ELEVATION</span>
 <span class="co">#&gt; 1 2160842 tasclimate2160842 29.93337 -95.82337  50.16166</span>
 <span class="co">#&gt; 2 2160843 tasclimate2160843 29.93337 -95.72340  46.68206</span>
@@ -140,14 +136,15 @@
 <span class="co">#&gt; 4 2160845 tasclimate2160845 29.93337 -95.52346  35.58193</span>
 <span class="co">#&gt; 5 2164442 tasclimate2164442 29.83343 -95.82337  48.02116</span>
 <span class="co">#&gt; 6 2164443 tasclimate2164443 29.83343 -95.72340  40.47534</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/dimensions.html">dim</a></span><span class="op">(</span><span class="va">NEX_GDPP_CMIP6.table</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/dimensions.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">NEX_GDPP_CMIP6.table</span><span class="op">)</span>
 <span class="co">#&gt; [1] 11  5</span></code></pre></div>
 </div>
-<div id="built-with" class="section level2">
-<h2 class="hasAnchor">
-<a href="#built-with" class="anchor"></a>Built with</h2>
+<div class="section level2">
+<h2 id="built-with">Built with<a class="anchor" aria-label="anchor" href="#built-with"></a>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.0.5 (2021-03-31)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
 <span class="co">#&gt; Running under: macOS Big Sur 10.16</span>
@@ -163,51 +160,53 @@
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] ggplot2_3.3.5 sf_1.0-2      raster_3.4-13 sp_1.4-5     </span>
+<span class="co">#&gt; [1] ggplot2_3.3.5 sf_1.0-5      raster_3.5-11 sp_1.4-6     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] tidyselect_1.1.1   xfun_0.26          purrr_0.3.4        lattice_0.20-41   </span>
-<span class="co">#&gt;  [5] colorspace_2.0-2   vctrs_0.3.8        generics_0.1.0     htmltools_0.5.2   </span>
-<span class="co">#&gt;  [9] yaml_2.2.1         utf8_1.2.2         rlang_0.4.11       e1071_1.7-9       </span>
-<span class="co">#&gt; [13] pkgdown_1.6.1      pillar_1.6.2       withr_2.4.2        glue_1.4.2        </span>
-<span class="co">#&gt; [17] DBI_1.1.1          lifecycle_1.0.0    stringr_1.4.0      munsell_0.5.0     </span>
-<span class="co">#&gt; [21] gtable_0.3.0       ragg_1.1.3         codetools_0.2-18   memoise_2.0.0     </span>
-<span class="co">#&gt; [25] evaluate_0.14      knitr_1.34         fastmap_1.1.0      class_7.3-18      </span>
-<span class="co">#&gt; [29] fansi_0.5.0        Rcpp_1.0.7         KernSmooth_2.23-18 scales_1.1.1      </span>
-<span class="co">#&gt; [33] classInt_0.4-3     cachem_1.0.6       desc_1.3.0         systemfonts_1.0.2 </span>
-<span class="co">#&gt; [37] fs_1.5.0           textshaping_0.3.5  digest_0.6.27      stringi_1.7.4     </span>
-<span class="co">#&gt; [41] dplyr_1.0.7        grid_4.0.5         rprojroot_2.0.2    rgdal_1.5-27      </span>
-<span class="co">#&gt; [45] tools_4.0.5        magrittr_2.0.1     proxy_0.4-26       tibble_3.1.4      </span>
-<span class="co">#&gt; [49] crayon_1.4.1       pkgconfig_2.0.3    ellipsis_0.3.2     assertthat_0.2.1  </span>
-<span class="co">#&gt; [53] rmarkdown_2.11     R6_2.5.1           units_0.7-2        compiler_4.0.5</span></code></pre></div>
+<span class="co">#&gt;  [1] tidyselect_1.1.1   terra_1.4-22       xfun_0.29          bslib_0.3.1       </span>
+<span class="co">#&gt;  [5] purrr_0.3.4        lattice_0.20-41    colorspace_2.0-2   vctrs_0.3.8       </span>
+<span class="co">#&gt;  [9] generics_0.1.1     htmltools_0.5.2    yaml_2.2.1         utf8_1.2.2        </span>
+<span class="co">#&gt; [13] rlang_0.4.12       e1071_1.7-9        pkgdown_2.0.2      jquerylib_0.1.4   </span>
+<span class="co">#&gt; [17] pillar_1.6.4       withr_2.4.3        glue_1.6.1         DBI_1.1.2         </span>
+<span class="co">#&gt; [21] lifecycle_1.0.1    stringr_1.4.0      munsell_0.5.0      gtable_0.3.0      </span>
+<span class="co">#&gt; [25] ragg_1.2.1         codetools_0.2-18   memoise_2.0.1      evaluate_0.14     </span>
+<span class="co">#&gt; [29] knitr_1.37         fastmap_1.1.0      class_7.3-18       fansi_1.0.2       </span>
+<span class="co">#&gt; [33] Rcpp_1.0.7         KernSmooth_2.23-18 scales_1.1.1       classInt_0.4-3    </span>
+<span class="co">#&gt; [37] cachem_1.0.6       desc_1.4.0         jsonlite_1.7.3     systemfonts_1.0.3 </span>
+<span class="co">#&gt; [41] fs_1.5.2           textshaping_0.3.6  digest_0.6.29      stringi_1.7.6     </span>
+<span class="co">#&gt; [45] dplyr_1.0.7        grid_4.0.5         rprojroot_2.0.2    rgdal_1.5-28      </span>
+<span class="co">#&gt; [49] tools_4.0.5        magrittr_2.0.1     sass_0.4.0         proxy_0.4-26      </span>
+<span class="co">#&gt; [53] tibble_3.1.6       crayon_1.4.2       pkgconfig_2.0.3    ellipsis_0.3.2    </span>
+<span class="co">#&gt; [57] assertthat_0.2.1   rmarkdown_2.11     R6_2.5.1           units_0.7-2       </span>
+<span class="co">#&gt; [61] compiler_4.0.5</span></code></pre></div>
 </div>
-<div id="references" class="section level2 unnumbered">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<div class="section level2 unnumbered">
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-RN1450" class="csl-entry">
-Eyring, V., S. Bony, G. A. Meehl, C. A. Senior, B. Stevens, R. J. Stouffer, and K. E. Taylor. 2016. <span>“Overview of the Coupled Model Intercomparison Project Phase 6 (Cmip6) Experimental Design and Organization.”</span> Journal Article. <em>Geoscientific Model Development</em> 9 (5): 1937–58. <a href="https://doi.org/10.5194/gmd-9-1937-2016">https://doi.org/10.5194/gmd-9-1937-2016</a>.
+Eyring, V., S. Bony, G. A. Meehl, C. A. Senior, B. Stevens, R. J. Stouffer, and K. E. Taylor. 2016. <span>“Overview of the Coupled Model Intercomparison Project Phase 6 (Cmip6) Experimental Design and Organization.”</span> Journal Article. <em>Geoscientific Model Development</em> 9 (5): 1937–58. <a href="https://doi.org/10.5194/gmd-9-1937-2016" class="external-link">https://doi.org/10.5194/gmd-9-1937-2016</a>.
 </div>
 <div id="ref-RN1393" class="csl-entry">
-Maurer, E. P., and H. G. Hidalgo. 2008. <span>“Utility of Daily Vs. Monthly Large-Scale Climate Data: An Intercomparison of Two Statistical Downscaling Methods.”</span> Journal Article. <em>Hydrology and Earth System Sciences</em> 12 (2): 551–63. <a href="https://doi.org/10.5194/hess-12-551-2008">https://doi.org/10.5194/hess-12-551-2008</a>.
+Maurer, E. P., and H. G. Hidalgo. 2008. <span>“Utility of Daily Vs. Monthly Large-Scale Climate Data: An Intercomparison of Two Statistical Downscaling Methods.”</span> Journal Article. <em>Hydrology and Earth System Sciences</em> 12 (2): 551–63. <a href="https://doi.org/10.5194/hess-12-551-2008" class="external-link">https://doi.org/10.5194/hess-12-551-2008</a>.
 </div>
 <div id="ref-RN1452" class="csl-entry">
-Meinshausen, M., Z. R. J. Nicholls, J. Lewis, M. J. Gidden, E. Vogel, M. Freund, U. Beyerle, et al. 2020. <span>“The Shared Socio-Economic Pathway (SSP) Greenhouse Gas Concentrations and Their Extensions to 2500.”</span> Journal Article. <em>Geoscientific Model Development</em> 13 (8): 3571–3605. <a href="https://doi.org/10.5194/gmd-13-3571-2020">https://doi.org/10.5194/gmd-13-3571-2020</a>.
+Meinshausen, M., Z. R. J. Nicholls, J. Lewis, M. J. Gidden, E. Vogel, M. Freund, U. Beyerle, et al. 2020. <span>“The Shared Socio-Economic Pathway (SSP) Greenhouse Gas Concentrations and Their Extensions to 2500.”</span> Journal Article. <em>Geoscientific Model Development</em> 13 (8): 3571–3605. <a href="https://doi.org/10.5194/gmd-13-3571-2020" class="external-link">https://doi.org/10.5194/gmd-13-3571-2020</a>.
 </div>
 <div id="ref-RN1207" class="csl-entry">
-Mohammed, Ibrahim Nourein, John Bolten, Raghavan Srinivasan, and Venkat Lakshmi. 2018. <span>“Improved Hydrological Decision Support System for the Lower Mekong River Basin Using Satellite-Based Earth Observations.”</span> Journal Article. <em>Remote Sensing</em> 10 (6): 885. <a href="https://doi.org/10.3390/rs10060885">https://doi.org/10.3390/rs10060885</a>.
+Mohammed, Ibrahim Nourein, John Bolten, Raghavan Srinivasan, and Venkat Lakshmi. 2018. <span>“Improved Hydrological Decision Support System for the Lower Mekong River Basin Using Satellite-Based Earth Observations.”</span> Journal Article. <em>Remote Sensing</em> 10 (6): 885. <a href="https://doi.org/10.3390/rs10060885" class="external-link">https://doi.org/10.3390/rs10060885</a>.
 </div>
 <div id="ref-RN1451" class="csl-entry">
-O’Neill, B. C., C. Tebaldi, D. P. van Vuuren, V. Eyring, P. Friedlingstein, G. Hurtt, R. Knutti, et al. 2016. <span>“The Scenario Model Intercomparison Project (ScenarioMIP) for Cmip6.”</span> Journal Article. <em>Geoscientific Model Development</em> 9 (9): 3461–82. <a href="https://doi.org/10.5194/gmd-9-3461-2016">https://doi.org/10.5194/gmd-9-3461-2016</a>.
+O’Neill, B. C., C. Tebaldi, D. P. van Vuuren, V. Eyring, P. Friedlingstein, G. Hurtt, R. Knutti, et al. 2016. <span>“The Scenario Model Intercomparison Project (ScenarioMIP) for Cmip6.”</span> Journal Article. <em>Geoscientific Model Development</em> 9 (9): 3461–82. <a href="https://doi.org/10.5194/gmd-9-3461-2016" class="external-link">https://doi.org/10.5194/gmd-9-3461-2016</a>.
 </div>
 <div id="ref-RN1283" class="csl-entry">
-Thrasher, B., E. P. Maurer, C. McKellar, and P. B. Duffy. 2012. <span>“Technical Note: Bias Correcting Climate Model Simulated Daily Temperature Extremes with Quantile Mapping.”</span> Journal Article. <em>Hydrology and Earth System Sciences</em> 16 (9): 3309–14. <a href="https://doi.org/10.5194/hess-16-3309-2012">https://doi.org/10.5194/hess-16-3309-2012</a>.
+Thrasher, B., E. P. Maurer, C. McKellar, and P. B. Duffy. 2012. <span>“Technical Note: Bias Correcting Climate Model Simulated Daily Temperature Extremes with Quantile Mapping.”</span> Journal Article. <em>Hydrology and Earth System Sciences</em> 16 (9): 3309–14. <a href="https://doi.org/10.5194/hess-16-3309-2012" class="external-link">https://doi.org/10.5194/hess-16-3309-2012</a>.
 </div>
 <div id="ref-RN736" class="csl-entry">
-Wood, A. W., L. R. Leung, V. Sridhar, and D. P. Lettenmaier. 2004. <span>“Hydrologic Implications of Dynamical and Statistical Approaches to Downscaling Climate Model Outputs.”</span> Journal Article. <em>Climatic Change</em> 62 (1): 189–216. <a href="https://doi.org/10.1023/B:CLIM.0000013685.99609.9e">https://doi.org/10.1023/B:CLIM.0000013685.99609.9e</a>.
+Wood, A. W., L. R. Leung, V. Sridhar, and D. P. Lettenmaier. 2004. <span>“Hydrologic Implications of Dynamical and Statistical Approaches to Downscaling Climate Model Outputs.”</span> Journal Article. <em>Climatic Change</em> 62 (1): 189–216. <a href="https://doi.org/10.1023/B:CLIM.0000013685.99609.9e" class="external-link">https://doi.org/10.1023/B:CLIM.0000013685.99609.9e</a>.
 </div>
 <div id="ref-RN1282" class="csl-entry">
-Wood, Andrew W., Edwin P. Maurer, Arun Kumar, and Dennis P. Lettenmaier. 2002. <span>“Long-Range Experimental Hydrologic Forecasting for the Eastern United States.”</span> Journal Article. <em>Journal of Geophysical Research: Atmospheres</em> 107 (D20): 4429. <a href="https://doi.org/10.1029/2001jd000659">https://doi.org/10.1029/2001jd000659</a>.
+Wood, Andrew W., Edwin P. Maurer, Arun Kumar, and Dennis P. Lettenmaier. 2002. <span>“Long-Range Experimental Hydrologic Forecasting for the Eastern United States.”</span> Journal Article. <em>Journal of Geophysical Research: Atmospheres</em> 107 (D20): 4429. <a href="https://doi.org/10.1029/2001jd000659" class="external-link">https://doi.org/10.1029/2001jd000659</a>.
 </div>
 </div>
 </div>
@@ -224,11 +223,13 @@ Wood, Andrew W., Edwin P. Maurer, Arun Kumar, and Dennis P. Lettenmaier. 2002. <
 
 
       <footer><div class="copyright">
-  <p>Developed by Ibrahim Mohammed.</p>
+  <p></p>
+<p>Developed by Ibrahim Mohammed.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -236,6 +237,8 @@ Wood, Andrew W., Edwin P. Maurer, Arun Kumar, and Dennis P. Lettenmaier. 2002. <
 
   
 
+
+  
 
   </body>
 </html>
