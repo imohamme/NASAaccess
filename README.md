@@ -6,9 +6,10 @@
 <!-- badges: start -->
 
 ![lifecycle](https://img.shields.io/badge/lifecycle-stable-sucess.svg?style=plastic&logo=appveyor)
-[![NASA Open Source
-Agreement](https://img.shields.io/badge/license-NASA_Open_Source_Agreement-informational.svg?style=plastic&logo=appveyor)](https://ti.arc.nasa.gov/opensource/nosa/)
+[![](https://img.shields.io/readthedocs/nasaaccess?style=social)](https://nasaaccess.readthedocs.io/en/latest/index.html)
+[![](https://img.shields.io/github/stars/nasa/nasaaccess?style=social)](https://img.shields.io/github/stars/nasa/nasaaccess?style=social)
 <!-- ![GitHub Downloads](https://img.shields.io/github/downloads/nasa/NASAaccess/total?style=plastic)
+<!-- [![NASA Open Source Agreement](https://img.shields.io/badge/license-NASA_Open_Source_Agreement-informational.svg?style=plastic&logo=appveyor)](https://ti.arc.nasa.gov/opensource/nosa/)
 <!-- badges: end -->
 
 [*Ibrahim N.
