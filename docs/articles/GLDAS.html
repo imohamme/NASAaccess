@@ -93,7 +93,7 @@
       <h1 data-toc-skip>Getting started with GLDAS data</h1>
                         <h4 data-toc-skip class="author">Ibrahim N. Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2022-02-09</h4>
+            <h4 data-toc-skip class="date">2022-02-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GLDAS.Rmd" class="external-link"><code>vignettes/GLDAS.Rmd</code></a></small>
       <div class="hidden name"><code>GLDAS.Rmd</code></div>
@@ -203,26 +203,26 @@
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] ggplot2_3.3.5 sf_1.0-5      raster_3.5-11 sp_1.4-6     </span>
+<span class="co">#&gt; [1] ggplot2_3.3.5 sf_1.0-6      raster_3.5-15 sp_1.4-6     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] Rcpp_1.0.7         lattice_0.20-41    class_7.3-18       assertthat_0.2.1  </span>
+<span class="co">#&gt;  [1] Rcpp_1.0.8         lattice_0.20-41    class_7.3-18       assertthat_0.2.1  </span>
 <span class="co">#&gt;  [5] rprojroot_2.0.2    digest_0.6.29      utf8_1.2.2         R6_2.5.1          </span>
-<span class="co">#&gt;  [9] evaluate_0.14      e1071_1.7-9        highr_0.9          pillar_1.6.4      </span>
-<span class="co">#&gt; [13] rlang_0.4.12       jquerylib_0.1.4    rmarkdown_2.11     pkgdown_2.0.2     </span>
-<span class="co">#&gt; [17] textshaping_0.3.6  desc_1.4.0         rgdal_1.5-28       stringr_1.4.0     </span>
-<span class="co">#&gt; [21] munsell_0.5.0      proxy_0.4-26       compiler_4.0.5     xfun_0.29         </span>
-<span class="co">#&gt; [25] pkgconfig_2.0.3    systemfonts_1.0.3  htmltools_0.5.2    tidyselect_1.1.1  </span>
-<span class="co">#&gt; [29] tibble_3.1.6       codetools_0.2-18   fansi_1.0.2        crayon_1.4.2      </span>
-<span class="co">#&gt; [33] dplyr_1.0.7        withr_2.4.3        wk_0.6.0           grid_4.0.5        </span>
-<span class="co">#&gt; [37] jsonlite_1.7.3     gtable_0.3.0       lifecycle_1.0.1    DBI_1.1.2         </span>
-<span class="co">#&gt; [41] magrittr_2.0.1     units_0.7-2        scales_1.1.1       KernSmooth_2.23-18</span>
-<span class="co">#&gt; [45] stringi_1.7.6      cachem_1.0.6       farver_2.1.0       fs_1.5.2          </span>
-<span class="co">#&gt; [49] bslib_0.3.1        ellipsis_0.3.2     ragg_1.2.1         generics_0.1.1    </span>
-<span class="co">#&gt; [53] vctrs_0.3.8        s2_1.0.7           tools_4.0.5        glue_1.6.1        </span>
-<span class="co">#&gt; [57] purrr_0.3.4        fastmap_1.1.0      yaml_2.2.1         colorspace_2.0-2  </span>
-<span class="co">#&gt; [61] terra_1.4-22       classInt_0.4-3     memoise_2.0.1      knitr_1.37        </span>
-<span class="co">#&gt; [65] sass_0.4.0</span></code></pre></div>
+<span class="co">#&gt;  [9] evaluate_0.14      e1071_1.7-9        highr_0.9          pillar_1.7.0      </span>
+<span class="co">#&gt; [13] rlang_1.0.1        rstudioapi_0.13    jquerylib_0.1.4    rmarkdown_2.11    </span>
+<span class="co">#&gt; [17] pkgdown_2.0.2      textshaping_0.3.6  desc_1.4.0         rgdal_1.5-28      </span>
+<span class="co">#&gt; [21] stringr_1.4.0      munsell_0.5.0      proxy_0.4-26       compiler_4.0.5    </span>
+<span class="co">#&gt; [25] xfun_0.29          pkgconfig_2.0.3    systemfonts_1.0.3  htmltools_0.5.2   </span>
+<span class="co">#&gt; [29] tidyselect_1.1.2   tibble_3.1.6       codetools_0.2-18   fansi_1.0.2       </span>
+<span class="co">#&gt; [33] crayon_1.5.0       dplyr_1.0.8        withr_2.4.3        wk_0.6.0          </span>
+<span class="co">#&gt; [37] grid_4.0.5         jsonlite_1.8.0     gtable_0.3.0       lifecycle_1.0.1   </span>
+<span class="co">#&gt; [41] DBI_1.1.2          magrittr_2.0.2     units_0.8-0        scales_1.1.1      </span>
+<span class="co">#&gt; [45] KernSmooth_2.23-18 cli_3.2.0          stringi_1.7.6      cachem_1.0.6      </span>
+<span class="co">#&gt; [49] farver_2.1.0       fs_1.5.2           bslib_0.3.1        ellipsis_0.3.2    </span>
+<span class="co">#&gt; [53] ragg_1.2.1         generics_0.1.2     vctrs_0.3.8        s2_1.0.7          </span>
+<span class="co">#&gt; [57] tools_4.0.5        glue_1.6.1         purrr_0.3.4        fastmap_1.1.0     </span>
+<span class="co">#&gt; [61] yaml_2.2.1         colorspace_2.0-3   terra_1.5-21       classInt_0.4-3    </span>
+<span class="co">#&gt; [65] memoise_2.0.1      knitr_1.37         sass_0.4.0</span></code></pre></div>
 </div>
   </div>
 

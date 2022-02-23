@@ -93,7 +93,7 @@
       <h1 data-toc-skip>Getting started with GPM data</h1>
                         <h4 data-toc-skip class="author">Ibrahim N. Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2022-02-09</h4>
+            <h4 data-toc-skip class="date">2022-02-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GPM.Rmd" class="external-link"><code>vignettes/GPM.Rmd</code></a></small>
       <div class="hidden name"><code>GPM.Rmd</code></div>
@@ -147,7 +147,7 @@
 
 <span class="va">shape</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rgdal.r-forge.r-project.org/reference/readOGR.html" class="external-link">readOGR</a></span><span class="op">(</span><span class="va">shape_path</span><span class="op">)</span>
 <span class="co">#&gt; OGR data source with driver: ESRI Shapefile </span>
-<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/RtmpoFa8UM/temp_libpathe47051080edb/NASAaccess/extdata/basin.shp", layer: "basin"</span>
+<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/RtmpHDO6b3/temp_libpath15f645d541cf/NASAaccess/extdata/basin.shp", layer: "basin"</span>
 <span class="co">#&gt; with 1 features</span>
 <span class="co">#&gt; It has 4 fields</span>
 <span class="co">#&gt; Integer64 fields read as strings:  OBJECTID disID</span>
@@ -328,31 +328,32 @@
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] rgdal_1.5-28  raster_3.5-11 sp_1.4-6      ggmap_3.0.0   ggplot2_3.3.5</span>
+<span class="co">#&gt; [1] rgdal_1.5-28  raster_3.5-15 sp_1.4-6      ggmap_3.0.0   ggplot2_3.3.5</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] Rcpp_1.0.7          lattice_0.20-41     tidyr_1.1.4        </span>
+<span class="co">#&gt;  [1] Rcpp_1.0.8          lattice_0.20-41     tidyr_1.2.0        </span>
 <span class="co">#&gt;  [4] png_0.1-7           assertthat_0.2.1    rprojroot_2.0.2    </span>
 <span class="co">#&gt;  [7] digest_0.6.29       utf8_1.2.2          R6_2.5.1           </span>
 <span class="co">#&gt; [10] plyr_1.8.6          evaluate_0.14       highr_0.9          </span>
-<span class="co">#&gt; [13] httr_1.4.2          pillar_1.6.4        RgoogleMaps_1.4.5.3</span>
-<span class="co">#&gt; [16] rlang_0.4.12        curl_4.3.2          jquerylib_0.1.4    </span>
-<span class="co">#&gt; [19] rmarkdown_2.11      pkgdown_2.0.2       textshaping_0.3.6  </span>
-<span class="co">#&gt; [22] desc_1.4.0          labeling_0.4.2      stringr_1.4.0      </span>
-<span class="co">#&gt; [25] munsell_0.5.0       compiler_4.0.5      xfun_0.29          </span>
-<span class="co">#&gt; [28] pkgconfig_2.0.3     systemfonts_1.0.3   htmltools_0.5.2    </span>
-<span class="co">#&gt; [31] tidyselect_1.1.1    tibble_3.1.6        codetools_0.2-18   </span>
-<span class="co">#&gt; [34] fansi_1.0.2         crayon_1.4.2        dplyr_1.0.7        </span>
-<span class="co">#&gt; [37] withr_2.4.3         bitops_1.0-7        grid_4.0.5         </span>
-<span class="co">#&gt; [40] jsonlite_1.7.3      gtable_0.3.0        lifecycle_1.0.1    </span>
-<span class="co">#&gt; [43] DBI_1.1.2           magrittr_2.0.1      scales_1.1.1       </span>
-<span class="co">#&gt; [46] stringi_1.7.6       cachem_1.0.6        farver_2.1.0       </span>
-<span class="co">#&gt; [49] fs_1.5.2            bslib_0.3.1         ellipsis_0.3.2     </span>
-<span class="co">#&gt; [52] ragg_1.2.1          generics_0.1.1      vctrs_0.3.8        </span>
-<span class="co">#&gt; [55] rjson_0.2.21        tools_4.0.5         glue_1.6.1         </span>
-<span class="co">#&gt; [58] purrr_0.3.4         jpeg_0.1-9          fastmap_1.1.0      </span>
-<span class="co">#&gt; [61] yaml_2.2.1          colorspace_2.0-2    terra_1.4-22       </span>
-<span class="co">#&gt; [64] memoise_2.0.1       knitr_1.37          sass_0.4.0</span></code></pre></div>
+<span class="co">#&gt; [13] httr_1.4.2          pillar_1.7.0        RgoogleMaps_1.4.5.3</span>
+<span class="co">#&gt; [16] rlang_1.0.1         curl_4.3.2          rstudioapi_0.13    </span>
+<span class="co">#&gt; [19] jquerylib_0.1.4     rmarkdown_2.11      pkgdown_2.0.2      </span>
+<span class="co">#&gt; [22] labeling_0.4.2      textshaping_0.3.6   desc_1.4.0         </span>
+<span class="co">#&gt; [25] stringr_1.4.0       munsell_0.5.0       compiler_4.0.5     </span>
+<span class="co">#&gt; [28] xfun_0.29           pkgconfig_2.0.3     systemfonts_1.0.3  </span>
+<span class="co">#&gt; [31] htmltools_0.5.2     tidyselect_1.1.2    tibble_3.1.6       </span>
+<span class="co">#&gt; [34] codetools_0.2-18    fansi_1.0.2         crayon_1.5.0       </span>
+<span class="co">#&gt; [37] dplyr_1.0.8         withr_2.4.3         bitops_1.0-7       </span>
+<span class="co">#&gt; [40] grid_4.0.5          jsonlite_1.8.0      gtable_0.3.0       </span>
+<span class="co">#&gt; [43] lifecycle_1.0.1     DBI_1.1.2           magrittr_2.0.2     </span>
+<span class="co">#&gt; [46] scales_1.1.1        cli_3.2.0           stringi_1.7.6      </span>
+<span class="co">#&gt; [49] cachem_1.0.6        farver_2.1.0        fs_1.5.2           </span>
+<span class="co">#&gt; [52] bslib_0.3.1         ellipsis_0.3.2      ragg_1.2.1         </span>
+<span class="co">#&gt; [55] generics_0.1.2      vctrs_0.3.8         rjson_0.2.21       </span>
+<span class="co">#&gt; [58] tools_4.0.5         glue_1.6.1          purrr_0.3.4        </span>
+<span class="co">#&gt; [61] jpeg_0.1-9          fastmap_1.1.0       yaml_2.2.1         </span>
+<span class="co">#&gt; [64] colorspace_2.0-3    terra_1.5-21        memoise_2.0.1      </span>
+<span class="co">#&gt; [67] knitr_1.37          sass_0.4.0</span></code></pre></div>
 </div>
   </div>
 
