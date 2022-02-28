@@ -91,9 +91,10 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction</h1>
-                        <h4 data-toc-skip class="author">Ibrahim N. Mohammed</h4>
+                        <h4 data-toc-skip class="author">Ibrahim N.
+Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2022-02-23</h4>
+            <h4 data-toc-skip class="date">2022-02-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/About.Rmd" class="external-link"><code>vignettes/About.Rmd</code></a></small>
       <div class="hidden name"><code>About.Rmd</code></div>
@@ -102,8 +103,24 @@
 
     
     
-<p>The <em>NASAaccess</em> package is a simple and needed tool for accessing and processing remote sensing data. The <em>NASAaccess</em> package has multiple functions that help the user to access and reformat hydrological data for easy ingest into various hydrological models. Since the package functions touch <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> data repositories to retrieve data, the user must set up a registration account with <a href="https://urs.earthdata.nasa.gov/users/new" class="external-link">Earthdata</a> as well as authorizing <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">NASA GES DISC</a> data access. The package user should make sure that his(her) local machines has <a href="https://curl.se/" class="external-link">curl</a> installed properly. Further instructions on creating the “.netrc” and “.urs_cookies” files can be accessed at <a href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget" class="external-link"><em>How To Access Data NASA data With cURL And Wget wiki page</em></a>. Creating the “.netrc” file at the user machine ‘Home’ directory and storing the <a href="https://disc.gsfc.nasa.gov/" class="external-link">NASA GES DISC</a> user logging information in it is needed to execute the package commands.</p>
-<p>Note: for Windows users the <a href="https://disc.gsfc.nasa.gov/" class="external-link">NASA GES DISC</a> logging information should be saved in a file named "_netrc" beside the “.netrc” one.</p>
+<p>The <em>NASAaccess</em> package is a simple and needed tool for
+accessing and processing remote sensing data. The <em>NASAaccess</em>
+package has multiple functions that help the user to access and reformat
+hydrological data for easy ingest into various hydrological models.
+Since the package functions touch <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> data
+repositories to retrieve data, the user must set up a registration
+account with <a href="https://urs.earthdata.nasa.gov/users/new" class="external-link">Earthdata</a> as well as
+authorizing <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">NASA GES
+DISC</a> data access. The package user should make sure that his(her)
+local machines has <a href="https://curl.se/" class="external-link">curl</a> installed
+properly. Further instructions on creating the “.netrc” and
+“.urs_cookies” files can be accessed at <a href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget" class="external-link"><em>How
+To Access Data NASA data With cURL And Wget wiki page</em></a>. Creating
+the “.netrc” file at the user machine ‘Home’ directory and storing the
+<a href="https://disc.gsfc.nasa.gov/" class="external-link">NASA GES DISC</a> user logging
+information in it is needed to execute the package commands.</p>
+<p>Note: for Windows users the <a href="https://disc.gsfc.nasa.gov/" class="external-link">NASA GES DISC</a> logging information
+should be saved in a file named “_netrc” beside the “.netrc” one.</p>
 <div class="section level2">
 <h2 id="index">Index<a class="anchor" aria-label="anchor" href="#index"></a>
 </h2>
@@ -119,13 +136,13 @@
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; R version 4.0.5 (2021-03-31)</span>
+<span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
 <span class="co">#&gt; Running under: macOS Big Sur 10.16</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Matrix products: default</span>
-<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib</span>
-<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib</span>
+<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span>
+<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; locale:</span>
 <span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
@@ -135,13 +152,13 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] rstudioapi_0.13   knitr_1.37        magrittr_2.0.2    R6_2.5.1         </span>
-<span class="co">#&gt;  [5] ragg_1.2.1        rlang_1.0.1       fastmap_1.1.0     stringr_1.4.0    </span>
-<span class="co">#&gt;  [9] tools_4.0.5       xfun_0.29         cli_3.2.0         jquerylib_0.1.4  </span>
-<span class="co">#&gt; [13] htmltools_0.5.2   systemfonts_1.0.3 yaml_2.2.1        digest_0.6.29    </span>
+<span class="co">#&gt;  [5] ragg_1.2.2        rlang_1.0.1       fastmap_1.1.0     stringr_1.4.0    </span>
+<span class="co">#&gt;  [9] tools_4.1.2       xfun_0.29         cli_3.2.0         jquerylib_0.1.4  </span>
+<span class="co">#&gt; [13] htmltools_0.5.2   systemfonts_1.0.4 yaml_2.3.5        digest_0.6.29    </span>
 <span class="co">#&gt; [17] rprojroot_2.0.2   pkgdown_2.0.2     crayon_1.5.0      textshaping_0.3.6</span>
 <span class="co">#&gt; [21] purrr_0.3.4       sass_0.4.0        fs_1.5.2          memoise_2.0.1    </span>
-<span class="co">#&gt; [25] cachem_1.0.6      evaluate_0.14     rmarkdown_2.11    stringi_1.7.6    </span>
-<span class="co">#&gt; [29] compiler_4.0.5    bslib_0.3.1       desc_1.4.0        jsonlite_1.8.0</span></code></pre></div>
+<span class="co">#&gt; [25] cachem_1.0.6      evaluate_0.15     rmarkdown_2.11    stringi_1.7.6    </span>
+<span class="co">#&gt; [29] compiler_4.1.2    bslib_0.3.1       desc_1.4.0        jsonlite_1.8.0</span></code></pre></div>
 </div>
   </div>
 
@@ -162,7 +179,8 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>

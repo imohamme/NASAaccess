@@ -91,9 +91,10 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Getting started with GPM data</h1>
-                        <h4 data-toc-skip class="author">Ibrahim N. Mohammed</h4>
+                        <h4 data-toc-skip class="author">Ibrahim N.
+Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2022-02-23</h4>
+            <h4 data-toc-skip class="date">2022-02-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GPM.Rmd" class="external-link"><code>vignettes/GPM.Rmd</code></a></small>
       <div class="hidden name"><code>GPM.Rmd</code></div>
@@ -102,9 +103,14 @@
 
     
     
-<p><em>NASAaccess</em> package has multiple functions such as <code>GPMpolyCentroid</code> and <code>GPMswat</code> that download, extract, and reformat rainfall remote sensing data of <a href="https://gpm.nasa.gov/missions/trmm" class="external-link">TRMM</a> and <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> from <a href="https://gpm.nasa.gov/data/directory" class="external-link">NASA servers</a> for grids within a specified watershed shapefile.</p>
-<p>Let’s explore <code>GPMpolyCentroid</code> and <code>GPMswat</code> functions. ## Basic use</p>
-<p>Let’s look at an example watershed that we want to examine near Houston, TX:</p>
+<p><em>NASAaccess</em> package has multiple functions such as
+<code>GPMpolyCentroid</code> and <code>GPMswat</code> that download,
+extract, and reformat rainfall remote sensing data of <a href="https://gpm.nasa.gov/missions/trmm" class="external-link">TRMM</a> and <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> from <a href="https://gpm.nasa.gov/data/directory" class="external-link">NASA servers</a> for grids
+within a specified watershed shapefile.</p>
+<p>Let’s explore <code>GPMpolyCentroid</code> and <code>GPMswat</code>
+functions. ## Basic use</p>
+<p>Let’s look at an example watershed that we want to examine near
+Houston, TX:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap" class="external-link">ggmap</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: ggplot2</span>
@@ -121,15 +127,15 @@
 <span class="co">#&gt; rgdal: version: 1.5-28, (SVN revision 1158)</span>
 <span class="co">#&gt; Geospatial Data Abstraction Library extensions to R successfully loaded</span>
 <span class="co">#&gt; Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29</span>
-<span class="co">#&gt; Path to GDAL shared files: /Users/imohamme/Library/R/4.0/library/rgdal/gdal</span>
+<span class="co">#&gt; Path to GDAL shared files: /Users/imohamme/Library/R/x86_64/4.1/library/rgdal/gdal</span>
 <span class="co">#&gt; GDAL binary built with GEOS: TRUE </span>
 <span class="co">#&gt; Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]</span>
-<span class="co">#&gt; Path to PROJ shared files: /Users/imohamme/Library/R/4.0/library/rgdal/proj</span>
+<span class="co">#&gt; Path to PROJ shared files: /Users/imohamme/Library/R/x86_64/4.1/library/rgdal/proj</span>
 <span class="co">#&gt; PROJ CDN enabled: FALSE</span>
 <span class="co">#&gt; Linking to sp version:1.4-6</span>
 <span class="co">#&gt; To mute warnings of possible GDAL/OSR exportToProj4() degradation,</span>
 <span class="co">#&gt; use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</span>
-<span class="co">#&gt; Overwritten PROJ_LIB was /Users/imohamme/Library/R/4.0/library/rgdal/proj</span>
+<span class="co">#&gt; Overwritten PROJ_LIB was /Users/imohamme/Library/R/x86_64/4.1/library/rgdal/proj</span>
 
 <span class="co">#Reading input data</span>
 <span class="va">dem_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, 
@@ -147,7 +153,7 @@
 
 <span class="va">shape</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rgdal.r-forge.r-project.org/reference/readOGR.html" class="external-link">readOGR</a></span><span class="op">(</span><span class="va">shape_path</span><span class="op">)</span>
 <span class="co">#&gt; OGR data source with driver: ESRI Shapefile </span>
-<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/RtmpHDO6b3/temp_libpath15f645d541cf/NASAaccess/extdata/basin.shp", layer: "basin"</span>
+<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/RtmpVqphat/temp_libpath665540b7ba33/NASAaccess/extdata/basin.shp", layer: "basin"</span>
 <span class="co">#&gt; with 1 features</span>
 <span class="co">#&gt; It has 4 fields</span>
 <span class="co">#&gt; Integer64 fields read as strings:  OBJECTID disID</span>
@@ -181,7 +187,12 @@
                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>, y <span class="op">=</span> <span class="va">lat</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span>, 
                fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></code></pre></div>
 <p><img src="GPM_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
-<p>The geographic layout of the White Oak Bayou watershed example used in this demonstration is depicted above. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas). In order to use <em>NASAaccess</em> we also need a digital elevation model (DEM) raster layer. Let’s see the White Oak Bayou watershed DEM and a more closer look at the study watershed example.</p>
+<p>The geographic layout of the White Oak Bayou watershed example used
+in this demonstration is depicted above. Whiteoak Bayou is a tributary
+for the Buffalo Bayou River (Harris County, Texas). In order to use
+<em>NASAaccess</em> we also need a digital elevation model (DEM) raster
+layer. Let’s see the White Oak Bayou watershed DEM and a more closer
+look at the study watershed example.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># create a plot of our DEM raster along with watershed</span>
 
@@ -208,7 +219,8 @@
                   DEM <span class="op">=</span> <span class="va">dem_path</span>,
                   start <span class="op">=</span> <span class="st">"2020-08-1"</span>,
                   end <span class="op">=</span> <span class="st">"2020-08-3"</span><span class="op">)</span></code></pre></div>
-<p>Examining the rainfall station file generated by <code>GPMswat</code></p>
+<p>Examining the rainfall station file generated by
+<code>GPMswat</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">GPMswat.precipitationMaster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPMswat'</span>,
                                          <span class="st">'precipitationMaster.txt'</span>, 
@@ -229,7 +241,13 @@
 
 <span class="fu"><a href="https://rdrr.io/pkg/raster/man/dimensions.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">GPMswat.table</span><span class="op">)</span>
 <span class="co">#&gt; [1] 11  5</span></code></pre></div>
-<p><code>GPMswat</code> generated ascii table for each available grid located within the study watershed. There are 11 grids within the study watershed and that means 11 tables have been generated. <code>GPMswat</code> also generated the rainfall stations file input shown above <em>GPMswat.table</em> (table with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected grids that fall within the specified watershed.</p>
+<p><code>GPMswat</code> generated ascii table for each available grid
+located within the study watershed. There are 11 grids within the study
+watershed and that means 11 tables have been generated.
+<code>GPMswat</code> also generated the rainfall stations file input
+shown above <em>GPMswat.table</em> (table with columns: ID, File NAME,
+LAT, LONG, and ELEVATION) for those selected grids that fall within the
+specified watershed.</p>
 <p>Now, let’s see the location of these generated grid points:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -245,8 +263,12 @@
              size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradientn</a></span><span class="op">(</span>colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">terrain.colors</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="GPM_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
-<p>We note here that <code>GPMswat</code> has given us all the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">GPM</a> data grids that fall within the boundaries of the White Oak Bayou study watershed.</p>
-<p>The time series rainfall data stored in the data tables (i.e., 11 tables) can be viewed also. looking at reformatted data from the first grid point as listed in the rainfall station file generated by <code>GPMswat</code></p>
+<p>We note here that <code>GPMswat</code> has given us all the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">GPM</a> data grids that fall
+within the boundaries of the White Oak Bayou study watershed.</p>
+<p>The time series rainfall data stored in the data tables (i.e., 11
+tables) can be viewed also. looking at reformatted data from the first
+grid point as listed in the rainfall station file generated by
+<code>GPMswat</code></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">GPMswat.point.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPMswat'</span>,
                               <span class="st">'precipitation2160842.txt'</span>, 
@@ -258,7 +280,9 @@
 <span class="co">#&gt; 1 32.22795868</span>
 <span class="co">#&gt; 2  1.80884695</span>
 <span class="co">#&gt; 3  0.07029478</span></code></pre></div>
-<p>The <code>GPMswat</code> has generated a ready format ascii tables that can be ingested easily to the Soil and Water Assessment Tool <a href="https://swat.tamu.edu/" class="external-link">SWAT</a> model or any other hydrological model of choice.</p>
+<p>The <code>GPMswat</code> has generated a ready format ascii tables
+that can be ingested easily to the Soil and Water Assessment Tool <a href="https://swat.tamu.edu/" class="external-link">SWAT</a> model or any other hydrological
+model of choice.</p>
 <p>Now, let’s examine <code>GPMpolyCentroid</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/GPMpolyCentroid.html">GPMpolyCentroid</a></span><span class="op">(</span>Dir <span class="op">=</span> <span class="st">"./GPMpolyCentroid/"</span>,
@@ -266,7 +290,8 @@
                   DEM <span class="op">=</span> <span class="va">dem_path</span>,
                   start <span class="op">=</span> <span class="st">"2019-08-1"</span>,
                   end <span class="op">=</span> <span class="st">"2019-08-3"</span><span class="op">)</span></code></pre></div>
-<p>Examining the rainfall station file generated by <code>GPMpolyCentroid</code></p>
+<p>Examining the rainfall station file generated by
+<code>GPMpolyCentroid</code></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">GPMpolyCentroid.precipitationMaster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPMpolyCentroid'</span>,
@@ -284,8 +309,13 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">GPMpolyCentroid.precipitation.table</span>,
              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">LONG</span>,y<span class="op">=</span><span class="va">LAT</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="GPM_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
-<p>We note here that <code>GPMpolyCentroid</code> has given us the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">GPM</a> data grid that falls within a specified watershed and assigns a pseudo rainfall gauge located at the centroid of the watershed a weighted-average daily rainfall data.</p>
-<p>Let’s examine the precipitation data just obtained by <code>GPMpolyCentroid</code> over the White Oak Bayou study watershed.</p>
+<p>We note here that <code>GPMpolyCentroid</code> has given us the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">GPM</a> data grid that falls
+within a specified watershed and assigns a pseudo rainfall gauge located
+at the centroid of the watershed a weighted-average daily rainfall
+data.</p>
+<p>Let’s examine the precipitation data just obtained by
+<code>GPMpolyCentroid</code> over the White Oak Bayou study
+watershed.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">GPMpolyCentroid.precipitation.record</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPMpolyCentroid'</span>,
@@ -307,19 +337,21 @@
                                     type <span class="op">=</span> <span class="st">'b'</span>,
      main<span class="op">=</span><span class="st">"White Oak Bayou Watershed precipitation (GPM)"</span><span class="op">)</span></code></pre></div>
 <p><img src="GPM_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
-<p>The time series plot above gives the rainfall amounts in (mm) at the centroid of the White Oak Bayou watershed during 2019-August-01 to 2019-August-03.</p>
+<p>The time series plot above gives the rainfall amounts in (mm) at the
+centroid of the White Oak Bayou watershed during 2019-August-01 to
+2019-August-03.</p>
 <div class="section level2">
 <h2 id="built-with">Built with<a class="anchor" aria-label="anchor" href="#built-with"></a>
 </h2>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; R version 4.0.5 (2021-03-31)</span>
+<span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
 <span class="co">#&gt; Running under: macOS Big Sur 10.16</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Matrix products: default</span>
-<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib</span>
-<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib</span>
+<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span>
+<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; locale:</span>
 <span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
@@ -331,29 +363,28 @@
 <span class="co">#&gt; [1] rgdal_1.5-28  raster_3.5-15 sp_1.4-6      ggmap_3.0.0   ggplot2_3.3.5</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;  [1] Rcpp_1.0.8          lattice_0.20-41     tidyr_1.2.0        </span>
-<span class="co">#&gt;  [4] png_0.1-7           assertthat_0.2.1    rprojroot_2.0.2    </span>
-<span class="co">#&gt;  [7] digest_0.6.29       utf8_1.2.2          R6_2.5.1           </span>
-<span class="co">#&gt; [10] plyr_1.8.6          evaluate_0.14       highr_0.9          </span>
-<span class="co">#&gt; [13] httr_1.4.2          pillar_1.7.0        RgoogleMaps_1.4.5.3</span>
-<span class="co">#&gt; [16] rlang_1.0.1         curl_4.3.2          rstudioapi_0.13    </span>
-<span class="co">#&gt; [19] jquerylib_0.1.4     rmarkdown_2.11      pkgdown_2.0.2      </span>
-<span class="co">#&gt; [22] labeling_0.4.2      textshaping_0.3.6   desc_1.4.0         </span>
-<span class="co">#&gt; [25] stringr_1.4.0       munsell_0.5.0       compiler_4.0.5     </span>
-<span class="co">#&gt; [28] xfun_0.29           pkgconfig_2.0.3     systemfonts_1.0.3  </span>
-<span class="co">#&gt; [31] htmltools_0.5.2     tidyselect_1.1.2    tibble_3.1.6       </span>
-<span class="co">#&gt; [34] codetools_0.2-18    fansi_1.0.2         crayon_1.5.0       </span>
-<span class="co">#&gt; [37] dplyr_1.0.8         withr_2.4.3         bitops_1.0-7       </span>
-<span class="co">#&gt; [40] grid_4.0.5          jsonlite_1.8.0      gtable_0.3.0       </span>
-<span class="co">#&gt; [43] lifecycle_1.0.1     DBI_1.1.2           magrittr_2.0.2     </span>
-<span class="co">#&gt; [46] scales_1.1.1        cli_3.2.0           stringi_1.7.6      </span>
-<span class="co">#&gt; [49] cachem_1.0.6        farver_2.1.0        fs_1.5.2           </span>
-<span class="co">#&gt; [52] bslib_0.3.1         ellipsis_0.3.2      ragg_1.2.1         </span>
-<span class="co">#&gt; [55] generics_0.1.2      vctrs_0.3.8         rjson_0.2.21       </span>
-<span class="co">#&gt; [58] tools_4.0.5         glue_1.6.1          purrr_0.3.4        </span>
-<span class="co">#&gt; [61] jpeg_0.1-9          fastmap_1.1.0       yaml_2.2.1         </span>
-<span class="co">#&gt; [64] colorspace_2.0-3    terra_1.5-21        memoise_2.0.1      </span>
-<span class="co">#&gt; [67] knitr_1.37          sass_0.4.0</span></code></pre></div>
+<span class="co">#&gt;  [1] Rcpp_1.0.8          lattice_0.20-45     tidyr_1.2.0        </span>
+<span class="co">#&gt;  [4] png_0.1-7           rprojroot_2.0.2     digest_0.6.29      </span>
+<span class="co">#&gt;  [7] utf8_1.2.2          R6_2.5.1            plyr_1.8.6         </span>
+<span class="co">#&gt; [10] evaluate_0.15       highr_0.9           httr_1.4.2         </span>
+<span class="co">#&gt; [13] pillar_1.7.0        RgoogleMaps_1.4.5.3 rlang_1.0.1        </span>
+<span class="co">#&gt; [16] curl_4.3.2          rstudioapi_0.13     jquerylib_0.1.4    </span>
+<span class="co">#&gt; [19] rmarkdown_2.11      pkgdown_2.0.2       textshaping_0.3.6  </span>
+<span class="co">#&gt; [22] desc_1.4.0          labeling_0.4.2      stringr_1.4.0      </span>
+<span class="co">#&gt; [25] munsell_0.5.0       compiler_4.1.2      xfun_0.29          </span>
+<span class="co">#&gt; [28] pkgconfig_2.0.3     systemfonts_1.0.4   htmltools_0.5.2    </span>
+<span class="co">#&gt; [31] tidyselect_1.1.2    tibble_3.1.6        codetools_0.2-18   </span>
+<span class="co">#&gt; [34] fansi_1.0.2         crayon_1.5.0        dplyr_1.0.8        </span>
+<span class="co">#&gt; [37] withr_2.4.3         bitops_1.0-7        grid_4.1.2         </span>
+<span class="co">#&gt; [40] jsonlite_1.8.0      gtable_0.3.0        lifecycle_1.0.1    </span>
+<span class="co">#&gt; [43] magrittr_2.0.2      scales_1.1.1        cli_3.2.0          </span>
+<span class="co">#&gt; [46] stringi_1.7.6       cachem_1.0.6        farver_2.1.0       </span>
+<span class="co">#&gt; [49] fs_1.5.2            bslib_0.3.1         ellipsis_0.3.2     </span>
+<span class="co">#&gt; [52] ragg_1.2.2          generics_0.1.2      vctrs_0.3.8        </span>
+<span class="co">#&gt; [55] rjson_0.2.21        tools_4.1.2         glue_1.6.2         </span>
+<span class="co">#&gt; [58] purrr_0.3.4         jpeg_0.1-9          fastmap_1.1.0      </span>
+<span class="co">#&gt; [61] yaml_2.3.5          colorspace_2.0-3    terra_1.5-21       </span>
+<span class="co">#&gt; [64] memoise_2.0.1       knitr_1.37          sass_0.4.0</span></code></pre></div>
 </div>
   </div>
 
@@ -374,7 +405,8 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
