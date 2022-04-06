@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.3</span>
       </span>
     </div>
 
@@ -26,7 +26,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -93,21 +93,21 @@
 <dt>DEM</dt>
 <dd><p>A study watershed digital elevation model raster in a geographic projection sp::CRS('+proj=longlat +datum=WGS84').</p></dd>
 <dt>start</dt>
-<dd><p>Begining date for gridded air temperature data.</p></dd>
+<dd><p>Beginning date for gridded air temperature data.</p></dd>
 <dt>end</dt>
 <dd><p>Ending date for gridded air temperature data.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formated to be read with <acronym>SWAT</acronym>, and
+    <p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with <acronym>SWAT</acronym>, and
 a scalar of maximum and minimum air temperature gridded data values at each point within the study watershed in ascii format needed by <acronym>SWAT</acronym> model weather inputs will be stored at <code>Dir</code>.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>A user should visit <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">https://disc.gsfc.nasa.gov/data-access</a> to register with the Earth Observing System Data and Information System (<acronym>NASA Earthdata</acronym>) and then authorize <acronym>NASA</acronym> GESDISC Data Access to successfuly work with this function. The function accesses <acronym>NASA</acronym> Goddard Space Flight Center server address for <acronym>GLDAS</acronym> remote sensing data products at (<a href="https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/" class="external-link">https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/</a>).  The function uses varible name ('Tair_f_inst') for air temperature in <acronym>GLDAS</acronym> data products. Units for gridded air temperature data are degrees in 'K'. The <code class="command">GLDASwat</code> function outputs gridded air temperature (maximum and minimum) data in degrees 'C'.</p>
-<p>The goal of the Global Land Data Assimilation System <acronym>GLDAS</acronym> is to ingest satellite and ground-based observational data products, using advanced land surface modeling and data assimilation techniques, in order to generate optimal fields of land surface states and fluxes (Rodell et al., 2004). <acronym>GLDAS</acronym> dataset used in this function is the <acronym>GLDAS</acronym> Noah Land Surface Model L4 3 hourly 0.25 x 0.25 degree V2.1. The full suite of <acronym>GLDAS</acronym> datasets is avaliable at <a href="https://hydro1.gesdisc.eosdis.nasa.gov/dods/" class="external-link">https://hydro1.gesdisc.eosdis.nasa.gov/dods/</a>.  The <code class="command">GLDASwat</code> finds the minimum and maximum air temperatures for each day at each grid within the study watershed by searching for minima and maxima over the three hours air temperature data values available for each day and grid.</p>
+    <p>A user should visit <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">https://disc.gsfc.nasa.gov/data-access</a> to register with the Earth Observing System Data and Information System (<acronym>NASA Earthdata</acronym>) and then authorize <acronym>NASA</acronym> GESDISC Data Access to successfully work with this function. The function accesses <acronym>NASA</acronym> Goddard Space Flight Center server address for <acronym>GLDAS</acronym> remote sensing data products at (<a href="https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/" class="external-link">https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/</a>).  The function uses variable name ('Tair_f_inst') for air temperature in <acronym>GLDAS</acronym> data products. Units for gridded air temperature data are degrees in 'K'. The <code class="command">GLDASwat</code> function outputs gridded air temperature (maximum and minimum) data in degrees 'C'.</p>
+<p>The goal of the Global Land Data Assimilation System <acronym>GLDAS</acronym> is to ingest satellite and ground-based observational data products, using advanced land surface modeling and data assimilation techniques, in order to generate optimal fields of land surface states and fluxes (Rodell et al., 2004). <acronym>GLDAS</acronym> dataset used in this function is the <acronym>GLDAS</acronym> Noah Land Surface Model L4 3 hourly 0.25 x 0.25 degree V2.1. The full suite of <acronym>GLDAS</acronym> datasets is available at <a href="https://hydro1.gesdisc.eosdis.nasa.gov/dods/" class="external-link">https://hydro1.gesdisc.eosdis.nasa.gov/dods/</a>.  The <code class="command">GLDASwat</code> finds the minimum and maximum air temperatures for each day at each grid within the study watershed by searching for minima and maxima over the three hours air temperature data values available for each day and grid.</p>
 <p>The <code class="command">GLDASwat</code> function relies on 'curl' tool to transfer data from <acronym>NASA</acronym> servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch <acronym>GLDAS</acronym> netcdf daily global files is designed to work seamlessly given that appropriate logging information are stored in the ".netrc" file and the cookies file ".urs_cookies" as explained in registering with the Earth Observing System Data and Information System. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run <code class="command">GLDASwat</code>.</p>
-<p>The <acronym>GLDAS</acronym> V2.1 simulation started on January 1, 2000 using the conditions from the <acronym>GLDAS</acronym> V2.0 simulation. The <acronym>GLDAS</acronym> V2.1 simulation was forced with National Oceanic and Atmospheric Administration <acronym>NOAA</acronym>, Global Data Assimilation System <acronym>GDAS</acronym> atmospheric analysis fields (Derber et al., 1991), the disaggregated Global Precipitation Climatology Project <acronym>GPCP</acronym> precipitation fields (Adler et al., 2003), and the Air Force Weather Agency’s AGRicultural METeorological modeling system <acronym>AGRMET</acronym> radiation fields which became available for March 1, 2001 onwards.</p>
+<p>The <acronym>GLDAS</acronym> V2.1 simulation started on January 1, 2000 using the conditions from the <acronym>GLDAS</acronym> V2.0 simulation. The <acronym>GLDAS</acronym> V2.1 simulation was forced with National Oceanic and Atmospheric Administration <acronym>NOAA</acronym>, Global Data Assimilation System <acronym>GDAS</acronym> atmospheric analysis fields (Derber et al., 1991), the disaggregated Global Precipitation Climatology Project <acronym>GPCP</acronym> precipitation fields (Adler et al., 2003), and the Air Force Weather Agency’s AGRicultural METeorological modeling system <acronym>AGRMET</acronym> radiation fields which became available for March 1, 2001 onward.</p>
     </div>
     <div id="note">
     <h2>Note</h2>

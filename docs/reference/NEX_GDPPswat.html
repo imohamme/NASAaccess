@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.3</span>
       </span>
     </div>
 
@@ -26,7 +26,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -96,7 +96,7 @@
 <dt>DEM</dt>
 <dd><p>A study watershed digital elevation model raster in a geographic projection sp::CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs').</p></dd>
 <dt>start</dt>
-<dd><p>Begining date for gridded rainfall data.</p></dd>
+<dd><p>Beginning date for gridded rainfall data.</p></dd>
 <dt>end</dt>
 <dd><p>Ending date for gridded rainfall data.</p></dd>
 <dt>model</dt>
@@ -108,12 +108,12 @@
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formated to be read with <acronym>SWAT</acronym>, and
+    <p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with <acronym>SWAT</acronym>, and
 a scalar of climate change gridded data values at each point within the study watershed in ascii format needed by <acronym>SWAT</acronym> model weather inputs will be stored at <code>Dir</code>.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
-    <p>A user should visit <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">https://disc.gsfc.nasa.gov/data-access</a> to register with the Earth Observing System Data and Information System (<acronym>NASA Earthdata</acronym>) and then authorize <acronym>NASA</acronym> <acronym>GESDISC</acronym> Data Access to successfuly work with this function. The function accesses <acronym>NASA</acronym> Goddard Space Flight Center server for <acronym>IMERG</acronym> remote sensing data products at (<a href="https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/" class="external-link">https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/</a>), and <acronym>NASA</acronym> Goddard Space Flight Center server for <acronym>NEX-GDPP</acronym> climate change data products at (<a href="https://www.nccs.nasa.gov/services/climate-data-services" class="external-link">https://www.nccs.nasa.gov/services/climate-data-services</a>).  The function uses varible name ('pr') for rainfall in <acronym>NEX-GDPP</acronym> data products and variable name ('tas') for <acronym>NEX-GDPP</acronym> minimum ('tasmin') and maximum ('tasmax') air temperature data products. The <code class="command">NEX-GDPP</code> function outputs gridded rainfall data in 'mm' and gridded air temperature (maximum and minimum) data in degrees 'C'.</p>
+    <p>A user should visit <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">https://disc.gsfc.nasa.gov/data-access</a> to register with the Earth Observing System Data and Information System (<acronym>NASA Earthdata</acronym>) and then authorize <acronym>NASA</acronym> <acronym>GESDISC</acronym> Data Access to successfully work with this function. The function accesses <acronym>NASA</acronym> Goddard Space Flight Center server for <acronym>IMERG</acronym> remote sensing data products at (<a href="https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/" class="external-link">https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/</a>), and <acronym>NASA</acronym> Goddard Space Flight Center server for <acronym>NEX-GDPP</acronym> climate change data products at (<a href="https://www.nccs.nasa.gov/services/climate-data-services" class="external-link">https://www.nccs.nasa.gov/services/climate-data-services</a>).  The function uses variable name ('pr') for rainfall in <acronym>NEX-GDPP</acronym> data products and variable name ('tas') for <acronym>NEX-GDPP</acronym> minimum ('tasmin') and maximum ('tasmax') air temperature data products. The <code class="command">NEX-GDPP</code> function outputs gridded rainfall data in 'mm' and gridded air temperature (maximum and minimum) data in degrees 'C'.</p>
 <p><acronym>NEX-GDDP</acronym> dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model <acronym>GCM</acronym> runs conducted under the Coupled Model Intercomparison Project Phase 5 <acronym>CMIP5</acronym> (Taylor et al. 2012) and across two of the four greenhouse gas emissions scenarios known as Representative Concentration Pathways <acronym>RCPs</acronym> (Meinshausen et al. 2011). The <acronym>CMIP5</acronym> <acronym>GCM</acronym> runs were developed in support of the Fifth Assessment Report of the Intergovernmental Panel on Climate Change <acronym>IPCC AR5</acronym>. This dataset includes downscaled projections from the 21 models and scenarios for which daily scenarios were produced and distributed under <acronym>CMIP5</acronym>.
 The Bias-Correction Spatial Disaggregation <acronym>BCSD</acronym> method used in generating the <acronym>NEX-GDDP</acronym> dataset is a statistical downscaling algorithm specifically developed to address the current limitations of the global <acronym>GCM</acronym> outputs (Wood et al. 2002; Wood et al. 2004; Maurer et al. 2008; Thrasher et al. 2012).  The <acronym>NEX-GDPP</acronym> climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km). The <code class="command">NEX_GDPPswat</code> downscales the <acronym>NEX-GDPP</acronym> data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by Mohammed et al. (2018).</p>
 <p>The <code class="command">NEX_GDPPswat</code> function relies on 'curl' tool to transfer data from <acronym>NASA</acronym> servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature <acronym>NEX-GDPP</acronym>/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at <a href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget" class="external-link">https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget</a>. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run <code class="command">NEX_GDPPswat</code> or any other function part of the this package (<acronym>NASAaccess</acronym>).</p>
