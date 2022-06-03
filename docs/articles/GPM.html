@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
       </span>
     </div>
 
@@ -62,7 +62,7 @@
       <a href="../articles/NEXGDDP-CMIP6.html">Getting started with NEXGDDP-CMIP6 data</a>
     </li>
     <li>
-      <a href="../articles/NEXGDPP.html">Getting started with NEXGDPP data</a>
+      <a href="../articles/NEXGDPP.html">Getting started with NEXGDPP-CMIP5 data</a>
     </li>
   </ul>
 </li>
@@ -94,7 +94,7 @@
                         <h4 data-toc-skip class="author">Ibrahim N.
 Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2022-04-06</h4>
+            <h4 data-toc-skip class="date">2022-06-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GPM.Rmd" class="external-link"><code>vignettes/GPM.Rmd</code></a></small>
       <div class="hidden name"><code>GPM.Rmd</code></div>
@@ -124,18 +124,17 @@ Houston, TX:</p>
 <span class="co">#&gt; plan transition to sf/stars/terra functions using GDAL and PROJ</span>
 <span class="co">#&gt; at your earliest convenience.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; rgdal: version: 1.5-29, (SVN revision 1165M)</span>
+<span class="co">#&gt; rgdal: version: 1.5-30, (SVN revision 1171)</span>
 <span class="co">#&gt; Geospatial Data Abstraction Library extensions to R successfully loaded</span>
-<span class="co">#&gt; Loaded GDAL runtime: GDAL 3.4.0, released 2021/11/04</span>
+<span class="co">#&gt; Loaded GDAL runtime: GDAL 3.4.2, released 2022/03/08</span>
 <span class="co">#&gt; Path to GDAL shared files: /Users/imohamme/Library/R/x86_64/4.1/library/rgdal/gdal</span>
-<span class="co">#&gt; GDAL binary built with GEOS: TRUE </span>
-<span class="co">#&gt; Loaded PROJ runtime: Rel. 8.1.1, September 1st, 2021, [PJ_VERSION: 811]</span>
+<span class="co">#&gt; GDAL binary built with GEOS: FALSE </span>
+<span class="co">#&gt; Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]</span>
 <span class="co">#&gt; Path to PROJ shared files: /Users/imohamme/Library/R/x86_64/4.1/library/rgdal/proj</span>
 <span class="co">#&gt; PROJ CDN enabled: FALSE</span>
 <span class="co">#&gt; Linking to sp version:1.4-6</span>
 <span class="co">#&gt; To mute warnings of possible GDAL/OSR exportToProj4() degradation,</span>
 <span class="co">#&gt; use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</span>
-<span class="co">#&gt; Overwritten PROJ_LIB was /Users/imohamme/Library/R/x86_64/4.1/library/rgdal/proj</span>
 
 <span class="co">#Reading input data</span>
 <span class="va">dem_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, 
@@ -153,7 +152,7 @@ Houston, TX:</p>
 
 <span class="va">shape</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rgdal.r-forge.r-project.org/reference/readOGR.html" class="external-link">readOGR</a></span><span class="op">(</span><span class="va">shape_path</span><span class="op">)</span>
 <span class="co">#&gt; OGR data source with driver: ESRI Shapefile </span>
-<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/Rtmp424K2E/temp_libpathf4936d3d22b0/NASAaccess/extdata/basin.shp", layer: "basin"</span>
+<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/RtmpKFoKNx/temp_libpath5c9312a2d121/NASAaccess/extdata/basin.shp", layer: "basin"</span>
 <span class="co">#&gt; with 1 features</span>
 <span class="co">#&gt; It has 4 fields</span>
 <span class="co">#&gt; Integer64 fields read as strings:  OBJECTID disID</span>
@@ -360,31 +359,31 @@ centroid of the White Oak Bayou watershed during 2019-August-01 to
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] rgdal_1.5-29  raster_3.5-15 sp_1.4-6      ggmap_3.0.0   ggplot2_3.3.5</span>
+<span class="co">#&gt; [1] rgdal_1.5-30  raster_3.5-15 sp_1.4-7      ggmap_3.0.0   ggplot2_3.3.6</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] Rcpp_1.0.8.3        lattice_0.20-45     tidyr_1.2.0        </span>
 <span class="co">#&gt;  [4] png_0.1-7           rprojroot_2.0.3     digest_0.6.29      </span>
 <span class="co">#&gt;  [7] utf8_1.2.2          R6_2.5.1            plyr_1.8.7         </span>
-<span class="co">#&gt; [10] evaluate_0.15       highr_0.9           httr_1.4.2         </span>
+<span class="co">#&gt; [10] evaluate_0.15       highr_0.9           httr_1.4.3         </span>
 <span class="co">#&gt; [13] pillar_1.7.0        RgoogleMaps_1.4.5.3 rlang_1.0.2        </span>
 <span class="co">#&gt; [16] curl_4.3.2          rstudioapi_0.13     jquerylib_0.1.4    </span>
-<span class="co">#&gt; [19] rmarkdown_2.13      pkgdown_2.0.2       textshaping_0.3.6  </span>
+<span class="co">#&gt; [19] rmarkdown_2.14      pkgdown_2.0.3       textshaping_0.3.6  </span>
 <span class="co">#&gt; [22] desc_1.4.1          labeling_0.4.2      stringr_1.4.0      </span>
-<span class="co">#&gt; [25] munsell_0.5.0       compiler_4.1.2      xfun_0.30          </span>
+<span class="co">#&gt; [25] munsell_0.5.0       compiler_4.1.2      xfun_0.31          </span>
 <span class="co">#&gt; [28] pkgconfig_2.0.3     systemfonts_1.0.4   htmltools_0.5.2    </span>
-<span class="co">#&gt; [31] tidyselect_1.1.2    tibble_3.1.6        codetools_0.2-18   </span>
-<span class="co">#&gt; [34] fansi_1.0.3         crayon_1.5.1        dplyr_1.0.8        </span>
+<span class="co">#&gt; [31] tidyselect_1.1.2    tibble_3.1.7        codetools_0.2-18   </span>
+<span class="co">#&gt; [34] fansi_1.0.3         crayon_1.5.1        dplyr_1.0.9        </span>
 <span class="co">#&gt; [37] withr_2.5.0         bitops_1.0-7        grid_4.1.2         </span>
 <span class="co">#&gt; [40] jsonlite_1.8.0      gtable_0.3.0        lifecycle_1.0.1    </span>
-<span class="co">#&gt; [43] magrittr_2.0.3      scales_1.1.1        cli_3.2.0          </span>
+<span class="co">#&gt; [43] magrittr_2.0.3      scales_1.2.0        cli_3.3.0          </span>
 <span class="co">#&gt; [46] stringi_1.7.6       cachem_1.0.6        farver_2.1.0       </span>
 <span class="co">#&gt; [49] fs_1.5.2            bslib_0.3.1         ellipsis_0.3.2     </span>
-<span class="co">#&gt; [52] ragg_1.2.2          generics_0.1.2      vctrs_0.4.0        </span>
+<span class="co">#&gt; [52] ragg_1.2.2          generics_0.1.2      vctrs_0.4.1        </span>
 <span class="co">#&gt; [55] rjson_0.2.21        tools_4.1.2         glue_1.6.2         </span>
 <span class="co">#&gt; [58] purrr_0.3.4         jpeg_0.1-9          fastmap_1.1.0      </span>
 <span class="co">#&gt; [61] yaml_2.3.5          colorspace_2.0-3    terra_1.5-21       </span>
-<span class="co">#&gt; [64] memoise_2.0.1       knitr_1.38          sass_0.4.1</span></code></pre></div>
+<span class="co">#&gt; [64] memoise_2.0.1       knitr_1.39          sass_0.4.1</span></code></pre></div>
 </div>
   </div>
 
@@ -405,8 +404,7 @@ centroid of the White Oak Bayou watershed during 2019-August-01 to
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
