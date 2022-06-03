@@ -9,7 +9,7 @@
 #' @param end Ending date for gridded rainfall data.
 #' @param model A climate modeling center and name from the the World Climate Research Programme \acronym{WCRP} global climate projections through the Coupled Model Intercomparison Project 6 \acronym{CMIP6} (e.g., \acronym{IPSL-CM6A-LR} which is Institut Pierre-Simon Laplace \acronym{CM6A-LR} model).
 #' @param type  A flux data type. It's value can be \acronym{'pr'} for precipitation or \acronym{'tas'} for air temperature.
-#' @param slice A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be \acronym{'ssp245'} , \acronym{'ssp585'}, or \acronym{'historical'}.
+#' @param slice A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, \acronym{'ssp585'}, or \acronym{'historical'}.
 #'
 #' @details A user should visit \url{https://disc.gsfc.nasa.gov/data-access} to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} \acronym{GESDISC} Data Access to successfully work with this function.
 #' The function accesses \acronym{NASA} Goddard Space Flight Center server for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/}), and \acronym{NASA} AMES Research Center server for \acronym{NEX-GDPP-CMIP6}
@@ -25,7 +25,7 @@
 #'
 #' The \command{NEX_GDPP_CMIP6} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDPP-CMIP6}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDPP_CMIP6} or any other function part of the this package (\acronym{NASAaccess}).
 #' @note
-#' \code{start} should be equal to or greater than 2015-Jan-01 for \acronym{'ssp245'} or \acronym{'ssp585'} \acronym{SSPs} climate scenario.
+#' \code{start} should be equal to or greater than 2015-Jan-01 for \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, or \acronym{'ssp585'} \acronym{SSPs} climate scenario.
 #'
 #' \code{start} should be equal to or greater than 1950-Jan-01 and \code{end} should be equal to or less than 2014-Dec-31 for the \acronym{'historical'} \acronym{GCM} retrospective climate data.
 #' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
@@ -63,11 +63,11 @@ NEX_GDPP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
   {
 
     url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/'
-    url.GDDP.input <- 'https://ds.nccs.nasa.gov/thredds2/ncss/bypass/NEX-GDDP-CMIP6/'
+    url.GDDP.input <- 'https://ds.nccs.nasa.gov/thredds/ncss/AMES/NEX/GDDP-CMIP6/'
     myvarIMERG <- 'precipitationCal'
     myvarNAME <- 'climate'
-    if(type=='pr'){ftp <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'.ncml?var=',type,'&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',sep='')}
-    if(type=='tas'){ftp_min <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'min','.ncml?var=',type,'min','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',sep='');ftp_max <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'max','.ncml?var=',type,'max','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',sep='')}
+    if(type=='pr'){ftp <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'/',type,'_day_',model,'_',slice,'_r1i1p1f1_gn_', sep = '')}
+    if(type=='tas'){ftp_min <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'min','/',type,'min','_day_',model,'_',slice,'_r1i1p1f1_gn_', sep=''); ftp_max <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'max','/',type,'max','_day_',model,'_',slice,'_r1i1p1f1_gn_', sep='')}
     ####Before getting to work on this function do this check on start and end dates
     if (as.Date(start) >= as.Date('1950-01-01') &  as.Date(end) <= as.Date('2100-12-31') & slice == 'ssp245' | slice == 'ssp585' | slice == 'historical')
     {
@@ -135,7 +135,7 @@ NEX_GDPP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
         # Using dummy date and file info for a file in the NEX-GDPP-CMIP6 dataset
         # downloading one file
         if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
-        utils::download.file(quiet = T, method = 'curl', url = 'https://ds.nccs.nasa.gov/thredds2/ncss/AMES/NEX/GDDP-CMIP6/ACCESS-CM2/ssp585/r1i1p1f1/tasmax/tasmax_day_ACCESS-CM2_ssp585_r1i1p1f1_gn_2015.nc?var=tasmax&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=2015-09-01T12%3A00%3A00Z&time_end=2015-09-02T12%3A00%3A00Z&timeStride=1', destfile = paste('./temp/','tasmax_day_ssp585_r1i1p1f1_ACCESS-CM2_2015.nc',sep= ''), mode = 'wb', extra = '-L')
+        utils::download.file(quiet = T, method = 'curl', url = 'https://ds.nccs.nasa.gov/thredds/ncss/AMES/NEX/GDDP-CMIP6/ACCESS-CM2/ssp585/r1i1p1f1/tasmax/tasmax_day_ACCESS-CM2_ssp585_r1i1p1f1_gn_2015.nc?var=tasmax&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=2015-09-01T12%3A00%3A00Z&time_end=2015-09-02T12%3A00%3A00Z&timeStride=1', destfile = paste('./temp/','tasmax_day_ssp585_r1i1p1f1_ACCESS-CM2_2015.nc',sep= ''), mode = 'wb', extra = '-L')
         #reading ncdf file
         nc<-ncdf4::nc_open( paste('./temp/','tasmax_day_ssp585_r1i1p1f1_ACCESS-CM2_2015.nc',sep = '') )
         #since geographic info for all NEX files are the same
@@ -200,7 +200,7 @@ NEX_GDPP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
       OutHydrology<-data.frame(ID=FinalTable$ID,NAME=unlist(filenameSWAT),LAT=FinalTable$y,LONG=FinalTable$x,ELEVATION=FinalTable$Elevation)
       utils::write.csv(OutHydrology,filenametableKEY,row.names = F,quote = F)
       #### Start doing the work!
-      #### iterate over days to extract record from NEX-GDPP at IMERG grid locations estabished in the 'FinalTable' dataframe
+      #### iterate over days to extract record from NEX-GDPP at IMERG grid locations established in the 'FinalTable' dataframe
       if(type == 'pr')
       {
         for(kk in 1:length(time_period))
@@ -209,8 +209,7 @@ NEX_GDPP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
           timeend <- timestart + 1
           timeyear <- format(timestart,"%Y")
           filename <- paste(type,'_day_',slice,'_r1i1p1f1_',model,'_',as.character(timestart),'_',as.character(timeend),'.nc',sep = '')
-          myurl <- paste(ftp,as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
-
+          myurl <- paste(ftp,timeyear,'.nc?var=',type,'&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
             # downloading file
             if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
             if(file.exists(paste('./temp/',filename,sep= ''))==FALSE){utils::download.file(quiet = T, method = 'curl', url = myurl, destfile = paste('./temp/',filename,sep= ''), mode = 'wb', extra = '-L')}
@@ -250,8 +249,8 @@ NEX_GDPP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
           typemax <- paste(type,'max',sep='')
           filename_min <- paste(typemin,'_day_',slice,'_r1i1p1f1_',model,'_',as.character(timestart),'_',as.character(timeend),'.nc',sep = '')
           filename_max <- paste(typemax,'_day_',slice,'_r1i1p1f1_',model,'_',as.character(timestart),'_',as.character(timeend),'.nc',sep = '')
-          myurl_min <- paste(ftp_min,as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
-          myurl_max <- paste(ftp_max,as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
+          myurl_min <- paste(ftp_min,timeyear,'.nc?var=',type,'min','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1', sep = '')
+          myurl_max <- paste(ftp_max,timeyear,'.nc?var=',type,'max','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1', sep = '')
             # downloading file
             if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
             if(file.exists(paste('./temp/',filename_min,sep= ''))==FALSE|file.exists(paste('./temp/',filename_max,sep= ''))==FALSE){utils::download.file(quiet = T, method = 'curl', url = myurl_min, destfile = paste('./temp/',filename_min,sep= ''), mode = 'wb', extra = '-L');utils::download.file(quiet = T, method = 'curl', url = myurl_max, destfile = paste('./temp/',filename_max,sep= ''), mode = 'wb', extra = '-L')}

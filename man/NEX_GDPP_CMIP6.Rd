@@ -30,7 +30,7 @@ NEX_GDPP_CMIP6(
 
 \item{type}{A flux data type. It's value can be \acronym{'pr'} for precipitation or \acronym{'tas'} for air temperature.}
 
-\item{slice}{A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be \acronym{'ssp245'} , \acronym{'ssp585'}, or \acronym{'historical'}.}
+\item{slice}{A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, \acronym{'ssp585'}, or \acronym{'historical'}.}
 }
 \value{
 A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with hydrological models and
@@ -55,7 +55,7 @@ The \command{NEX_GDPP_CMIP6} downscales the \acronym{NEX-GDPP-CMIP6} data to gri
 The \command{NEX_GDPP_CMIP6} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDPP-CMIP6}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDPP_CMIP6} or any other function part of the this package (\acronym{NASAaccess}).
 }
 \note{
-\code{start} should be equal to or greater than 2015-Jan-01 for \acronym{'ssp245'} or \acronym{'ssp585'} \acronym{SSPs} climate scenario.
+\code{start} should be equal to or greater than 2015-Jan-01 for \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, or \acronym{'ssp585'} \acronym{SSPs} climate scenario.
 
 \code{start} should be equal to or greater than 1950-Jan-01 and \code{end} should be equal to or less than 2014-Dec-31 for the \acronym{'historical'} \acronym{GCM} retrospective climate data.
 }
