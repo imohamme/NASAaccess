@@ -10,7 +10,7 @@ NEX_GDDP_CMIP6(
   DEM = "LowerMekong_dem.tif",
   start = "2060-12-1",
   end = "2060-12-3",
-  model = "IPSL-CM6A-LR",
+  model = "MIROC6",
   type = "pr",
   slice = "ssp245"
 )
@@ -26,7 +26,7 @@ NEX_GDDP_CMIP6(
 
 \item{end}{Ending date for gridded rainfall data.}
 
-\item{model}{A climate modeling center and name from the the World Climate Research Programme \acronym{WCRP} global climate projections through the Coupled Model Intercomparison Project 6 \acronym{CMIP6} (e.g., \acronym{IPSL-CM6A-LR} which is Institut Pierre-Simon Laplace \acronym{CM6A-LR} model).}
+\item{model}{A climate modeling center and name from the the World Climate Research Programme \acronym{WCRP} global climate projections through the Coupled Model Intercomparison Project 6 \acronym{CMIP6} (e.g., \acronym{MIROC6} which is the sixth version of the Model for Interdisciplinary Research on Climate \acronym{MIROC} model).}
 
 \item{type}{A flux data type. It's value can be \acronym{'pr'} for precipitation or \acronym{'tas'} for air temperature.}
 
@@ -63,7 +63,7 @@ The \command{NEX_GDDP_CMIP6} function relies on 'curl' tool to transfer data fro
 #Lower Mekong basin example
 \dontrun{NEX_GDDP_CMIP6(Dir = "./INPUT/", watershed = "LowerMekong.shp",
 DEM = "LowerMekong_dem.tif", start = "2060-12-1", end = "2060-12-3",
-model = 'IPSL-CM6A-LR', type = 'pr', slice = 'ssp245')}
+model = 'MIROC6', type = 'pr', slice = 'ssp245')}
 }
 \references{
 Eyring, V., Bony, S., Meehl, G.A., Senior, C.A., Stevens, B., and et al., 2016. Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization. Geoscientific Model Development, 9, 1937-1958, doi: 10.5194/gmd-9-1937-2016

@@ -7,7 +7,7 @@
 #' @param DEM A study watershed digital elevation model raster in a geographic projection sp::CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs').
 #' @param start Beginning date for gridded rainfall data.
 #' @param end Ending date for gridded rainfall data.
-#' @param model A climate modeling center and name from the the World Climate Research Programme \acronym{WCRP} global climate projections through the Coupled Model Intercomparison Project 6 \acronym{CMIP6} (e.g., \acronym{IPSL-CM6A-LR} which is Institut Pierre-Simon Laplace \acronym{CM6A-LR} model).
+#' @param model A climate modeling center and name from the the World Climate Research Programme \acronym{WCRP} global climate projections through the Coupled Model Intercomparison Project 6 \acronym{CMIP6} (e.g., \acronym{MIROC6} which is the sixth version of the Model for Interdisciplinary Research on Climate \acronym{MIROC} model).
 #' @param type  A flux data type. It's value can be \acronym{'pr'} for precipitation or \acronym{'tas'} for air temperature.
 #' @param slice A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, \acronym{'ssp585'}, or \acronym{'historical'}.
 #'
@@ -47,7 +47,7 @@
 #' #Lower Mekong basin example
 #' \dontrun{NEX_GDDP_CMIP6(Dir = "./INPUT/", watershed = "LowerMekong.shp",
 #' DEM = "LowerMekong_dem.tif", start = "2060-12-1", end = "2060-12-3",
-#' model = 'IPSL-CM6A-LR', type = 'pr', slice = 'ssp245')}
+#' model = 'MIROC6', type = 'pr', slice = 'ssp245')}
 #' @import ncdf4 shapefiles rgeos maptools httr stringr rgdal XML utils sp methods
 #' @importFrom stats na.exclude
 #' @importFrom raster raster cellFromPolygon xyFromCell rowColFromCell extract
@@ -55,7 +55,7 @@
 
 
 
-NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'LowerMekong_dem.tif', start = '2060-12-1', end = '2060-12-3', model = 'IPSL-CM6A-LR', type = 'pr',slice = 'ssp245')
+NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'LowerMekong_dem.tif', start = '2060-12-1', end = '2060-12-3', model = 'MIROC6', type = 'pr',slice = 'ssp245')
 {
 
   #if there is no logging information then update the netrc file with NEX-GDDP info
@@ -69,7 +69,7 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
     if(type=='pr'){ftp <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'/',type,'_day_',model,'_',slice,'_r1i1p1f1_gn_', sep = '')}
     if(type=='tas'){ftp_min <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'min','/',type,'min','_day_',model,'_',slice,'_r1i1p1f1_gn_', sep=''); ftp_max <- paste(url.GDDP.input,model,'/',slice,'/','r1i1p1f1','/',type,'max','/',type,'max','_day_',model,'_',slice,'_r1i1p1f1_gn_', sep='')}
     ####Before getting to work on this function do this check on start and end dates
-    if (as.Date(start) >= as.Date('1950-01-01') &  as.Date(end) <= as.Date('2100-12-31') & slice == 'ssp245' | slice == 'ssp585' | slice == 'historical')
+    if (as.Date(start) >= as.Date('1950-01-01') &  as.Date(end) <= as.Date('2100-12-31') & slice == 'ssp126' | slice == 'ssp245' | slice == 'ssp370' | slice == 'ssp585' | slice == 'historical')
     {
 
       # Constructing time series based on start and end input days!
