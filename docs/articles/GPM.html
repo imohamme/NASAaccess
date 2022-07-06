@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
                         <h4 data-toc-skip class="author">Ibrahim N.
 Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2022-06-03</h4>
+            <h4 data-toc-skip class="date">2022-07-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GPM.Rmd" class="external-link"><code>vignettes/GPM.Rmd</code></a></small>
       <div class="hidden name"><code>GPM.Rmd</code></div>
@@ -104,9 +104,17 @@ Mohammed</h4>
     
     
 <p><em>NASAaccess</em> package has multiple functions such as
-<code>GPMpolyCentroid</code> and <code>GPMswat</code> that download,
-extract, and reformat rainfall remote sensing data of <a href="https://gpm.nasa.gov/missions/trmm" class="external-link">TRMM</a> and <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> from <a href="https://gpm.nasa.gov/data/directory" class="external-link">NASA servers</a> for grids
-within a specified watershed shapefile.</p>
+<code>GPM_NRT</code>, <code>GPMpolyCentroid</code> and
+<code>GPMswat</code> that download, extract, and reformat rainfall
+remote sensing data of <a href="https://gpm.nasa.gov/missions/trmm" class="external-link">TRMM</a> and <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> from <a href="https://gpm.nasa.gov/data/directory" class="external-link">NASA servers</a> for grids
+within a specified watershed shapefile. The difference between
+<code>GPM_NRT</code> and <code>GPMswat</code> functions is the latency
+period. The <code>GPMswat</code> function retrieves the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> Final Run data which is
+intended for research quality global multi-satellite precipitation
+estimates with quasi-Lagrangian time interpolation, gauge data, and
+climatological adjustment. On the other hand, the <code>GPM_NRT</code>
+function retrieves the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> near real-time
+low-latency gridded global multi-satellite precipitation estimates.</p>
 <p>Let’s explore <code>GPMpolyCentroid</code> and <code>GPMswat</code>
 functions. ## Basic use</p>
 <p>Let’s look at an example watershed that we want to examine near
@@ -152,7 +160,7 @@ Houston, TX:</p>
 
 <span class="va">shape</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rgdal.r-forge.r-project.org/reference/readOGR.html" class="external-link">readOGR</a></span><span class="op">(</span><span class="va">shape_path</span><span class="op">)</span>
 <span class="co">#&gt; OGR data source with driver: ESRI Shapefile </span>
-<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/Rtmpee83hL/temp_libpatha7236c4e0af2/NASAaccess/extdata/basin.shp", layer: "basin"</span>
+<span class="co">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/RtmpXX0Mf7/temp_libpathf7a277992601/NASAaccess/extdata/basin.shp", layer: "basin"</span>
 <span class="co">#&gt; with 1 features</span>
 <span class="co">#&gt; It has 4 fields</span>
 <span class="co">#&gt; Integer64 fields read as strings:  OBJECTID disID</span>
@@ -339,10 +347,35 @@ watershed.</p>
 <p>The time series plot above gives the rainfall amounts in (mm) at the
 centroid of the White Oak Bayou watershed during 2019-August-01 to
 2019-August-03.</p>
+<p>Last but not least, let’s examine the near real time precipitation
+data obtained by <code>GPM_NRT</code> over the White Oak Bayou study
+watershed. Remember that the minimum latency for <code>GPM_NRT</code> is
+one day. You can experiment this function with yesterday data, nice!</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="../reference/GPM_NRT.html">GPM_NRT</a></span><span class="op">(</span>Dir <span class="op">=</span> <span class="st">"./GPMswat/"</span>,
+                  watershed <span class="op">=</span> <span class="va">shape_path</span>,
+                  DEM <span class="op">=</span> <span class="va">dem_path</span>,
+                  start <span class="op">=</span> <span class="st">"2022-07-1"</span>,
+                  end <span class="op">=</span> <span class="st">"2022-07-3"</span><span class="op">)</span></code></pre></div>
+<p>Let’s see one point data record. See that the data starts on July 1,
+2022 and ends on July 3rd, 2022 (It was raining near Houston, TX few
+days ago!!!)</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">GPM_NRT.point.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPM_NRT'</span>,
+                              <span class="st">'precipitation2160845.txt'</span>, 
+                              package <span class="op">=</span> <span class="st">'NASAaccess'</span><span class="op">)</span>
+
+<span class="co">#Reading data records</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GPM_NRT.point.data</span><span class="op">)</span>
+<span class="co">#&gt;   X20220701</span>
+<span class="co">#&gt; 1  2.507078</span>
+<span class="co">#&gt; 2  1.148573</span>
+<span class="co">#&gt; 3  0.000000</span></code></pre></div>
 <div class="section level2">
 <h2 id="built-with">Built with<a class="anchor" aria-label="anchor" href="#built-with"></a>
 </h2>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
@@ -359,7 +392,7 @@ centroid of the White Oak Bayou watershed during 2019-August-01 to
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] rgdal_1.5-30  raster_3.5-15 sp_1.4-7      ggmap_3.0.0   ggplot2_3.3.6</span>
+<span class="co">#&gt; [1] rgdal_1.5-30  raster_3.5-15 sp_1.5-0      ggmap_3.0.0   ggplot2_3.3.6</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] Rcpp_1.0.8.3        lattice_0.20-45     tidyr_1.2.0        </span>
@@ -368,7 +401,7 @@ centroid of the White Oak Bayou watershed during 2019-August-01 to
 <span class="co">#&gt; [10] evaluate_0.15       highr_0.9           httr_1.4.3         </span>
 <span class="co">#&gt; [13] pillar_1.7.0        RgoogleMaps_1.4.5.3 rlang_1.0.2        </span>
 <span class="co">#&gt; [16] curl_4.3.2          rstudioapi_0.13     jquerylib_0.1.4    </span>
-<span class="co">#&gt; [19] rmarkdown_2.14      pkgdown_2.0.3       textshaping_0.3.6  </span>
+<span class="co">#&gt; [19] rmarkdown_2.14      pkgdown_2.0.4       textshaping_0.3.6  </span>
 <span class="co">#&gt; [22] desc_1.4.1          labeling_0.4.2      stringr_1.4.0      </span>
 <span class="co">#&gt; [25] munsell_0.5.0       compiler_4.1.2      xfun_0.31          </span>
 <span class="co">#&gt; [28] pkgconfig_2.0.3     systemfonts_1.0.4   htmltools_0.5.2    </span>
@@ -404,7 +437,7 @@ centroid of the White Oak Bayou watershed during 2019-August-01 to
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer>

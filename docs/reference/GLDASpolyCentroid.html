@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
       </span>
     </div>
 
@@ -88,18 +88,29 @@
     <h2>Arguments</h2>
     <dl><dt>Dir</dt>
 <dd><p>A directory name to store gridded air temperature and air temperature stations files.</p></dd>
+
+
 <dt>watershed</dt>
 <dd><p>A study watershed shapefile spatially describing polygon(s) in a geographic projection sp::CRS('+proj=longlat +datum=WGS84').</p></dd>
+
+
 <dt>DEM</dt>
 <dd><p>A study watershed digital elevation model raster in a geographic projection sp::CRS('+proj=longlat +datum=WGS84').</p></dd>
+
+
 <dt>start</dt>
 <dd><p>Beginning date for gridded air temperature data.</p></dd>
+
+
 <dt>end</dt>
 <dd><p>Ending date for gridded air temperature data.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with <acronym>SWAT</acronym> or other hydrological model, and
+    
+
+<p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with <acronym>SWAT</acronym> or other hydrological model, and
 a scalar of maximum and minimum air temperature gridded data values at a pseudo air temperature grid located at the centroid of each sub-basin within the study watershed provided in ascii format needed by <acronym>SWAT</acronym> model or other hydrological model weather inputs. All air temperature tables will be stored at <code>Dir</code>.</p>
     </div>
     <div id="details">
@@ -144,7 +155,7 @@ doi:10.1175/1520-0434(1991)006&lt;0538:tngoas&gt;2.0.co;2.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

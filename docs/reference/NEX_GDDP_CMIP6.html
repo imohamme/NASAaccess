@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@
   DEM <span class="op">=</span> <span class="st">"LowerMekong_dem.tif"</span>,
   start <span class="op">=</span> <span class="st">"2060-12-1"</span>,
   end <span class="op">=</span> <span class="st">"2060-12-3"</span>,
-  model <span class="op">=</span> <span class="st">"IPSL-CM6A-LR"</span>,
+  model <span class="op">=</span> <span class="st">"MIROC6"</span>,
   type <span class="op">=</span> <span class="st">"pr"</span>,
   slice <span class="op">=</span> <span class="st">"ssp245"</span>
 <span class="op">)</span></code></pre></div>
@@ -91,35 +91,52 @@
     <h2>Arguments</h2>
     <dl><dt>Dir</dt>
 <dd><p>A directory name to store gridded rainfall and rain stations files.</p></dd>
+
+
 <dt>watershed</dt>
 <dd><p>A study watershed shapefile spatially describing polygon(s) in a geographic projection sp::CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs').</p></dd>
+
+
 <dt>DEM</dt>
 <dd><p>A study watershed digital elevation model raster in a geographic projection sp::CRS('+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs').</p></dd>
+
+
 <dt>start</dt>
 <dd><p>Beginning date for gridded rainfall data.</p></dd>
+
+
 <dt>end</dt>
 <dd><p>Ending date for gridded rainfall data.</p></dd>
+
+
 <dt>model</dt>
-<dd><p>A climate modeling center and name from the the World Climate Research Programme <acronym>WCRP</acronym> global climate projections through the Coupled Model Intercomparison Project 6 <acronym>CMIP6</acronym> (e.g., <acronym>IPSL-CM6A-LR</acronym> which is Institut Pierre-Simon Laplace <acronym>CM6A-LR</acronym> model).</p></dd>
+<dd><p>A climate modeling center and name from the the World Climate Research Programme <acronym>WCRP</acronym> global climate projections through the Coupled Model Intercomparison Project 6 <acronym>CMIP6</acronym> (e.g., <acronym>MIROC6</acronym> which is the sixth version of the Model for Interdisciplinary Research on Climate <acronym>MIROC</acronym> model).</p></dd>
+
+
 <dt>type</dt>
 <dd><p>A flux data type. It's value can be <acronym>'pr'</acronym> for precipitation or <acronym>'tas'</acronym> for air temperature.</p></dd>
+
+
 <dt>slice</dt>
 <dd><p>A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be <acronym>'ssp126'</acronym>, <acronym>'ssp245'</acronym>, <acronym>'ssp370'</acronym>, <acronym>'ssp585'</acronym>, or <acronym>'historical'</acronym>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with hydrological models and
+    
+
+<p>A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with hydrological models and
 a scalar of climate change gridded data values at each point within the study watershed in ascii format needed by hydrological model weather inputs will be stored at <code>Dir</code>.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
     <p>A user should visit <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link">https://disc.gsfc.nasa.gov/data-access</a> to register with the Earth Observing System Data and Information System (<acronym>NASA Earthdata</acronym>) and then authorize <acronym>NASA</acronym> <acronym>GESDISC</acronym> Data Access to successfully work with this function.
 The function accesses <acronym>NASA</acronym> Goddard Space Flight Center server for <acronym>IMERG</acronym> remote sensing data products at (<a href="https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/" class="external-link">https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/</a>), and <acronym>NASA</acronym> AMES Research Center server for <acronym>NEX-GDDP-CMIP6</acronym>
-climate change data products at (<a href="https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6" class="external-link">https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6</a>).  The function uses variable name ('pr') for rainfall in <acronym>NEX-GDDP-CMIP6</acronym> data products and variable name ('tas') for <acronym>NEX-GDDP-CMIP6</acronym> minimum ('tasmin') and maximum ('tasmax')
+climate change data products at <a href="https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6" class="external-link">https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6</a>.  The function uses variable name ('pr') for rainfall in <acronym>NEX-GDDP-CMIP6</acronym> data products and variable name ('tas') for <acronym>NEX-GDDP-CMIP6</acronym> minimum ('tasmin') and maximum ('tasmax')
 air temperature data products. The <code class="command">NEX_GDDP_CMIP6</code> function outputs gridded rainfall data in 'mm' and gridded air temperature (maximum and minimum) data in degrees 'C'.</p>
 <p><acronym>NEX-GDDP-CMIP6</acronym> dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model <acronym>GCM</acronym> runs conducted under the Coupled Model Intercomparison Project Phase 6 <acronym>CMIP6</acronym> (Eyring et al. 2016)
-and across two of the four "Tier 1" greenhouse gas emissions scenarios known as Shared Socioeconomic Pathways <acronym>SSPs</acronym> (O'Neil et al. 2016; Meinshausen et al. 2020). The <acronym>CMIP6</acronym> <acronym>GCM</acronym> runs were developed in support of the Sixth Assessment Report
-of the Intergovernmental Panel on Climate Change <acronym>IPCC AR6</acronym>. This data set includes downscaled projections from the 35 models and scenarios for which daily scenarios were produced and distributed under <acronym>CMIP6</acronym>.
+and across the four "Tier 1" greenhouse gas emissions scenarios known as Shared Socioeconomic Pathways <acronym>SSPs</acronym> (O'Neil et al. 2016; Meinshausen et al. 2020). The <acronym>CMIP6</acronym> <acronym>GCM</acronym> runs were developed in support of the Sixth Assessment Report
+of the Intergovernmental Panel on Climate Change <acronym>IPCC AR6</acronym>. This data set includes downscaled projections from the 35 models and scenarios for which daily scenarios were produced and distributed under <acronym>CMIP6</acronym>. Please visit <acronym>NCCS</acronym> Dataportal - Datashare <a href="https://portal.nccs.nasa.gov/datashare/nexgddp_cmip6/" class="external-link">https://portal.nccs.nasa.gov/datashare/nexgddp_cmip6/</a> to ensure that the requested model and greenhouse gas emissions scenario (<acronym>SSPs</acronym>) is available on the server before you execute your run.
 The Bias-Correction Spatial Disaggregation <acronym>BCSD</acronym> method used in generating the <acronym>NEX-GDDP-CMIP6</acronym> data set is a statistical downscaling algorithm specifically developed to address the current limitations of the global <acronym>GCM</acronym> outputs
 (Wood et al. 2002; Wood et al. 2004; Maurer et al. 2008; Thrasher et al. 2012).  The <acronym>NEX-GDDP-CMIP6</acronym> climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km).
 The <code class="command">NEX_GDDP_CMIP6</code> downscales the <acronym>NEX-GDDP-CMIP6</acronym> data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by Mohammed et al. (2018).</p>
@@ -152,7 +169,7 @@ The <code class="command">NEX_GDDP_CMIP6</code> downscales the <acronym>NEX-GDDP
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">#Lower Mekong basin example</span></span>
 <span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="fu">NEX_GDDP_CMIP6</span><span class="op">(</span>Dir <span class="op">=</span> <span class="st">"./INPUT/"</span>, watershed <span class="op">=</span> <span class="st">"LowerMekong.shp"</span>,</span>
 <span class="r-in">DEM <span class="op">=</span> <span class="st">"LowerMekong_dem.tif"</span>, start <span class="op">=</span> <span class="st">"2060-12-1"</span>, end <span class="op">=</span> <span class="st">"2060-12-3"</span>,</span>
-<span class="r-in">model <span class="op">=</span> <span class="st">'IPSL-CM6A-LR'</span>, type <span class="op">=</span> <span class="st">'pr'</span>, slice <span class="op">=</span> <span class="st">'ssp245'</span><span class="op">)</span></span>
+<span class="r-in">model <span class="op">=</span> <span class="st">'MIROC6'</span>, type <span class="op">=</span> <span class="st">'pr'</span>, slice <span class="op">=</span> <span class="st">'ssp245'</span><span class="op">)</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -167,7 +184,7 @@ The <code class="command">NEX_GDDP_CMIP6</code> downscales the <acronym>NEX-GDDP
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
