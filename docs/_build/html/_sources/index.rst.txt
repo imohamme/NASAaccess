@@ -6,6 +6,7 @@
 Welcome to NASAaccess's documentation!
 ======================================
 
+
 About
 =====
 
@@ -18,6 +19,7 @@ About
 
 
    NASAaccess R package  <nasaaccess_R>
+   NASAaccess Conda library <nasaaccess_python>
    NASAaccess Tethys App <nasaaccess_tethys>
 
 

@@ -9,8 +9,8 @@ Prerequisites
 On a local machine the user should have installed the following programs as well as setting up a user account.  The list below gives a summary of what is needed to be done prior to work with NASAaccess software on any local machine:
 
   * `Installing R software <https://cloud.r-project.org/>`_
-
-  *	`Installing Rstudio software <https://www.rstudio.com/>`_ (OPTIONAL)
+  
+  * `Installing Rstudio software <https://www.rstudio.com/>`_ (Optional)
 
   * NASAaccess R package needs a user registration access with `Earthdata <https://earthdata.nasa.gov/>`_. Users should set up a registration account(s) with `Earthdata <https://earthdata.nasa.gov/>`_ login as well as well as authorizing `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ data access.  Please refer to https://disc.gsfc.nasa.gov/data-access for further details.
 

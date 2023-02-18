@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. NASAaccess Tethys Guide &mdash; NASAaccess 3.3.1 documentation</title>
+  <title>3. NASAaccess Tethys Guide &mdash; NASAaccess 3.3.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="1. NASAaccess R Guide" href="nasaaccess_R.html" /> 
+    <link rel="prev" title="2. NASAaccess Python Guide" href="nasaaccess_python.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,12 +43,13 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="nasaaccess_R.html">1. NASAaccess R package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. NASAaccess Tethys App</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#about">2.1. About</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-it-works">2.2. How it works</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">2.3. Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-setup">2.4. Installation/Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-code">2.5. Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasaaccess_python.html">2. NASAaccess Conda library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. NASAaccess Tethys App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about">3.1. About</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-works">3.2. How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">3.3. Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-setup">3.4. Installation/Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">3.5. Source Code</a></li>
 </ul>
 </li>
 </ul>
@@ -67,7 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2. </span>NASAaccess Tethys Guide</li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>NASAaccess Tethys Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nasaaccess_tethys.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,10 +79,10 @@
            <div itemprop="articleBody">
              
   <div class="section" id="nasaaccess-tethys-guide">
-<h1><span class="section-number">2. </span>NASAaccess Tethys Guide<a class="headerlink" href="#nasaaccess-tethys-guide" title="Permalink to this heading"></a></h1>
+<h1><span class="section-number">3. </span>NASAaccess Tethys Guide<a class="headerlink" href="#nasaaccess-tethys-guide" title="Permalink to this heading"></a></h1>
 <a class="reference internal image-reference" href="_images/nasaaccess.png"><img alt="_images/nasaaccess.png" class="align-center" src="_images/nasaaccess.png" style="width: 180.8px; height: 180.8px;" /></a>
 <div class="section" id="about">
-<h2><span class="section-number">2.1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">3.1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
 <p>The <strong>NASAaccess</strong> platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (<a class="reference external" href="https://www.tethysplatform.org/">https://www.tethysplatform.org/</a>). <strong>NASAaccess</strong> software can generate gridded ascii tables of climate <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip5/">CMIP5</a>, <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/">CMIP6</a>, and earth observation remote sensing data (<a class="reference external" href="https://gpm.nasa.gov/data/directory">GPM</a>, <a class="reference external" href="https://gpm.nasa.gov/missions/trmm">TRMM</a>, <a class="reference external" href="https://ldas.gsfc.nasa.gov/gldas">GLDAS</a>) needed to drive various hydrological models (e.g., <a class="reference external" href="https://github.com/UW-Hydro/VIC">VIC</a>, <a class="reference external" href="https://github.com/RHESSys/RHESSys">RHESSys</a>, <a class="reference external" href="https://swat.tamu.edu/">SWAT</a> …etc.).  The <strong>NASAaccess</strong> has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. <strong>NASAaccess</strong> Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.</p>
 <div class="figure align-center" id="id1">
 <img alt="_images/nasaaccess_home_window_res.png" src="_images/nasaaccess_home_window_res.png" />
@@ -89,12 +90,12 @@
 </div>
 </div>
 <div class="section" id="how-it-works">
-<h2><span class="section-number">2.2. </span>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">3.2. </span>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h2>
 <p>The <strong>NASAaccess</strong> Tethys Application is simply a user interface for passing arguments into the <strong>NASAaccess</strong>
 functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="reference external" href="https://anaconda.org/conda-forge/r-nasaaccess">https://anaconda.org/conda-forge/r-nasaaccess</a>). Using a combination of dropdowns, datepickers, and checkboxes, the app allows the user to select a watershed boundary, DEM, date range, and NASAaccess function(s) to pass to the server for running the selected <strong>NASAaccess</strong> function(s).</p>
 </div>
 <div class="section" id="requirements">
-<h2><span class="section-number">2.3. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">3.3. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Windows:</dt><dd><p>Setup a VirtualBox Machine via <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></p>
@@ -109,7 +110,7 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 </ul>
 </div>
 <div class="section" id="installation-setup">
-<h2><span class="section-number">2.4. </span>Installation/Setup<a class="headerlink" href="#installation-setup" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">3.4. </span>Installation/Setup<a class="headerlink" href="#installation-setup" title="Permalink to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt>EarthData:</dt><dd><p><strong>NASAaccess</strong> needs a user registration access with Earthdata (<a class="reference external" href="https://www.earthdata.nasa.gov/">https://www.earthdata.nasa.gov/</a>). Users should set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p>
@@ -424,8 +425,7 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </ul>
 <div class="figure align-center" id="id4">
 <img alt="_images/nasaaccess_custom_settings.png" src="_images/nasaaccess_custom_settings.png" />
-<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> custom settings configuration. For the installation example shown the following customs settings are used:
-<em>data_path</em> (/pathto/tethys_nasaaccess/nasaaccess_data/), <em>nasaaccess_R</em> (/pathto/miniconda3/envs/tethys/bin/Rscript), <em>nasaaccess_script</em> (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), <em>geoserver_workspace</em> (nasaaccess), <em>geoserver_URI</em> (nasaaccess), <em>geoserver_user</em> (admin), and <em>geoserver_password</em> (geoserver).</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> custom settings configuration. For the installation example shown the following customs settings are used: <em>data_path</em> (/pathto/tethys_nasaaccess/nasaaccess_data/), <em>nasaaccess_R</em> (/pathto/miniconda3/envs/tethys/bin/Rscript), <em>nasaaccess_script</em> (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), <em>geoserver_workspace</em> (nasaaccess), <em>geoserver_URI</em> (nasaaccess), <em>geoserver_user</em> (admin), and <em>geoserver_password</em> (geoserver).</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </div>
 <p>After fixing the custom settings of the <strong>NASAacces</strong> web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as <cite>asaaccess</cite> which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is <cite>admin</cite> and password is <cite>geoserver</cite>.</p>
 <div class="figure align-center" id="id5">
@@ -439,7 +439,7 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </div>
 </div>
 <div class="section" id="source-code">
-<h2><span class="section-number">2.5. </span>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">3.5. </span>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
 <p>The NASAaccess source code is available on Github:</p>
 <blockquote>
 <div><ul class="simple">
@@ -453,7 +453,7 @@ The screenshots shown below give the details needed in creating GeoServer worksp
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nasaaccess_R.html" class="btn btn-neutral float-left" title="1. NASAaccess R Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nasaaccess_python.html" class="btn btn-neutral float-left" title="2. NASAaccess Python Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

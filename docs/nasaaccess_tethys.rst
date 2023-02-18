@@ -391,8 +391,9 @@ Installation/Setup
 .. figure:: images/nasaaccess_custom_settings.png
          :align: center
 
-         **NASAaccess** custom settings configuration. For the installation example shown the following customs settings are used: 
-         *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
+
+
+         **NASAaccess** custom settings configuration. For the installation example shown the following customs settings are used: *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
 
 
 

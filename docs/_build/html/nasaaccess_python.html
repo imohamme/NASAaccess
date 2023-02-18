@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. NASAaccess Python Guide &mdash; NASAaccess 3.3.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. NASAaccess Tethys Guide" href="nasaaccess_tethys.html" />
+    <link rel="prev" title="1. NASAaccess R Guide" href="nasaaccess_R.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NASAaccess
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nasaaccess_R.html">1. NASAaccess R package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. NASAaccess Conda library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nasaaccess-conda-package-installation">2.2. NASAaccess Conda Package Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-the-nasaaccess-conda-package">2.3. Getting Started with the NASAaccess Conda package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nasaaccess_tethys.html">3. NASAaccess Tethys App</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NASAaccess</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>NASAaccess Python Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nasaaccess_python.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="nasaaccess-python-guide">
+<h1><span class="section-number">2. </span>NASAaccess Python Guide<a class="headerlink" href="#nasaaccess-python-guide" title="Permalink to this heading"></a></h1>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>|Python Platform|
+
+<span class="p">       ..</span> <span class="nt">|Python Platform|</span>  <span class="ow">image</span><span class="p">::</span>https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg
+            <span class="nc">:target:</span> https://anaconda.org/conda-forge/r-nasaaccess
+</pre></div>
+</div>
+<div class="section" id="prerequisites">
+<h2><span class="section-number">2.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>On a local machine the user should have installed the following programs as well as setting up a user account.  The list below gives a summary of what is needed to be done prior to work with <em>NASAaccess</em> software on any local machine:</p>
+<blockquote>
+<div><ul>
+<li><p>Installing <a class="reference external" href="https://docs.anaconda.com/anaconda/install/index.html">Anaconda</a>  or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a></p></li>
+<li><p><em>NASAaccess</em> software needs a user registration access with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a>. Users should set up a registration account(s) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> login as well as well as authorizing <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> data access.  Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p></li>
+<li><p>After registration with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>netrc</em>) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> credentials stored in it to streamline the retrieval access to <a class="reference external" href="https://www.nasa.gov/">NASA</a> servers.</p>
+<blockquote>
+<div><ul>
+<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">NASA earth data wiki</a>. The <em>.netrc</em> file should look like:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/netrc.png"><img alt="netrc file layout" src="_images/netrc.png" style="width: 476.4px; height: 318.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In your <em>.netrc</em> file &lt;uid&gt; is your user name and &lt;password&gt; is your Earthdata Login password.</p>
+</div>
+</li>
+<li><p>For Windows users the <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information should be saved in a file <em>_netrc</em> beside the <em>.netrc</em> file explained above. Define a %HOME% variable in your Environment Variables by picking any directory you want to be referenced as your %HOME% directory. In many machines %HOME% directory is already set to be your personal <cite>Documents</cite> folder (i.e., <cite>C:UsersyournameDocuments</cite>). Store your netrc file(s) in your <cite>Documents</cite> or the specfied %HOME% directory.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="nasaaccess-conda-package-installation">
+<h2><span class="section-number">2.2. </span>NASAaccess Conda Package Installation<a class="headerlink" href="#nasaaccess-conda-package-installation" title="Permalink to this heading"></a></h2>
+<p>Installing the <cite>r-nasaaccess</cite> conda package is obtained by:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">r</span><span class="o">-</span><span class="n">nasaaccess</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="getting-started-with-the-nasaaccess-conda-package">
+<h2><span class="section-number">2.3. </span>Getting Started with the NASAaccess Conda package<a class="headerlink" href="#getting-started-with-the-nasaaccess-conda-package" title="Permalink to this heading"></a></h2>
+<p>The <em>NASAaccess</em> commands can be easily executed in the conda environment by writing the <em>NASAaccess</em> commands to a separate file (e.g., work.R) and running it by calling the Rscript executable in conda.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Rscript</span> <span class="n">work</span><span class="o">.</span><span class="n">R</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>More examples on NASAaccess functionalities can be found <a class="reference external" href="https://imohamme.github.io/NASAaccess/articles/About.html">Here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nasaaccess_R.html" class="btn btn-neutral float-left" title="1. NASAaccess R Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nasaaccess_tethys.html" class="btn btn-neutral float-right" title="3. NASAaccess Tethys Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Ibrahim Mohammed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
