@@ -272,10 +272,12 @@ Installation/Setup
 
 
       .. figure:: images/geoserver_1.png
-         :scale: 40%
          :align: center
 
          GeoServer with a workspace name as `nasaaccess` and URI as (http://localhost/nasaaccess).
+
+
+
 
 
 
@@ -290,6 +292,92 @@ Installation/Setup
          :align: center
 
          GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in `nasaaccess` workspace.
+
+
+
+
+
+
+- **NASAaccess** Application Installation:
+
+      After successful installation of the Tethys Platform and the GeoServer software on your work environment, clone the repository of the **NASAaccess** application available in Github. Next, install the application into the Tethys platform. Once the installation has started, the user will be prompted to select a spatial persistent service and the custom settings related to the application. Finally, start the Tethys development server after the installation has finished. The following commands and steps summarize the process of NASAaccess application installation:
+
+      ::
+         conda activate tethys
+
+         git clone https://github.com/imohamme/tethys_nasaaccess.git
+
+         cd tethys_nasaaccess
+
+
+      
+      .. note::
+      
+               make sure the libraries listed in requirements.txt are installed in your tethys environment (i.e., `r-nasaaccess`, `r-remotes`, `r-emayili`, and `r-codetools`)
+
+
+
+
+         tethys install -d
+
+
+      + Select the GeoSpatial persistent service (In this case, the installed GeoServer)
+
+      + Enter the value for the custom settings of the NASAaccess application:
+
+            + *data path*: custom setting referring to the path of the Data Directory for download 
+
+            + *nasaaccess_R*: custom setting referring to the Rbin path
+
+            + *nasaacess_script*: custom setting referring to the nasaaccess R script containing the logic for data download using the r-nasaaccess conda package.
+
+            + *geoserver workspace*: custom setting referring to the GeoServer workspace name associated with the NASAacces application.
+
+            + *geoserver URI*: custom setting referring to the GeoServer workspace URI associated with the NASAacces application.
+
+            + *geoserver user*: custom setting referring to the GeoServer admin user.
+
+            + *geoserver password*: custom setting referring to the password related to the user of the geoserver user setting.
+
+      + Then, starting Tethys:
+         ::
+         
+            tethys manage start
+
+
+
+      It is important to mention here that the custom settings of the **NASAaccess** application can be fixed after installing the application by passing the custom settings step with empty values. After running the Tethys application and navigating to the **NASAaccess** web-based application then these custom settings can be fixed. The following screenshot depicts the custom settings filled with needed information as discussed.
+
+
+
+
+      .. figure:: images/nasaaccess_custom_settings.png
+         :scale: 40%
+         :align: center
+
+         **NASAaccess** custom settings configuration. For the installation example shown the following customs settings are used: 
+         *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
+
+
+
+
+
+
+      After fixing the custom settings of the **NASAacces** web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as `asaaccess` which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is `admin` and password is `geoserver`.
+
+
+
+
+      .. figure:: images/nasaaccess_spatial_data_service.png
+         :scale: 40%
+         :align: center
+
+         **NASAaccess** Spatial Dataset Service settings configuration.
+
+
+
+
+
 
 Source Code
 ***********
