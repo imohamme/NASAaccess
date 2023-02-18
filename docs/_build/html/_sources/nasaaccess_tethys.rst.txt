@@ -286,10 +286,33 @@ Installation/Setup
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
       .. figure:: images/geoserver_2.png
          :align: center
 
          GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in `nasaaccess` workspace.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -369,6 +392,18 @@ Installation/Setup
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       After fixing the custom settings of the **NASAacces** web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as `asaaccess` which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is `admin` and password is `geoserver`.
 
 
@@ -384,6 +419,57 @@ Installation/Setup
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      After fixing all the needed settings of the NASAacces application, the user should be able to see the application active and ready to work.
+
+
+
+
+
+
+
+
+
+
+
+
+      .. figure:: images/nasaaccess_active.png
+         :align: center
+
+         **NASAaccess** web-based application after successful configuration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
 
 
 Source Code
