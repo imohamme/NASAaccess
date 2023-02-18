@@ -12,7 +12,7 @@ NASAaccess Tethys Guide
 About
 *****
 
-The **NASAaccess** platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (https://www.tethysplatform.org/). **NASAaccess** software can generate gridded ascii tables of climate `CMIP5 <https://pcmdi.llnl.gov/mips/cmip5/>`_, `CMIP6 <https://pcmdi.llnl.gov/CMIP6/>`_, and earth observation remote sensing data (`GPM <https://gpm.nasa.gov/data/directory>`_, `TRMM <https://gpm.nasa.gov/missions/trmm>`_, `GLDAS <https://ldas.gsfc.nasa.gov/gldas>`_) needed to drive various hydrological models (e.g., `VIC <https://github.com/UW-Hydro/VIC>`_, `RHESSys <https://github.com/RHESSys/RHESSys>`_, `SWAT <https://swat.tamu.edu/>`_ …etc.).  The NASAaccess has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. **NASAaccess** Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.
+The **NASAaccess** platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (https://www.tethysplatform.org/). **NASAaccess** software can generate gridded ascii tables of climate `CMIP5 <https://pcmdi.llnl.gov/mips/cmip5/>`_, `CMIP6 <https://pcmdi.llnl.gov/CMIP6/>`_, and earth observation remote sensing data (`GPM <https://gpm.nasa.gov/data/directory>`_, `TRMM <https://gpm.nasa.gov/missions/trmm>`_, `GLDAS <https://ldas.gsfc.nasa.gov/gldas>`_) needed to drive various hydrological models (e.g., `VIC <https://github.com/UW-Hydro/VIC>`_, `RHESSys <https://github.com/RHESSys/RHESSys>`_, `SWAT <https://swat.tamu.edu/>`_ …etc.).  The **NASAaccess** has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. **NASAaccess** Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.
 
 
 
@@ -20,6 +20,8 @@ The **NASAaccess** platform is available as software packages (i.e., R and conda
    :align: center
 
    **NASAaccess** Tethys web-based application home window
+
+
 
 
 
@@ -270,7 +272,7 @@ Installation/Setup
 
 
 
-      .. figure:: images/geoserver_1.png
+.. figure:: images/geoserver_1.png
          :align: center
 
          GeoServer with a workspace name as `nasaaccess` and URI as (http://localhost/nasaaccess).
@@ -299,7 +301,12 @@ Installation/Setup
 
 
 
-      .. figure:: images/geoserver_2.png
+
+
+
+
+
+.. figure:: images/geoserver_2.png
          :align: center
 
          GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in `nasaaccess` workspace.
@@ -379,9 +386,10 @@ Installation/Setup
 
 
 
-      .. figure:: images/nasaaccess_custom_settings.png
-         :align: center
 
+
+.. figure:: images/nasaaccess_custom_settings.png
+         :align: center
 
          **NASAaccess** custom settings configuration. For the installation example shown the following customs settings are used: 
          *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
@@ -404,12 +412,19 @@ Installation/Setup
 
 
 
-      After fixing the custom settings of the **NASAacces** web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as `asaaccess` which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is `admin` and password is `geoserver`.
+
+
+
+After fixing the custom settings of the **NASAacces** web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as `asaaccess` which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is `admin` and password is `geoserver`.
 
 
 
 
-      .. figure:: images/nasaaccess_spatial_data_service.png
+
+
+
+
+.. figure:: images/nasaaccess_spatial_data_service.png
          :align: center
 
          **NASAaccess** Spatial Dataset Service settings configuration.
@@ -438,7 +453,9 @@ Installation/Setup
 
 
 
-      After fixing all the needed settings of the NASAacces application, the user should be able to see the application active and ready to work.
+
+
+After fixing all the needed settings of the NASAacces application, the user should be able to see the application active and ready to work.
 
 
 
@@ -451,7 +468,9 @@ Installation/Setup
 
 
 
-      .. figure:: images/nasaaccess_active.png
+
+
+.. figure:: images/nasaaccess_active.png
          :align: center
 
          **NASAaccess** web-based application after successful configuration.
@@ -469,7 +488,7 @@ Installation/Setup
 
 
 
-         
+
 
 
 Source Code

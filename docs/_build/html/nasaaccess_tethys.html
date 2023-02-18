@@ -82,7 +82,7 @@
 <a class="reference internal image-reference" href="_images/nasaaccess.png"><img alt="_images/nasaaccess.png" class="align-center" src="_images/nasaaccess.png" style="width: 180.8px; height: 180.8px;" /></a>
 <div class="section" id="about">
 <h2><span class="section-number">2.1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
-<p>The <strong>NASAaccess</strong> platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (<a class="reference external" href="https://www.tethysplatform.org/">https://www.tethysplatform.org/</a>). <strong>NASAaccess</strong> software can generate gridded ascii tables of climate <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip5/">CMIP5</a>, <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/">CMIP6</a>, and earth observation remote sensing data (<a class="reference external" href="https://gpm.nasa.gov/data/directory">GPM</a>, <a class="reference external" href="https://gpm.nasa.gov/missions/trmm">TRMM</a>, <a class="reference external" href="https://ldas.gsfc.nasa.gov/gldas">GLDAS</a>) needed to drive various hydrological models (e.g., <a class="reference external" href="https://github.com/UW-Hydro/VIC">VIC</a>, <a class="reference external" href="https://github.com/RHESSys/RHESSys">RHESSys</a>, <a class="reference external" href="https://swat.tamu.edu/">SWAT</a> …etc.).  The NASAaccess has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. <strong>NASAaccess</strong> Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.</p>
+<p>The <strong>NASAaccess</strong> platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (<a class="reference external" href="https://www.tethysplatform.org/">https://www.tethysplatform.org/</a>). <strong>NASAaccess</strong> software can generate gridded ascii tables of climate <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip5/">CMIP5</a>, <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/">CMIP6</a>, and earth observation remote sensing data (<a class="reference external" href="https://gpm.nasa.gov/data/directory">GPM</a>, <a class="reference external" href="https://gpm.nasa.gov/missions/trmm">TRMM</a>, <a class="reference external" href="https://ldas.gsfc.nasa.gov/gldas">GLDAS</a>) needed to drive various hydrological models (e.g., <a class="reference external" href="https://github.com/UW-Hydro/VIC">VIC</a>, <a class="reference external" href="https://github.com/RHESSys/RHESSys">RHESSys</a>, <a class="reference external" href="https://swat.tamu.edu/">SWAT</a> …etc.).  The <strong>NASAaccess</strong> has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. <strong>NASAaccess</strong> Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.</p>
 <div class="figure align-center" id="id1">
 <img alt="_images/nasaaccess_home_window_res.png" src="_images/nasaaccess_home_window_res.png" />
 <p class="caption"><span class="caption-text"><strong>NASAaccess</strong> Tethys web-based application home window</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
@@ -366,6 +366,9 @@ tethys manage collectworkspaces
 </div>
 <p>Then, in a web browser, navigate to (<a class="reference external" href="http://localhost:8080/geoserver">http://localhost:8080/geoserver</a>) to ensure that the GeoServer was installed successfully. Then, create a workspace with any name and upload a shapefile and associated digital elevation model (DEM) for your study area to your designated workspace. In the following screenshot we created a workspace named <cite>nasaaccess</cite> to illustrate publishing data to GeoServer. The details of the published data in GeoServer will be needed later in setting up the custom settings of the NASAaccess application.
 The screenshots shown below give the details needed in creating GeoServer workspace named <cite>nasaaccess</cite> and uploaded layers needed (i.e., shapefile and a digital elevation model - DEM) for the <strong>NASAaccess</strong> web-based application.</p>
+</div></blockquote>
+</li>
+</ul>
 <div class="figure align-center" id="id2">
 <img alt="_images/geoserver_1.png" src="_images/geoserver_1.png" />
 <p class="caption"><span class="caption-text">GeoServer with a workspace name as <cite>nasaaccess</cite> and URI as (<a class="reference external" href="http://localhost/nasaaccess">http://localhost/nasaaccess</a>).</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
@@ -374,8 +377,7 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 <img alt="_images/geoserver_2.png" src="_images/geoserver_2.png" />
 <p class="caption"><span class="caption-text">GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in <cite>nasaaccess</cite> workspace.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </div>
-</div></blockquote>
-</li>
+<ul>
 <li><p><strong>NASAaccess</strong> Application Installation:</p>
 <blockquote>
 <div><p>After successful installation of the Tethys Platform and the GeoServer software on your work environment, clone the repository of the <strong>NASAaccess</strong> application available in Github. Next, install the application into the Tethys platform. Once the installation has started, the user will be prompted to select a spatial persistent service and the custom settings related to the application. Finally, start the Tethys development server after the installation has finished. The following commands and steps summarize the process of NASAaccess application installation:</p>
@@ -417,6 +419,9 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </li>
 </ul>
 <p>It is important to mention here that the custom settings of the <strong>NASAaccess</strong> application can be fixed after installing the application by passing the custom settings step with empty values. After running the Tethys application and navigating to the <strong>NASAaccess</strong> web-based application then these custom settings can be fixed. The following screenshot depicts the custom settings filled with needed information as discussed.</p>
+</div></blockquote>
+</li>
+</ul>
 <div class="figure align-center" id="id4">
 <img alt="_images/nasaaccess_custom_settings.png" src="_images/nasaaccess_custom_settings.png" />
 <p class="caption"><span class="caption-text"><strong>NASAaccess</strong> custom settings configuration. For the installation example shown the following customs settings are used:
@@ -432,9 +437,6 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 <img alt="_images/nasaaccess_active.png" src="_images/nasaaccess_active.png" />
 <p class="caption"><span class="caption-text"><strong>NASAaccess</strong> web-based application after successful configuration.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </div>
-</div></blockquote>
-</li>
-</ul>
 </div>
 <div class="section" id="source-code">
 <h2><span class="section-number">2.5. </span>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
