@@ -47,7 +47,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#about">2.1. About</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-it-works">2.2. How it works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">2.3. Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-code">2.4. Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-setup">2.4. Installation/Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">2.5. Source Code</a></li>
 </ul>
 </li>
 </ul>
@@ -82,6 +83,7 @@
 <div class="section" id="about">
 <h2><span class="section-number">2.1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
 <p>The <strong>NASAaccess</strong> platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (<a class="reference external" href="https://www.tethysplatform.org/">https://www.tethysplatform.org/</a>). <strong>NASAaccess</strong> software can generate gridded ascii tables of climate <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip5/">CMIP5</a>, <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/">CMIP6</a>, and earth observation remote sensing data (<a class="reference external" href="https://gpm.nasa.gov/data/directory">GPM</a>, <a class="reference external" href="https://gpm.nasa.gov/missions/trmm">TRMM</a>, <a class="reference external" href="https://ldas.gsfc.nasa.gov/gldas">GLDAS</a>) needed to drive various hydrological models (e.g., <a class="reference external" href="https://github.com/UW-Hydro/VIC">VIC</a>, <a class="reference external" href="https://github.com/RHESSys/RHESSys">RHESSys</a>, <a class="reference external" href="https://swat.tamu.edu/">SWAT</a> …etc.).  The NASAaccess has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. <strong>NASAaccess</strong> Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.</p>
+<a class="reference internal image-reference" href="_images/nasaaccess_home_window.png"><img alt="_images/nasaaccess_home_window.png" class="align-center" src="_images/nasaaccess_home_window.png" style="width: 1792.0px; height: 1120.0px;" /></a>
 </div>
 <div class="section" id="how-it-works">
 <h2><span class="section-number">2.2. </span>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h2>
@@ -103,8 +105,87 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 </li>
 </ul>
 </div>
+<div class="section" id="installation-setup">
+<h2><span class="section-number">2.4. </span>Installation/Setup<a class="headerlink" href="#installation-setup" title="Permalink to this heading"></a></h2>
+<ul>
+<li><dl class="simple">
+<dt>EarthData:</dt><dd><p><strong>NASAaccess</strong> needs a user registration access with Earthdata (<a class="reference external" href="https://www.earthdata.nasa.gov/">https://www.earthdata.nasa.gov/</a>). Users should set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Tethys:</dt><dd><blockquote>
+<div><p>The <strong>NASAaccess</strong> Tethys Application requires the Tethys Platform to be installed beforehand. The Tethys Platform Framework installation process can be installed in a development and production environment. There is a couple of differences between both installations:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The production installation uses a combination of the NGINX and Daphne servers.</p></li>
+<li><p>Changes Are Not Automatically Loaded in the production server, but in the development server</p></li>
+<li><p>Debug Disabled to prevent sensitive information from being leaked in the production server</p></li>
+<li><p>Static Files Collected  are collected to one location to be served more efficiently by NGINX.</p></li>
+<li><p>Workspaces are collected to one location so they can be more easily backed up.</p></li>
+<li><p>NGINX is given permission to access the static files and workspaces to be able to serve them.</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul>
+<li><dl>
+<dt>Development:</dt><dd><p>The installation of tethys in a development environment serves to contribute to the development of new applications and of the Tethys platform itself. The following are the required steps:</p>
+<blockquote>
+<div><p>#. Create  a new conda environment and install the Tethys Platform by running the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">tethys</span> <span class="o">-</span><span class="n">c</span> <span class="n">tethysplatform</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">tethys</span><span class="o">-</span><span class="n">platform</span>
+</pre></div>
+</div>
+<p>#. Activate the Tethys conda Environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">tethys</span>
+</pre></div>
+</div>
+<p>#. Generate a portal_config.yml file containing custom configurations such as the database and other local settings by running the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">gen</span> <span class="n">portal_config</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Tethys Platform requires a PostgreSQL database server. There are several options for setting up a DB server: local, docker, or dedicated. The Tethys platform can also be used to create a local server that creates and migrates the tables associated with the Tethys platform framework by running:</p>
+<blockquote>
+<div><p>#. Local instance</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">db</span> <span class="n">configure</span>
+</pre></div>
+</div>
+<p>#. Docker local instance (requires docker installed beforehand)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">docker</span> <span class="n">init</span> <span class="o">-</span><span class="n">c</span> <span class="n">postgis</span>
+
+<span class="n">tethys</span> <span class="n">docker</span> <span class="n">start</span> <span class="o">-</span><span class="n">c</span> <span class="n">postgis</span>
+
+<span class="n">PGPASSWORD</span><span class="o">=&lt;</span><span class="n">POSTGRES_PASSWORD</span><span class="o">&gt;</span> <span class="n">tethys</span> <span class="n">db</span> <span class="n">configure</span> <span class="o">--</span><span class="n">username</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_PASSWORD</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">superuser</span><span class="o">-</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_SUPER_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">superuser</span><span class="o">-</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_SUPER_PASSWORD</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">portal</span><span class="o">-</span><span class="n">superuser</span><span class="o">-</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">PORTAL_SUPERUSER_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">portal</span><span class="o">-</span><span class="n">superuser</span><span class="o">-</span><span class="n">email</span> <span class="s1">&#39;&lt;PORTAL_SUPERUSER_EMAIL&gt;&#39;</span> <span class="o">--</span><span class="n">portal</span><span class="o">-</span><span class="n">superuser</span><span class="o">-</span><span class="k">pass</span> <span class="o">&lt;</span><span class="n">PORTAL_SUPERUSER_PASSWORD</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>#. Install <cite>r-nasaaccess</cite> in the tethsy environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">r</span><span class="o">-</span><span class="n">nasaaccess</span>
+</pre></div>
+</div>
+<p>#. Initialize tables in persistent store databases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">syncstores</span> <span class="n">nasaaccess</span>
+</pre></div>
+</div>
+<p>#. Finally start the Tethys development server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">manage</span> <span class="n">start</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><p>Production:</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="source-code">
-<h2><span class="section-number">2.4. </span>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">2.5. </span>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
 <p>The NASAaccess source code is available on Github:</p>
 <blockquote>
 <div><ul class="simple">
