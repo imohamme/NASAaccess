@@ -16,8 +16,8 @@ The **NASAaccess** platform is available as software packages (i.e., R and conda
 
 
 
-.. image:: images/nasaaccess_home_window.png
-   :scale: 50%
+.. image:: images/nasaaccess_home_window_res.png
+   :scale: 60%
    :align: center
 
 
