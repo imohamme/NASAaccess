@@ -17,7 +17,6 @@ The **NASAaccess** platform is available as software packages (i.e., R and conda
 
 
 .. figure:: images/nasaaccess_home_window_res.png
-   :scale: 60%
    :align: center
 
    **NASAaccess** Tethys web-based application home window
@@ -288,10 +287,10 @@ Installation/Setup
 
 
       .. figure:: images/geoserver_2.png
-         :scale: 40%
          :align: center
 
          GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in `nasaaccess` workspace.
+
 
 
 
@@ -303,6 +302,7 @@ Installation/Setup
       After successful installation of the Tethys Platform and the GeoServer software on your work environment, clone the repository of the **NASAaccess** application available in Github. Next, install the application into the Tethys platform. Once the installation has started, the user will be prompted to select a spatial persistent service and the custom settings related to the application. Finally, start the Tethys development server after the installation has finished. The following commands and steps summarize the process of NASAaccess application installation:
 
       ::
+
          conda activate tethys
 
          git clone https://github.com/imohamme/tethys_nasaaccess.git
@@ -318,16 +318,20 @@ Installation/Setup
 
 
 
+      ::
+
          tethys install -d
 
 
-      + Select the GeoSpatial persistent service (In this case, the installed GeoServer)
+
+
+      + Select the GeoSpatial persistent service (In this case, the installed GeoServer).
 
       + Enter the value for the custom settings of the NASAaccess application:
 
-            + *data path*: custom setting referring to the path of the Data Directory for download 
+            + *data path*: custom setting referring to the path of the data directory for download. 
 
-            + *nasaaccess_R*: custom setting referring to the Rbin path
+            + *nasaaccess_R*: custom setting referring to the *Rbin* path.
 
             + *nasaacess_script*: custom setting referring to the nasaaccess R script containing the logic for data download using the r-nasaaccess conda package.
 
@@ -339,7 +343,8 @@ Installation/Setup
 
             + *geoserver password*: custom setting referring to the password related to the user of the geoserver user setting.
 
-      + Then, starting Tethys:
+      + Then, starting tethys:
+
          ::
          
             tethys manage start
@@ -352,11 +357,12 @@ Installation/Setup
 
 
       .. figure:: images/nasaaccess_custom_settings.png
-         :scale: 40%
          :align: center
+
 
          **NASAaccess** custom settings configuration. For the installation example shown the following customs settings are used: 
          *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
+
 
 
 
@@ -369,10 +375,11 @@ Installation/Setup
 
 
       .. figure:: images/nasaaccess_spatial_data_service.png
-         :scale: 40%
          :align: center
 
          **NASAaccess** Spatial Dataset Service settings configuration.
+
+
 
 
 
