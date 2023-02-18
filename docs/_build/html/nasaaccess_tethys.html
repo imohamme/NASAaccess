@@ -131,26 +131,26 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 <li><dl>
 <dt>Development:</dt><dd><p>The installation of tethys in a development environment serves to contribute to the development of new applications and of the Tethys platform itself. The following are the required steps:</p>
 <blockquote>
-<div><p>#. Create  a new conda environment and install the Tethys Platform by running the following command:</p>
+<div><p>1. Create  a new conda environment and install the Tethys Platform by running the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">tethys</span> <span class="o">-</span><span class="n">c</span> <span class="n">tethysplatform</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">tethys</span><span class="o">-</span><span class="n">platform</span>
 </pre></div>
 </div>
-<p>#. Activate the Tethys conda Environment:</p>
+<p>2. Activate the Tethys conda Environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">tethys</span>
 </pre></div>
 </div>
-<p>#. Generate a portal_config.yml file containing custom configurations such as the database and other local settings by running the following command:</p>
+<p>3. Generate a portal_config.yml file containing custom configurations such as the database and other local settings by running the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">gen</span> <span class="n">portal_config</span>
 </pre></div>
 </div>
-<ol class="arabic">
+<ol class="arabic" start="4">
 <li><p>Tethys Platform requires a PostgreSQL database server. There are several options for setting up a DB server: local, docker, or dedicated. The Tethys platform can also be used to create a local server that creates and migrates the tables associated with the Tethys platform framework by running:</p>
 <blockquote>
-<div><p>#. Local instance</p>
+<div><p>a. Local instance</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">db</span> <span class="n">configure</span>
 </pre></div>
 </div>
-<p>#. Docker local instance (requires docker installed beforehand)</p>
+<p>b. Docker local instance (requires docker installed beforehand)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">docker</span> <span class="n">init</span> <span class="o">-</span><span class="n">c</span> <span class="n">postgis</span>
 
 <span class="n">tethys</span> <span class="n">docker</span> <span class="n">start</span> <span class="o">-</span><span class="n">c</span> <span class="n">postgis</span>
@@ -161,15 +161,15 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 </div></blockquote>
 </li>
 </ol>
-<p>#. Install <cite>r-nasaaccess</cite> in the tethsy environment:</p>
+<p>5. Install <cite>r-nasaaccess</cite> in the tethsy environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">r</span><span class="o">-</span><span class="n">nasaaccess</span>
 </pre></div>
 </div>
-<p>#. Initialize tables in persistent store databases:</p>
+<p>6. Initialize tables in persistent store databases:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">syncstores</span> <span class="n">nasaaccess</span>
 </pre></div>
 </div>
-<p>#. Finally start the Tethys development server:</p>
+<p>7. Finally start the Tethys development server:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">manage</span> <span class="n">start</span>
 </pre></div>
 </div>

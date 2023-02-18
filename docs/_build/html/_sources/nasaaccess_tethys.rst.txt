@@ -58,29 +58,29 @@ Installation/Setup
    - Development:   
       The installation of tethys in a development environment serves to contribute to the development of new applications and of the Tethys platform itself. The following are the required steps:
 
-                                       #. Create  a new conda environment and install the Tethys Platform by running the following command:
+                                       1. Create  a new conda environment and install the Tethys Platform by running the following command:
                                        ::
 
                                           conda create -n tethys -c tethysplatform -c conda-forge tethys-platform
 
-                                       #. Activate the Tethys conda Environment:
+                                       2. Activate the Tethys conda Environment:
                                        ::
 
                                           conda activate tethys
                                        
-                                       #. Generate a portal_config.yml file containing custom configurations such as the database and other local settings by running the following command:
+                                       3. Generate a portal_config.yml file containing custom configurations such as the database and other local settings by running the following command:
                                        ::
 
                                           tethys gen portal_config
                                        
-                                       #. Tethys Platform requires a PostgreSQL database server. There are several options for setting up a DB server: local, docker, or dedicated. The Tethys platform can also be used to create a local server that creates and migrates the tables associated with the Tethys platform framework by running:
+                                       4. Tethys Platform requires a PostgreSQL database server. There are several options for setting up a DB server: local, docker, or dedicated. The Tethys platform can also be used to create a local server that creates and migrates the tables associated with the Tethys platform framework by running:
 
-                                             #. Local instance
+                                             a. Local instance
                                              ::
 
                                                 tethys db configure
                                              
-                                             #. Docker local instance (requires docker installed beforehand)
+                                             b. Docker local instance (requires docker installed beforehand)
                                              ::
 
                                                 tethys docker init -c postgis
@@ -89,17 +89,17 @@ Installation/Setup
 
                                                 PGPASSWORD=<POSTGRES_PASSWORD> tethys db configure --username <TETHYS_DB_USERNAME> --password <TETHYS_DB_PASSWORD> --superuser-name <TETHYS_DB_SUPER_USERNAME> --superuser-password <TETHYS_DB_SUPER_PASSWORD> --portal-superuser-name <PORTAL_SUPERUSER_USERNAME> --portal-superuser-email '<PORTAL_SUPERUSER_EMAIL>' --portal-superuser-pass <PORTAL_SUPERUSER_PASSWORD>
 
-                                       #. Install `r-nasaaccess` in the tethsy environment:
+                                       5. Install `r-nasaaccess` in the tethsy environment:
                                        ::
 
                                           conda install -c conda-forge r-nasaaccess
 
-                                       #. Initialize tables in persistent store databases:
+                                       6. Initialize tables in persistent store databases:
                                        ::
 
                                           tethys syncstores nasaaccess
 
-                                       #. Finally start the Tethys development server:
+                                       7. Finally start the Tethys development server:
                                        ::
 
                                           tethys manage start
