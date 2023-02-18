@@ -83,7 +83,10 @@
 <div class="section" id="about">
 <h2><span class="section-number">2.1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
 <p>The <strong>NASAaccess</strong> platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (<a class="reference external" href="https://www.tethysplatform.org/">https://www.tethysplatform.org/</a>). <strong>NASAaccess</strong> software can generate gridded ascii tables of climate <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip5/">CMIP5</a>, <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/">CMIP6</a>, and earth observation remote sensing data (<a class="reference external" href="https://gpm.nasa.gov/data/directory">GPM</a>, <a class="reference external" href="https://gpm.nasa.gov/missions/trmm">TRMM</a>, <a class="reference external" href="https://ldas.gsfc.nasa.gov/gldas">GLDAS</a>) needed to drive various hydrological models (e.g., <a class="reference external" href="https://github.com/UW-Hydro/VIC">VIC</a>, <a class="reference external" href="https://github.com/RHESSys/RHESSys">RHESSys</a>, <a class="reference external" href="https://swat.tamu.edu/">SWAT</a> …etc.).  The NASAaccess has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. <strong>NASAaccess</strong> Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.</p>
-<a class="reference internal image-reference" href="_images/nasaaccess_home_window_res.png"><img alt="_images/nasaaccess_home_window_res.png" class="align-center" src="_images/nasaaccess_home_window_res.png" style="width: 597.6px; height: 373.2px;" /></a>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/nasaaccess_home_window_res.png"><img alt="_images/nasaaccess_home_window_res.png" src="_images/nasaaccess_home_window_res.png" style="width: 597.6px; height: 373.2px;" /></a>
+<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> Tethys web-based application home window</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</div>
 </div>
 <div class="section" id="how-it-works">
 <h2><span class="section-number">2.2. </span>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading"></a></h2>
@@ -177,10 +180,201 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 </dd>
 </dl>
 </li>
-<li><p>Production:</p></li>
+<li><dl>
+<dt>Production:</dt><dd><p>Installation in a production environment can be a manual installation (performing all of the production configuration steps manually) or a docker deployment.  The following steps assumed the installation of Tethys in an Ubuntu production server (Note that before installing the Tethys platform, the following requirements needs to be installed).</p>
+<ul>
+<li><p>Requirements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PostgreSQL</p></li>
+<li><p>NGINX</p></li>
+<li><p>Supervisor</p></li>
+<li><p>conda/mamba</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Installation steps:</p>
+<ul>
+<li><p>Tethys Configuration:</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>Install the Tethys platform via conda or mamba</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">tethys</span> <span class="o">-</span><span class="n">c</span> <span class="n">tethysplatform</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">tethys</span><span class="o">-</span><span class="n">platform</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Generate a portal_config.yml</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">gen</span> <span class="n">portal_config</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>PostgreSQL Configuration:</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>Set Database Settings in the portal_config.yml</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">settings</span> <span class="o">--</span><span class="nb">set</span> <span class="n">DATABASES</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">NAME</span> <span class="n">tethys_platform</span> <span class="o">--</span><span class="nb">set</span> <span class="n">DATABASES</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">USER</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="nb">set</span> <span class="n">DATABASES</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">PASSWORD</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_PASSWORD</span><span class="o">&gt;</span> <span class="o">--</span><span class="nb">set</span> <span class="n">DATABASES</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">HOST</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_HOST</span><span class="o">&gt;</span> <span class="o">--</span><span class="nb">set</span> <span class="n">DATABASES</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">PORT</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_PORT</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Initialize, Create, and Migrate tables and users for the Database</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PGPASSWORD</span><span class="o">=&lt;</span><span class="n">POSTGRES_PASSWORD</span><span class="o">&gt;</span> <span class="n">tethys</span> <span class="n">db</span> <span class="n">configure</span> <span class="o">--</span><span class="n">username</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_PASSWORD</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">superuser</span><span class="o">-</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_SUPER_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">superuser</span><span class="o">-</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">TETHYS_DB_SUPER_PASSWORD</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">portal</span><span class="o">-</span><span class="n">superuser</span><span class="o">-</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">PORTAL_SUPERUSER_USERNAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">portal</span><span class="o">-</span><span class="n">superuser</span><span class="o">-</span><span class="n">email</span> <span class="s1">&#39;&lt;PORTAL_SUPERUSER_EMAIL&gt;&#39;</span> <span class="o">--</span><span class="n">portal</span><span class="o">-</span><span class="n">superuser</span><span class="o">-</span><span class="k">pass</span> <span class="o">&lt;</span><span class="n">PORTAL_SUPERUSER_PASSWORD</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>File Configuration:</p>
+<blockquote>
+<div><ul>
+<li><p>Configuration Static and Workspace:</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>Static files</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo mkdir -p &lt;TETHYS_WORKSPACES_ROOT&gt;
+sudo chown -R $USER &lt;TETHYS_WORKSPACES_ROOT&gt;
+tethys settings --set STATIC_ROOT /my/custom/static/directory
+tethys manage collectstatic
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Workspaces</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo mkdir -p &lt;TETHYS_WORKSPACES_ROOT&gt;
+sudo chown -R $USER &lt;TETHYS_WORKSPACES_ROOT&gt;
+tethys settings --set TETHYS_WORKSPACES_ROOT /my/custom/static/directory
+tethys manage collectworkspaces
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>NGINX Configuration:</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>Generate the NGINX configuration file using the tethys gen command</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">gen</span> <span class="n">nginx</span> <span class="o">--</span><span class="n">overwrite</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Link the Tethys NGINX Configuration</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">&lt;</span><span class="n">TETHYS_HOME</span><span class="o">&gt;/</span><span class="n">tethys_nginx</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="n">tethys_nginx</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Remove the Default NGINX Configuration</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="n">default</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Get the name of the nginx user for use</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="s1">&#39;user .*;&#39;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $2}&#39;</span> <span class="o">|</span> <span class="n">awk</span> <span class="o">-</span><span class="sa">F</span><span class="s1">&#39;;&#39;</span> <span class="s1">&#39;{print $1}&#39;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Supervisor Configuration:</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>Use the tethys gen command to generate default versions of these configuration files</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">gen</span> <span class="n">nginx_service</span> <span class="o">--</span><span class="n">overwrite</span>
+<span class="n">tethys</span> <span class="n">gen</span> <span class="n">asgi_service</span> <span class="o">--</span><span class="n">overwrite</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>If the process file is specified to be created at the root /run directory (e.g /run/tethys_asgi%(process_num)d.sock), then no action is required for this step.</p></li>
+<li><dl>
+<dt>Link the Tethys Supervisor Configuration Files</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">&lt;</span><span class="n">TETHYS_HOME</span><span class="o">&gt;/</span><span class="n">asgi_supervisord</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">supervisor</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">asgi_supervisord</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">&lt;</span><span class="n">TETHYS_HOME</span><span class="o">&gt;/</span><span class="n">nginx_supervisord</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">supervisor</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">nginx_supervisord</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Setup Tethys Log</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">tethys</span>
+<span class="n">sudo</span> <span class="n">touch</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">tethys</span><span class="o">/</span><span class="n">tethys</span><span class="o">.</span><span class="n">log</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="o">&lt;</span><span class="n">NGINX_USER</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">tethys</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Reload the Configuration</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">supervisorctl</span> <span class="n">reread</span>
+<span class="n">sudo</span> <span class="n">supervisorctl</span> <span class="n">update</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>The steps for a manual and docker installation can be found in the Tethys platform documentation (<a class="reference external" href="http://docs.tethysplatform.org/en/stable/">http://docs.tethysplatform.org/en/stable/</a>).</p>
+</li>
 </ul>
 </dd>
 </dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>GeoServer:</p>
+<blockquote>
+<div><p>Installation of GeoServer is necessary in order to use the <strong>NASAaccess</strong> Tethys web-based application. The GeosServer Software can be downloaded and installed on your local machine from (<a class="reference external" href="https://geoserver.org">https://geoserver.org</a>) or using the Tethys platform, which allows users to pull and run a GeoServer container. The following commands can be used to install GeoServer through the Tethys Platform, when prompted for settings value, press enter to keep the default values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tethys</span> <span class="n">docker</span> <span class="n">init</span> <span class="o">-</span><span class="n">c</span> <span class="n">geoserver</span>
+<span class="n">tethys</span> <span class="n">docker</span> <span class="n">start</span> <span class="o">-</span><span class="n">c</span> <span class="n">geoserver</span>
+</pre></div>
+</div>
+<p>If GeoServer was installed from source, start GeoServer by changing into the directory <code class="docutils literal notranslate"><span class="pre">geoserver/bin</span></code> and executing the <cite>startup.sh</cite> script with the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">geoserver</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">sh</span> <span class="n">startup</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Then, in a web browser, navigate to (<a class="reference external" href="http://localhost:8080/geoserver">http://localhost:8080/geoserver</a>) to ensure that the GeoServer was installed successfully. Then, create a workspace with any name and upload a shapefile and associated digital elevation model (DEM) for your study area to your designated workspace. In the following screenshot we created a workspace named <cite>nasaaccess</cite> to illustrate publishing data to GeoServer. The details of the published data in GeoServer will be needed later in setting up the custom settings of the NASAaccess application.
+The screenshots shown below give the details needed in creating GeoServer workspace named <cite>nasaaccess</cite> and uploaded layers needed (i.e., shapefile and a digital elevation model - DEM) for the <strong>NASAaccess</strong> web-based application.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/geoserver_1.png"><img alt="_images/geoserver_1.png" src="_images/geoserver_1.png" style="width: 1154.4px; height: 725.6px;" /></a>
+<p class="caption"><span class="caption-text">GeoServer with a workspace name as <cite>nasaaccess</cite> and URI as (<a class="reference external" href="http://localhost/nasaaccess">http://localhost/nasaaccess</a>).</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</div>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/geoserver_2.png"><img alt="_images/geoserver_2.png" src="_images/geoserver_2.png" style="width: 1161.6000000000001px; height: 544.8000000000001px;" /></a>
+<p class="caption"><span class="caption-text">GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in <cite>nasaaccess</cite> workspace.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</div>
+</div></blockquote>
 </li>
 </ul>
 </div>

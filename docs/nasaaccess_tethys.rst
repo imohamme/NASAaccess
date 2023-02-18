@@ -16,9 +16,13 @@ The **NASAaccess** platform is available as software packages (i.e., R and conda
 
 
 
-.. image:: images/nasaaccess_home_window_res.png
+.. figure:: images/nasaaccess_home_window_res.png
    :scale: 60%
    :align: center
+
+   **NASAaccess** Tethys web-based application home window
+
+
 
 
 
@@ -105,8 +109,187 @@ Installation/Setup
                                           tethys manage start
 
    - Production:
+      Installation in a production environment can be a manual installation (performing all of the production configuration steps manually) or a docker deployment.  The following steps assumed the installation of Tethys in an Ubuntu production server (Note that before installing the Tethys platform, the following requirements needs to be installed).
+
+      - Requirements:
+
+            + PostgreSQL
+            + NGINX
+            + Supervisor
+            + conda/mamba
+
+      -  Installation steps:
+
+         -  Tethys Configuration:
+
+                  + Install the Tethys platform via conda or mamba
+                     ::
+                     
+                     
+                           mamba create -n tethys -c tethysplatform -c conda-forge tethys-platform
 
 
+                  + Generate a portal_config.yml
+                     ::
+                     
+
+                           tethys gen portal_config
+
+
+         - PostgreSQL Configuration:
+         
+                  + Set Database Settings in the portal_config.yml
+                     ::
+                     
+
+                           tethys settings --set DATABASES.default.NAME tethys_platform --set DATABASES.default.USER <TETHYS_DB_USERNAME> --set DATABASES.default.PASSWORD <TETHYS_DB_PASSWORD> --set DATABASES.default.HOST <TETHYS_DB_HOST> --set DATABASES.default.PORT <TETHYS_DB_PORT>
+
+
+                  + Initialize, Create, and Migrate tables and users for the Database
+                      ::
+                     
+
+                           PGPASSWORD=<POSTGRES_PASSWORD> tethys db configure --username <TETHYS_DB_USERNAME> --password <TETHYS_DB_PASSWORD> --superuser-name <TETHYS_DB_SUPER_USERNAME> --superuser-password <TETHYS_DB_SUPER_PASSWORD> --portal-superuser-name <PORTAL_SUPERUSER_USERNAME> --portal-superuser-email '<PORTAL_SUPERUSER_EMAIL>' --portal-superuser-pass <PORTAL_SUPERUSER_PASSWORD>
+
+
+         - File Configuration:
+
+                  + Configuration Static and Workspace:
+
+                     + Static files
+                        ::
+
+
+                           sudo mkdir -p <TETHYS_WORKSPACES_ROOT>
+                           sudo chown -R $USER <TETHYS_WORKSPACES_ROOT>
+                           tethys settings --set STATIC_ROOT /my/custom/static/directory
+                           tethys manage collectstatic
+
+
+                     + Workspaces
+                        ::
+
+
+                           sudo mkdir -p <TETHYS_WORKSPACES_ROOT>
+                           sudo chown -R $USER <TETHYS_WORKSPACES_ROOT>
+                           tethys settings --set TETHYS_WORKSPACES_ROOT /my/custom/static/directory
+                           tethys manage collectworkspaces
+
+
+         - NGINX Configuration:
+
+                  + Generate the NGINX configuration file using the tethys gen command
+                     ::
+
+
+                        tethys gen nginx --overwrite
+
+
+                  + Link the Tethys NGINX Configuration
+                     ::
+
+
+                        sudo ln -s <TETHYS_HOME>/tethys_nginx.conf /etc/nginx/sites-enabled/tethys_nginx.conf
+
+
+                  + Remove the Default NGINX Configuration
+                     ::
+
+
+                        sudo rm /etc/nginx/sites-enabled/default	
+
+                  + Get the name of the nginx user for use
+                     ::
+
+
+                        grep 'user .*;' /etc/nginx/nginx.conf | awk '{print $2}' | awk -F';' '{print $1}'
+
+
+         - Supervisor Configuration:
+
+                  + Use the tethys gen command to generate default versions of these configuration files
+                     ::
+
+
+                        tethys gen nginx_service --overwrite
+                        tethys gen asgi_service --overwrite
+
+
+                  + If the process file is specified to be created at the root /run directory (e.g /run/tethys_asgi%(process_num)d.sock), then no action is required for this step.
+
+
+                  + Link the Tethys Supervisor Configuration Files
+                     ::
+
+
+                        sudo ln -s <TETHYS_HOME>/asgi_supervisord.conf /etc/supervisor/conf.d/asgi_supervisord.conf
+                        sudo ln -s <TETHYS_HOME>/nginx_supervisord.conf /etc/supervisor/conf.d/nginx_supervisord.conf
+
+
+                  + Setup Tethys Log
+                     ::
+
+
+                        sudo mkdir -p /var/log/tethys
+                        sudo touch /var/log/tethys/tethys.log
+                        sudo chown -R <NGINX_USER> /var/log/tethys
+
+
+                  + Reload the Configuration
+                     ::
+
+
+                        sudo supervisorctl reread
+                        sudo supervisorctl update
+
+
+
+         The steps for a manual and docker installation can be found in the Tethys platform documentation (http://docs.tethysplatform.org/en/stable/).
+
+
+
+- GeoServer:
+
+      Installation of GeoServer is necessary in order to use the **NASAaccess** Tethys web-based application. The GeosServer Software can be downloaded and installed on your local machine from (https://geoserver.org) or using the Tethys platform, which allows users to pull and run a GeoServer container. The following commands can be used to install GeoServer through the Tethys Platform, when prompted for settings value, press enter to keep the default values:
+      ::
+
+
+         tethys docker init -c geoserver
+         tethys docker start -c geoserver
+
+
+      If GeoServer was installed from source, start GeoServer by changing into the directory ``geoserver/bin`` and executing the `startup.sh` script with the following commands:
+      ::
+
+
+         cd geoserver/bin
+         sh startup.sh
+
+
+      Then, in a web browser, navigate to (http://localhost:8080/geoserver) to ensure that the GeoServer was installed successfully. Then, create a workspace with any name and upload a shapefile and associated digital elevation model (DEM) for your study area to your designated workspace. In the following screenshot we created a workspace named `nasaaccess` to illustrate publishing data to GeoServer. The details of the published data in GeoServer will be needed later in setting up the custom settings of the NASAaccess application.
+      The screenshots shown below give the details needed in creating GeoServer workspace named `nasaaccess` and uploaded layers needed (i.e., shapefile and a digital elevation model - DEM) for the **NASAaccess** web-based application.
+
+
+
+      .. figure:: images/geoserver_1.png
+         :scale: 40%
+         :align: center
+
+         GeoServer with a workspace name as `nasaaccess` and URI as (http://localhost/nasaaccess).
+
+
+
+
+
+
+
+
+
+      .. figure:: images/geoserver_2.png
+         :scale: 40%
+         :align: center
+
+         GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in `nasaaccess` workspace.
 
 Source Code
 ***********
