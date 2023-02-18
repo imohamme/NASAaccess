@@ -3,12 +3,9 @@ NASAaccess Python Guide
 ===============================
 
 
-.. code:: rst
-
-            |Python Platform|
-
-                   .. |Python Platform|  image::https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg
-                        :target: https://anaconda.org/conda-forge/r-nasaaccess
+.. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg
+   :target: https://anaconda.org/conda-forge/r-nasaaccess
+   :alt: Platform
 
 
    
@@ -38,7 +35,7 @@ On a local machine the user should have installed the following programs as well
                   In your *.netrc* file <uid> is your user name and <password> is your Earthdata Login password.
 
 
-      * For Windows users the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* beside the *.netrc* file explained above. Define a %HOME% variable in your Environment Variables by picking any directory you want to be referenced as your %HOME% directory. In many machines %HOME% directory is already set to be your personal `Documents` folder (i.e., `C:\Users\yourname\Documents`). Store your netrc file(s) in your `Documents` or the specfied %HOME% directory.
+      * For Windows users the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* beside the *.netrc* file explained above. Define a %HOME% variable in your Environment Variables by picking any directory you want to be referenced as your %HOME% directory. In many machines %HOME% directory is already set to be your personal `Documents` folder (i.e., `C:\/Users\/yourname\/Documents`). Store your netrc file(s) in your `Documents` or the specfied %HOME% directory.
 
 
 NASAaccess Conda Package Installation

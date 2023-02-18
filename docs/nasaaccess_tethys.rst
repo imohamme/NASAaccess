@@ -388,25 +388,21 @@ Installation/Setup
 
 
 
-.. figure:: images/nasaaccess_custom_settings.png
-         :align: center
+   .. figure:: images/nasaaccess_custom_settings.png
+      :align: center
+
+      **NASAaccess** custom settings configuration.
 
 
 
-         **NASAaccess** custom settings configuration. For the installation example shown the following customs settings are used: *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
-
-
-
-
-
-
-
+      
+      For the installation example shown the following customs settings are used: *data_path* (/pathto/tethys_nasaaccess/nasaaccess_data/), *nasaaccess_R* (/pathto/miniconda3/envs/tethys/bin/Rscript), *nasaaccess_script* (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), *geoserver_workspace* (nasaaccess), *geoserver_URI* (nasaaccess), *geoserver_user* (admin), and *geoserver_password* (geoserver).
 
 
 
 
 
-
+      After fixing the custom settings of the **NASAacces** web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as `asaaccess` which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is `admin` and password is `geoserver`.
 
 
 
@@ -416,7 +412,10 @@ Installation/Setup
 
 
 
-After fixing the custom settings of the **NASAacces** web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as `asaaccess` which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is `admin` and password is `geoserver`.
+
+
+
+
 
 
 
@@ -426,9 +425,20 @@ After fixing the custom settings of the **NASAacces** web-based application, the
 
 
 .. figure:: images/nasaaccess_spatial_data_service.png
-         :align: center
+   :align: center
 
-         **NASAaccess** Spatial Dataset Service settings configuration.
+   **NASAaccess** Spatial Dataset Service settings configuration.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -462,25 +472,10 @@ After fixing all the needed settings of the NASAacces application, the user shou
 
 
 
+   .. figure:: images/nasaaccess_active.png
+      :align: center
 
-
-
-
-
-
-
-
-
-.. figure:: images/nasaaccess_active.png
-         :align: center
-
-         **NASAaccess** web-based application after successful configuration.
-
-
-
-
-
-
+      NASAaccess web-based application after successful configuration.
 
 
 

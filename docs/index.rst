@@ -6,6 +6,12 @@
 Welcome to NASAaccess's documentation!
 ======================================
 
+`**Ibrahim Mohammed** <https://science.gsfc.nasa.gov/sed/bio/ibrahim.mohammed>`_
+
+
+.. image:: https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png
+   :target: https://orcid.org/0000-0002-6542-319X
+   :alt: Ibrahim Mohammed's ORCID
 
 About
 =====
