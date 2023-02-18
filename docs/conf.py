@@ -22,7 +22,7 @@ copyright = '2022, Ibrahim Mohammed'
 author = 'Ibrahim Mohammed'
 
 # The full version, including alpha/beta/rc tags
-release = '3.0.0'
+release = '3.3.1'
 
 
 # -- General configuration ---------------------------------------------------

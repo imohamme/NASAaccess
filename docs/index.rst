@@ -9,7 +9,7 @@ Welcome to NASAaccess's documentation!
 About
 =====
 
-NASAaccess is a software application in the form of a `R <https://www.r-project.org/>`_ package and a `Tethys <https://www.tethysplatform.org/>`_ web application. NASAaccess software can generate gridded ascii tables of climate `CMIP5 <https://pcmdi.llnl.gov/mips/cmip5/>`_, `CMIP6 <https://pcmdi.llnl.gov/CMIP6/>`_, and weather data (`GPM <https://gpm.nasa.gov/data/directory>`_, `TRMM <https://gpm.nasa.gov/missions/trmm>`_, `GLDAS <https://ldas.gsfc.nasa.gov/gldas>`_) needed to drive various hydrological models (e.g., `VIC <https://github.com/UW-Hydro/VIC>`_, `RHESSys <https://github.com/RHESSys/RHESSys>`_, `SWAT <https://swat.tamu.edu/>`_ …etc.).
+NASAaccess is a software application in the form of a `R <https://www.r-project.org/>`_ package, a `conda <https://docs.conda.io/en/latest/>`_ package and a `Tethys <https://www.tethysplatform.org/>`_ web application. **NASAaccess** software can generate gridded ascii tables of climate `CMIP5 <https://pcmdi.llnl.gov/mips/cmip5/>`_, `CMIP6 <https://pcmdi.llnl.gov/CMIP6/>`_, and earth observation remote sensing data (`GPM <https://gpm.nasa.gov/data/directory>`_, `TRMM <https://gpm.nasa.gov/missions/trmm>`_, `GLDAS <https://ldas.gsfc.nasa.gov/gldas>`_) needed to drive various hydrological models (e.g., `VIC <https://github.com/UW-Hydro/VIC>`_, `RHESSys <https://github.com/RHESSys/RHESSys>`_, `SWAT <https://swat.tamu.edu/>`_ …etc.). The NASAaccess Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.
 
 .. toctree::
    :maxdepth: 2
@@ -23,7 +23,7 @@ NASAaccess is a software application in the form of a `R <https://www.r-project.
 
 License
 =======
-The NASAaccess software package is an open source software package under `NASA Open Source Agreement v1.3 <https://opensource.org/licenses/NASA-1.3>`_
+The NASAaccess software package is an open source software package under `NASA Open Source Agreement v1.3 <https://opensource.org/license/nasa1-3-php/>`_
 
 
 Source Code

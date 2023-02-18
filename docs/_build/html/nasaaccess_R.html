@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. NASAaccess R Guide &mdash; NASAaccess 3.0.0 documentation</title>
+  <title>1. NASAaccess R Guide &mdash; NASAaccess 3.3.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +13,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -27,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> NASAaccess
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            NASAaccess
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -62,8 +66,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">1. </span>NASAaccess R Guide</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>NASAaccess R Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nasaaccess_R.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,10 +77,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nasaaccess-r-guide">
-<h1><span class="section-number">1. </span>NASAaccess R Guide<a class="headerlink" href="#nasaaccess-r-guide" title="Permalink to this headline"></a></h1>
-<section id="prerequisites">
-<h2><span class="section-number">1.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+  <div class="section" id="nasaaccess-r-guide">
+<h1><span class="section-number">1. </span>NASAaccess R Guide<a class="headerlink" href="#nasaaccess-r-guide" title="Permalink to this heading"></a></h1>
+<div class="section" id="prerequisites">
+<h2><span class="section-number">1.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
 <p>On a local machine the user should have installed the following programs as well as setting up a user account.  The list below gives a summary of what is needed to be done prior to work with NASAaccess software on any local machine:</p>
 <blockquote>
 <div><ul>
@@ -87,9 +91,9 @@
 <blockquote>
 <div><ul>
 <li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">NASA earth data wiki</a>. The <em>.netrc</em> file should look like:</p>
-<figure class="align-center">
+<div class="figure align-center">
 <a class="reference internal image-reference" href="_images/netrc.png"><img alt="netrc file layout" src="_images/netrc.png" style="width: 476.4px; height: 318.0px;" /></a>
-</figure>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In your <em>.netrc</em> file &lt;uid&gt; is your user name and &lt;password&gt; is your Earthdata Login password.</p>
@@ -103,9 +107,9 @@
 <li><p>Checking if you can run <a class="reference external" href="https://curl.se/">curl</a> from your command prompt.  Type <cite>curl –help</cite> and you should see the help pages for the <a class="reference external" href="https://curl.se/">curl</a> program once everything is defined correctly.</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="curl-installation-on-windows">
-<h2><span class="section-number">1.2. </span>Curl installation on Windows<a class="headerlink" href="#curl-installation-on-windows" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="curl-installation-on-windows">
+<h2><span class="section-number">1.2. </span>Curl installation on Windows<a class="headerlink" href="#curl-installation-on-windows" title="Permalink to this heading"></a></h2>
 <p>Here are some instructions that might help in installing curl on Windows OS machines:</p>
 <blockquote>
 <div><ol class="arabic">
@@ -131,9 +135,9 @@
 <li><p>Close the Environment Variables and check if you can run curl from your command prompt. Type curl –help and you should see the help pages for the curl program once everything is defined correctly.</p></li>
 </ol>
 </div></blockquote>
-</section>
-<section id="nasaaccess-r-package-installation">
-<h2><span class="section-number">1.3. </span>NASAaccess R Package Installation<a class="headerlink" href="#nasaaccess-r-package-installation" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="nasaaccess-r-package-installation">
+<h2><span class="section-number">1.3. </span>NASAaccess R Package Installation<a class="headerlink" href="#nasaaccess-r-package-installation" title="Permalink to this heading"></a></h2>
 <p>Within Rstudio or R terminal run the following commands to install NASAaccess:</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span>
@@ -148,9 +152,9 @@
 <p class="admonition-title">Note</p>
 <p>NASAaccess R package version installed here is 3.0.0.</p>
 </div>
-</section>
-<section id="getting-started-with-the-nasaaccess-r-package">
-<h2><span class="section-number">1.4. </span>Getting Started with the NASAaccess R package<a class="headerlink" href="#getting-started-with-the-nasaaccess-r-package" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="getting-started-with-the-nasaaccess-r-package">
+<h2><span class="section-number">1.4. </span>Getting Started with the NASAaccess R package<a class="headerlink" href="#getting-started-with-the-nasaaccess-r-package" title="Permalink to this heading"></a></h2>
 <p>NASAaccess R package has multiple functions such as <cite>GPMpolyCentroid</cite>, <cite>GPMswat</cite>, and <cite>NEX_GDPP_CMIP6</cite> that download, extract, and reformat rainfall remote sensing and climate change data from <a class="reference external" href="https://gpm.nasa.gov/data/directory">NASA servers</a> for grids within a specified watershed shapefile.</p>
 <p>Let’s explore <cite>GPMpolyCentroid</cite> function at an example watershed near Houston, TX.</p>
 <blockquote>
@@ -193,12 +197,10 @@
 </pre></div>
 </div>
 </div></blockquote>
-<figure class="align-center" id="id13">
+<div class="figure align-center" id="id13">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-2-1.png"><img alt="White Oak Bayou watershed" src="_images/unnamed-chunk-2-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<figcaption>
-<p><span class="caption-text">The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</div>
 <p>In order to use NASAaccess we also need a digital elevation model (DEM) raster layer. Let’s see the White Oak Bayou watershed DEM and a more closer look at the study watershed example.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span>
@@ -217,12 +219,10 @@
 </pre></div>
 </div>
 </div></blockquote>
-<figure class="align-center" id="id14">
+<div class="figure align-center" id="id14">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-3-1.png"><img alt="White Oak Bayou watershed (DEM)" src="_images/unnamed-chunk-3-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<figcaption>
-<p><span class="caption-text">The White Oak Bayou watershed with Digital elevation model in meters.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">The White Oak Bayou watershed with Digital elevation model in meters.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</div>
 <p>Now, let’s examine <cite>GPMpolyCentroid</cite> function.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GPMpolyCentroid</span><span class="p">(</span><span class="n">Dir</span> <span class="o">=</span> <span class="s2">&quot;./GPMpolyCentroid/&quot;</span><span class="p">,</span>
@@ -252,12 +252,10 @@
 </pre></div>
 </div>
 </div></blockquote>
-<figure class="align-center" id="id15">
+<div class="figure align-center" id="id15">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-9-1.png"><img alt="White Oak Bayou watershed with GPM grid" src="_images/unnamed-chunk-9-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<figcaption>
-<p><span class="caption-text">The White Oak Bayou watershed with GPM remote sensing data.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">The White Oak Bayou watershed with GPM remote sensing data.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+</div>
 <p>We note here that GPMpolyCentroid has given us the <a class="reference external" href="https://gpm.nasa.gov/data/imerg">GPM</a> data grid that falls within a specified watershed and assigns a pseudo rainfall gauge located at the centroid of the watershed a weighted-average daily rainfall data as specified by the time period selected (i.e., 2019-08-01 to 2019-08-03).</p>
 <p>Let’s examine the rainfall data just obtained by <cite>GPMpolyCentroid</cite> over the White Oak Bayou study watershed during the time period selected.</p>
 <blockquote>
@@ -286,15 +284,13 @@
 </pre></div>
 </div>
 </div></blockquote>
-<figure class="align-center" id="id16">
+<div class="figure align-center" id="id16">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-10-1.png"><img alt="GPM rainfall over White Oak Bayou watershed" src="_images/unnamed-chunk-10-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<figcaption>
-<p><span class="caption-text">GPM precipitation time series over the White Oak Bayou watershed during 1-3 August 2019.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">GPM precipitation time series over the White Oak Bayou watershed during 1-3 August 2019.</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+</div>
 <p>More examples on NASAaccess functionalities can be found <a class="reference external" href="https://imohamme.github.io/NASAaccess/articles/About.html">Here</a>.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
