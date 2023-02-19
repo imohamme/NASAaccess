@@ -2,6 +2,13 @@
 NASAaccess R Guide
 ===============================
 
+.. image:: https://img.shields.io/github/stars/nasa/nasaaccess?style=social
+   :target: https://github.com/nasa/NASAaccess
+
+.. image:: https://img.shields.io/readthedocs/nasaaccess?style=social
+   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
+
+
 
 Prerequisites
 *************
