@@ -7,8 +7,15 @@ NASAaccess Python Guide
    :target: https://anaconda.org/conda-forge/r-nasaaccess
    :alt: Platform
 
+.. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/version.svg
+   :target: https://anaconda.org/conda-forge/r-nasaaccess
+   :alt: Version
 
-   
+.. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/downloads.svg
+   :target: https://anaconda.org/conda-forge/r-nasaaccess
+   :alt: Downloads
+
+    
 Prerequisites
 *************
 

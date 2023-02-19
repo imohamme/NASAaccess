@@ -6,28 +6,26 @@
 Welcome to NASAaccess's documentation!
 ======================================
 
+.. image:: https://img.shields.io/github/stars/nasa/nasaaccess?style=social
+   :target: https://github.com/nasa/NASAaccess
 
+.. image:: https://img.shields.io/readthedocs/nasaaccess?style=social
+   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
 
-**Ibrahim Mohammed** -  *Initial & Finishing work* -  [![imohamme](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-6542-319X)
-
-
-
-
-
+.. |ORCID Substitution| image:: https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png
+   :target: https://orcid.org/0000-0002-6542-319X
+   :alt: Ibrahim Mohammed's ORCID
 
 .. table::
    :widths: auto
 
-   ================                =====
-   Ibrahim Mohammed                LINK_
-   ================                =====
+   ==================              ======================
+   *Ibrahim Mohammed*              |ORCID Substitution|
+   ==================              ======================
 
 
 
-*Ibrahim Mohammed* LINK_
 
-
-.. _LINK:  https://orcid.org/0000-0002-6542-319X
 
 
 
