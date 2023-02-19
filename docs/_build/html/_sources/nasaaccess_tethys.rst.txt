@@ -4,7 +4,7 @@ NASAaccess Tethys Guide
 
 
 .. |logo| image:: images/nasaaccess.png
-   :scale: 40%
+   :scale: 10%
    :align: middle
    :alt: NASAaccess's logo
 
