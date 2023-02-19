@@ -6,13 +6,7 @@
 Welcome to NASAaccess's documentation!
 ======================================
 
-.. image:: https://img.shields.io/github/stars/nasa/nasaaccess?style=social
-   :target: https://github.com/nasa/NASAaccess
-
-.. image:: https://img.shields.io/readthedocs/nasaaccess?style=social
-   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
-
-.. |ORCID Substitution| image:: https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png
+.. |ORCID Substitution| image:: https://info.orcid.org/wp-content/uploads/2019/11/orcid_32x32.png
    :target: https://orcid.org/0000-0002-6542-319X
    :alt: Ibrahim Mohammed's ORCID
 
@@ -24,6 +18,11 @@ Welcome to NASAaccess's documentation!
    =======================          ======================
 
 
+.. image:: https://img.shields.io/github/stars/nasa/nasaaccess?style=social
+   :target: https://github.com/nasa/NASAaccess
+
+.. image:: https://img.shields.io/readthedocs/nasaaccess?style=social
+   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
 
 About
 =====
