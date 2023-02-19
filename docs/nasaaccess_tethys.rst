@@ -2,25 +2,26 @@
 NASAaccess Tethys Guide
 ==================================
 
+.. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg
+   :target: https://anaconda.org/conda-forge/r-nasaaccess
+   :alt: Platform
+
+.. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/version.svg
+   :target: https://anaconda.org/conda-forge/r-nasaaccess
+   :alt: Version
+
+.. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/downloads.svg
+   :target: https://anaconda.org/conda-forge/r-nasaaccess
+   :alt: Downloads
+
+.. image:: https://img.shields.io/readthedocs/nasaaccess?style=social
+   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
+
 
 .. |logo| image:: images/nasaaccess.png
    :scale: 10%
    :align: middle
    :alt: NASAaccess's logo
-
-
-.. |social| image:: https://img.shields.io/readthedocs/nasaaccess?style=social
-   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
-   :align: middle
-
-
-
-.. table::
-   :widths: auto
-
-   ========            ============
-   |logo|              |social|
-   ========            ============
 
 About
 *****
