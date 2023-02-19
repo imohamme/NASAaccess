@@ -3,11 +3,24 @@ NASAaccess Tethys Guide
 ==================================
 
 
-.. image:: images/nasaaccess.png
-   :scale: 20%
-   :align: center
+.. |logo| image:: images/nasaaccess.png
+   :scale: 40%
+   :align: middle
+   :alt: NASAaccess's logo
 
 
+.. |social| image:: https://img.shields.io/readthedocs/nasaaccess?style=social
+   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
+   :align: middle
+
+
+
+.. table::
+   :widths: auto
+
+   ========            ============
+   |logo|              |social|
+   ========            ============
 
 About
 *****

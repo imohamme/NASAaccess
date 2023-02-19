@@ -15,7 +15,10 @@ NASAaccess Python Guide
    :target: https://anaconda.org/conda-forge/r-nasaaccess
    :alt: Downloads
 
-    
+.. image:: https://img.shields.io/readthedocs/nasaaccess?style=social
+   :target: https://nasaaccess.readthedocs.io/en/latest/index.html
+
+   
 Prerequisites
 *************
 

@@ -19,15 +19,9 @@ Welcome to NASAaccess's documentation!
 .. table::
    :widths: auto
 
-   ==================              ======================
-   *Ibrahim Mohammed*              |ORCID Substitution|
-   ==================              ======================
-
-
-
-
-
-
+   =======================          ======================
+   **Ibrahim N. Mohammed**          |ORCID Substitution|
+   =======================          ======================
 
 
 
