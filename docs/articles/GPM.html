@@ -94,7 +94,7 @@
                         <h4 data-toc-skip class="author">Ibrahim N.
 Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2023-02-16</h4>
+            <h4 data-toc-skip class="date">2023-02-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GPM.Rmd" class="external-link"><code>vignettes/GPM.Rmd</code></a></small>
       <div class="hidden name"><code>GPM.Rmd</code></div>
@@ -116,7 +116,10 @@ climatological adjustment. On the other hand, the <code>GPM_NRT</code>
 function retrieves the <a href="https://gpm.nasa.gov/data/imerg" class="external-link">IMERG</a> near real-time
 low-latency gridded global multi-satellite precipitation estimates.</p>
 <p>Let’s explore <code>GPMpolyCentroid</code> and <code>GPMswat</code>
-functions. ## Basic use</p>
+functions.</p>
+<div class="section level2">
+<h2 id="basic-use">Basic use<a class="anchor" aria-label="anchor" href="#basic-use"></a>
+</h2>
 <p>Let’s look at an example watershed that we want to examine near
 Houston, TX:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -167,7 +170,7 @@ Houston, TX:</p>
 <span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
 <span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
 <span><span class="co"><span style="font-style: italic;">#&gt; OGR data source with driver: ESRI Shapefile </span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Source: "/private/var/folders/8t/45w1tdfs1vj3dy1tchbw3pmrhr_gxz/T/Rtmp6oKkp6/temp_libpath9395ccb6610/NASAaccess/extdata/basin.shp", layer: "basin"</span></span></span>
+<span><span class="co"><span style="font-style: italic;">#&gt; Source: "/Users/imohamme/Library/R/x86_64/4.2/library/NASAaccess/extdata/basin.shp", layer: "basin"</span></span></span>
 <span><span class="co"><span style="font-style: italic;">#&gt; with 1 features</span></span></span>
 <span><span class="co"><span style="font-style: italic;">#&gt; It has 4 fields</span></span></span>
 <span><span class="co"><span style="font-style: italic;">#&gt; Integer64 fields read as strings:  OBJECTID disID</span></span></span>
@@ -179,7 +182,7 @@ Houston, TX:</p>
 <span></span>
 <span></span>
 <span><span class="co"><span style="font-style: italic;">#plot the watershed data</span></span></span>
-<span><span class="va">myMap</span> <span class="op">&lt;-</span> <span class="fu">ggmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html" class="external-link">get_stamenmap</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="op">-</span><span class="fl">96</span>,</span>
+<span><span class="va">myMap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html" class="external-link">get_stamenmap</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="op">-</span><span class="fl">96</span>,</span>
 <span>                                bottom <span class="op">=</span> <span class="fl">29.7</span>,</span>
 <span>                                right <span class="op">=</span> <span class="op">-</span><span class="fl">95.2</span>,</span>
 <span>                                top <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,</span>
@@ -189,7 +192,7 @@ Houston, TX:</p>
 <span><span class="co"><span style="font-style: italic;">#&gt; </span><span style="color: #00BBBB; font-style: italic;">ℹ</span><span style="font-style: italic;"> Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</span></span></span>
 <span></span>
 <span></span>
-<span><span class="fu">ggmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html" class="external-link">ggmap</a></span><span class="op">(</span><span class="va">myMap</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html" class="external-link">ggmap</a></span><span class="op">(</span><span class="va">myMap</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html" class="external-link">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shape.df</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>, y <span class="op">=</span> <span class="va">lat</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span>, </span>
 <span>               fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></span>
@@ -234,9 +237,9 @@ look at the study watershed example.</p>
 <code class="sourceCode R"><span><span class="va">GPMswat.precipitationMaster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPMswat'</span>,</span>
 <span>                                         <span class="st">'precipitationMaster.txt'</span>, </span>
 <span>                                         package <span class="op">=</span> <span class="st">'NASAaccess'</span><span class="op">)</span></span>
-<span><span class="co"># Reading GPMswat header file</span></span>
-<span><span class="va">GPMswat.table</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GPMswat.precipitationMaster</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># reading GPMswat header file</span></span>
+<span><span class="va">GPMswat.table</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GPMswat.precipitationMaster</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">GPMswat.table</span><span class="op">)</span></span>
 <span><span class="co">#&gt;        ID                 NAME      LAT      LONG ELEVATION</span></span>
@@ -258,7 +261,8 @@ LAT, LONG, and ELEVATION) for those selected grids that fall within the
 specified watershed.</p>
 <p>Now, let’s see the location of these generated grid points:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html" class="external-link">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shape.df</span>,</span>
 <span>          <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>, y <span class="op">=</span> <span class="va">lat</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span>,</span>
 <span>          fill <span class="op">=</span> <span class="cn">NA</span>, </span>
@@ -282,7 +286,7 @@ listed in the rainfall station file generated by
 <span>                              <span class="st">'precipitation2160842.txt'</span>, </span>
 <span>                              package <span class="op">=</span> <span class="st">'NASAaccess'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#Reading data records</span></span>
+<span><span class="co"># reading data records</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GPMswat.point.data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     X20200801</span></span>
 <span><span class="co">#&gt; 1 32.22795868</span></span>
@@ -301,15 +305,16 @@ model of choice.</p>
 <p>Examining the rainfall station file generated by
 <code>GPMpolyCentroid</code></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="va">GPMpolyCentroid.precipitationMaster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GPMpolyCentroid'</span>,</span>
 <span>                                                    <span class="st">'precipitationMaster.txt'</span>, </span>
 <span>                                                    package <span class="op">=</span> <span class="st">'NASAaccess'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">GPMpolyCentroid.precipitation.table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GPMpolyCentroid.precipitationMaster</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#plotting</span></span>
-<span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="co"># plotting</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html" class="external-link">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shape.df</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>, y <span class="op">=</span> <span class="va">lat</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span>,</span>
 <span>               fill <span class="op">=</span> <span class="cn">NA</span>, </span>
@@ -332,12 +337,12 @@ watershed.</p>
 <span></span>
 <span><span class="va">GPMpolyCentroid.precipitation.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GPMpolyCentroid.precipitation.record</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#since data started on 2019-08-01</span></span>
+<span><span class="co"># since data started on 2019-08-01</span></span>
 <span></span>
 <span><span class="va">days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.Date.html" class="external-link">seq.Date</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">'2019-08-01'</span><span class="op">)</span>, </span>
 <span>                 length.out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">GPMpolyCentroid.precipitation.data</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, by <span class="op">=</span> <span class="st">'day'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#plotting the precipitation time series</span></span>
+<span><span class="co"># plotting the precipitation time series</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">days</span>, <span class="va">GPMpolyCentroid.precipitation.data</span> <span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>, </span>
 <span>                                    pch <span class="op">=</span> <span class="fl">19</span>, ylab<span class="op">=</span> <span class="st">'(mm)'</span>, </span>
@@ -372,6 +377,7 @@ one day. You can experiment this function with yesterday data, nice!</p>
 <span><span class="co">#&gt; 1  2.507078</span></span>
 <span><span class="co">#&gt; 2  1.148573</span></span>
 <span><span class="co">#&gt; 3  0.000000</span></span></code></pre></div>
+</div>
 <div class="section level2">
 <h2 id="built-with">Built with<a class="anchor" aria-label="anchor" href="#built-with"></a>
 </h2>
