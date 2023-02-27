@@ -40,7 +40,8 @@ GPMpolyCentroid=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM 
 
   if(file.exists('~/.netrc')==FALSE||file.exists('~/_netrc')==FALSE)
   {
-    source('inst/scripts/netrc.R')
+    source(system.file("scripts", "netrc.R",
+                       package = "NASAaccess"))
   }
 
 

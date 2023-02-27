@@ -49,7 +49,8 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
 {
   if(file.exists('~/.netrc')==FALSE||file.exists('~/_netrc')==FALSE)
   {
-    source('inst/scripts/netrc.R')
+    source(system.file("scripts", "netrc.R",
+                       package = "NASAaccess"))
   }
   #if there is no logging information then update the netrc file with NEX-GDDP info
   if(file.exists('~/.netrc')==TRUE||file.exists('~/_netrc')==TRUE)
