@@ -39,7 +39,9 @@ GPM_NRT=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'LowerMekon
 
   if(file.exists('~/.netrc')==FALSE||file.exists('~/_netrc')==FALSE)
   {
-    source('inst/scripts/netrc.R')
+
+    source(system.file("scripts", "netrc.R",
+                package = "NASAaccess"))
   }
 
 
