@@ -55,17 +55,17 @@ Requirements
             Setup a VirtualBox Machine via https://www.virtualbox.org/wiki/Downloads   
 
 - Windows/MacOS/Linux:
-            Anaconda (https://docs.anaconda.com/anaconda/install/index.html)  or miniconda (https://docs.conda.io/en/latest/miniconda.html)
+            `Anaconda <https://docs.anaconda.com/anaconda/install/index.html/>`_  or `miniconda <https://docs.conda.io/en/latest/miniconda.html/>`_
 
 
 Installation/Setup
 ******************
 - EarthData:
-      **NASAaccess** needs a user registration access with 'Earthdata <https://www.earthdata.nasa.gov/>'. Users should set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. Please refer to https://disc.gsfc.nasa.gov/data-access for further details.
+      **NASAaccess** needs a user registration access with `Earthdata <https://www.earthdata.nasa.gov/>`_. Users should set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. Please refer to https://disc.gsfc.nasa.gov/data-access for further details.
 
-            -   After registration with 'Earthdata <https://www.earthdata.nasa.gov/>' *NASAaccess* software package users should create a reference file (*netrc*) with 'Earthdata <https://www.earthdata.nasa.gov/>' credentials stored in it to streamline the retrieval access to 'NASA <https://www.nasa.gov/>' servers.
+            -   After registration with `Earthdata <https://www.earthdata.nasa.gov/>`_ *NASAaccess* software package users should create a reference file (*netrc*) with `Earthdata <https://www.earthdata.nasa.gov/>`_ credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers.
 
-            -   Creating the *.netrc* file at the user machine *Home* directory and storing the user 'NASA <https://www.nasa.gov/>' 'GES DISC <https://disc.gsfc.nasa.gov/>' logging information in it is needed to execute the *NASAaccess* package commands. Accessing data at NASA servers is further explained at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget.
+            -   Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the *NASAaccess* package commands. Accessing data at NASA servers is further explained at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget.
 
 - Tethys:
       The **NASAaccess** Tethys Application requires the Tethys Platform to be installed beforehand. The Tethys Platform Framework installation process can be installed in a development and production environment. There is a couple of differences between both installations:

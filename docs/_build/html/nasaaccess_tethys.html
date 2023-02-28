@@ -87,9 +87,9 @@
 <div class="section" id="about">
 <h2><span class="section-number">3.1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
 <p>The <strong>NASAaccess</strong> platform is available as software packages (i.e., R and conda packages) as well as an interactive format web-based environmental modeling application for earth observation data developed in the Tethys Platform framework (<a class="reference external" href="https://www.tethysplatform.org/">https://www.tethysplatform.org/</a>). <strong>NASAaccess</strong> software can generate gridded ascii tables of climate <a class="reference external" href="https://pcmdi.llnl.gov/mips/cmip5/">CMIP5</a>, <a class="reference external" href="https://pcmdi.llnl.gov/CMIP6/">CMIP6</a>, and earth observation remote sensing data (<a class="reference external" href="https://gpm.nasa.gov/data/directory">GPM</a>, <a class="reference external" href="https://gpm.nasa.gov/missions/trmm">TRMM</a>, <a class="reference external" href="https://ldas.gsfc.nasa.gov/gldas">GLDAS</a>) needed to drive various hydrological models (e.g., <a class="reference external" href="https://github.com/UW-Hydro/VIC">VIC</a>, <a class="reference external" href="https://github.com/RHESSys/RHESSys">RHESSys</a>, <a class="reference external" href="https://swat.tamu.edu/">SWAT</a> …etc.).  The <strong>NASAaccess</strong> has been envisioned to lower the technical barrier and simplify the process of accessing scalable distributed computing resources and leverage additional software for data and computationally intensive modeling frameworks. <strong>NASAaccess</strong> Tethys web-based application can be used for accessing, reformatting, and visualizing climate and earth observation remote sensing gridded time series data as well.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id4">
 <img alt="_images/nasaaccess_home_window_res.png" src="_images/nasaaccess_home_window_res.png" />
-<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> Tethys web-based application home window</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> Tethys web-based application home window</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </div>
 </div>
 <div class="section" id="how-it-works">
@@ -106,7 +106,7 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Windows/MacOS/Linux:</dt><dd><p>Anaconda (<a class="reference external" href="https://docs.anaconda.com/anaconda/install/index.html">https://docs.anaconda.com/anaconda/install/index.html</a>)  or miniconda (<a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a>)</p>
+<dt>Windows/MacOS/Linux:</dt><dd><p><a class="reference external" href="https://docs.anaconda.com/anaconda/install/index.html/">Anaconda</a>  or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html/">miniconda</a></p>
 </dd>
 </dl>
 </li>
@@ -116,11 +116,11 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 <h2><span class="section-number">3.4. </span>Installation/Setup<a class="headerlink" href="#installation-setup" title="Permalink to this heading"></a></h2>
 <ul>
 <li><dl>
-<dt>EarthData:</dt><dd><p><strong>NASAaccess</strong> needs a user registration access with ‘Earthdata &lt;<a class="reference external" href="https://www.earthdata.nasa.gov/">https://www.earthdata.nasa.gov/</a>&gt;’. Users should set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p>
+<dt>EarthData:</dt><dd><p><strong>NASAaccess</strong> needs a user registration access with <a class="reference external" href="https://www.earthdata.nasa.gov/">Earthdata</a>. Users should set up a registration account(s) with Earthdata login as well as authorizing NASA GES DISC data access. Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>After registration with ‘Earthdata &lt;<a class="reference external" href="https://www.earthdata.nasa.gov/">https://www.earthdata.nasa.gov/</a>&gt;’ <em>NASAaccess</em> software package users should create a reference file (<em>netrc</em>) with ‘Earthdata &lt;<a class="reference external" href="https://www.earthdata.nasa.gov/">https://www.earthdata.nasa.gov/</a>&gt;’ credentials stored in it to streamline the retrieval access to ‘NASA &lt;<a class="reference external" href="https://www.nasa.gov/">https://www.nasa.gov/</a>&gt;’ servers.</p></li>
-<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user ‘NASA &lt;<a class="reference external" href="https://www.nasa.gov/">https://www.nasa.gov/</a>&gt;’ ‘GES DISC &lt;<a class="reference external" href="https://disc.gsfc.nasa.gov/">https://disc.gsfc.nasa.gov/</a>&gt;’ logging information in it is needed to execute the <em>NASAaccess</em> package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget</a>.</p></li>
+<li><p>After registration with <a class="reference external" href="https://www.earthdata.nasa.gov/">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>netrc</em>) with <a class="reference external" href="https://www.earthdata.nasa.gov/">Earthdata</a> credentials stored in it to streamline the retrieval access to <a class="reference external" href="https://www.nasa.gov/">NASA</a> servers.</p></li>
+<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the <em>NASAaccess</em> package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget</a>.</p></li>
 </ul>
 </div></blockquote>
 </dd>
@@ -379,13 +379,13 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </div></blockquote>
 </li>
 </ul>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id5">
 <img alt="_images/geoserver_1.png" src="_images/geoserver_1.png" />
-<p class="caption"><span class="caption-text">GeoServer with a workspace name as <cite>nasaaccess</cite> and URI as (<a class="reference external" href="http://localhost/nasaaccess">http://localhost/nasaaccess</a>).</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">GeoServer with a workspace name as <cite>nasaaccess</cite> and URI as (<a class="reference external" href="http://localhost/nasaaccess">http://localhost/nasaaccess</a>).</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </div>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id6">
 <img alt="_images/geoserver_2.png" src="_images/geoserver_2.png" />
-<p class="caption"><span class="caption-text">GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in <cite>nasaaccess</cite> workspace.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">GeoServer with published shapefile (i.e., basin) and a digital elevation model (i.e., Bayou-dem) stored in <cite>nasaaccess</cite> workspace.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </div>
 <ul>
 <li><p><strong>NASAaccess</strong> Application Installation:</p>
@@ -431,9 +431,9 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </ul>
 <p>It is important to mention here that the custom settings of the <strong>NASAaccess</strong> application can be fixed after installing the application by passing the custom settings step with empty values. After running the Tethys application and navigating to the <strong>NASAaccess</strong> web-based application then these custom settings can be fixed. The following screenshot depicts the custom settings filled with needed information as discussed.</p>
 </div></blockquote>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id7">
 <img alt="_images/nasaaccess_custom_settings.png" src="_images/nasaaccess_custom_settings.png" />
-<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> custom settings configuration.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> custom settings configuration.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 <div class="legend">
 <p>For the installation example shown the following customs settings are used: <em>data_path</em> (/pathto/tethys_nasaaccess/nasaaccess_data/), <em>nasaaccess_R</em> (/pathto/miniconda3/envs/tethys/bin/Rscript), <em>nasaaccess_script</em> (/pathto/tethys_nasaaccess/tethysapp/nasaaccess/scripts/nasaaccess.R), <em>geoserver_workspace</em> (nasaaccess), <em>geoserver_URI</em> (nasaaccess), <em>geoserver_user</em> (admin), and <em>geoserver_password</em> (geoserver).</p>
 <p>After fixing the custom settings of the <strong>NASAacces</strong> web-based application, the Spatial dataset service needs to be configured manually as shown below. Note here the spatial dataset name is listed as <cite>asaaccess</cite> which is the GeoServer workspace configured previously. The username and password credentials need to match the GeoServer workspace configuration. In this case, the username is <cite>admin</cite> and password is <cite>geoserver</cite>.</p>
@@ -442,15 +442,15 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </div></blockquote>
 </li>
 </ul>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id8">
 <img alt="_images/nasaaccess_spatial_data_service.png" src="_images/nasaaccess_spatial_data_service.png" />
-<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> Spatial Dataset Service settings configuration.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text"><strong>NASAaccess</strong> Spatial Dataset Service settings configuration.</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </div>
 <p>After fixing all the needed settings of the NASAacces application, the user should be able to see the application active and ready to work.</p>
 <blockquote>
-<div><div class="figure align-center" id="id6">
+<div><div class="figure align-center" id="id9">
 <img alt="_images/nasaaccess_active.png" src="_images/nasaaccess_active.png" />
-<p class="caption"><span class="caption-text">NASAaccess web-based application after successful configuration.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">NASAaccess web-based application after successful configuration.</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </div>
 </div></blockquote>
 </div>
