@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to NASAaccess's documentation!
+Welcome to NASAaccess's documentation
 ======================================
 
 .. |ORCID Substitution| image:: https://info.orcid.org/wp-content/uploads/2019/11/orcid_32x32.png

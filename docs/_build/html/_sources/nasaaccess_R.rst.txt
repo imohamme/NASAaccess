@@ -34,7 +34,7 @@ On a local machine the user should have installed the following programs as well
 Manual creation of the *.netrc* file
 ====================================
 
-The *.netrc* file and the *_netrc* file (only for Windows OS machines) are generated automatically when installing the *NASAaccess* software package. However, if the user wants to create theses access files manually here are the steps needed.
+The *.netrc* file and the *_netrc* file (only for Windows OS machines) are generated automatically when installing the *NASAaccess* R software package. However, if the user wants to create theses access files manually here are the steps needed.
 
 
 #. Define `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. For convenient installation, the user should go with the machine default `HOME` directory. In many Winodws OS machines `HOME` directory is the user personal `Documents` folder (i.e., C:\\Users\\yourname\\Documents).
