@@ -1,6 +1,6 @@
-==================================
-NASAaccess Tethys Guide
-==================================
+=======================================
+NASAaccess Tethys web-based app Guide
+=======================================
 
 .. image:: https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg
    :target: https://anaconda.org/conda-forge/r-nasaaccess
@@ -65,7 +65,7 @@ Installation/Setup
 
             -   After registration with `Earthdata <https://www.earthdata.nasa.gov/>`_ *NASAaccess* software package users should create a reference file (*netrc*) with `Earthdata <https://www.earthdata.nasa.gov/>`_ credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers.
 
-            -   Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the *NASAaccess* package commands. Accessing data at NASA servers is further explained at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget.
+            -   Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the *NASAaccess* package commands. Accessing data at NASA servers is further explained at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget. The manual steps for creating *.netrc* file has been discussed in `NASAaccess R package installation  <nasaaccess_R.html>`_.
 
 - Tethys:
       The **NASAaccess** Tethys Application requires the Tethys Platform to be installed beforehand. The Tethys Platform Framework installation process can be installed in a development and production environment. There is a couple of differences between both installations:
@@ -505,9 +505,9 @@ After fixing all the needed settings of the NASAacces application, the user shou
 
 
 
-Source Code
-***********
+Source Code & Documentation
+****************************
 
-The NASAaccess source code is available on Github:
+The NASAaccess Tethys web-based application source code and documentation are available on Github:
 
   - https://github.com/imohamme/tethys_nasaaccess

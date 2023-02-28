@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3. NASAaccess Tethys Guide &mdash; NASAaccess 3.3.1 documentation</title>
+  <title>3. NASAaccess Tethys web-based app Guide &mdash; NASAaccess 3.3.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -43,13 +43,13 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="nasaaccess_R.html">1. NASAaccess R package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nasaaccess_python.html">2. NASAaccess Conda Python library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasaaccess_python.html">2. NASAaccess Conda python package</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. NASAaccess Tethys web-based App</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#about">3.1. About</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-it-works">3.2. How it works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">3.3. Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-setup">3.4. Installation/Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-code">3.5. Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-documentation">3.5. Source Code &amp; Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -68,7 +68,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">3. </span>NASAaccess Tethys Guide</li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>NASAaccess Tethys web-based app Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nasaaccess_tethys.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,8 +78,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="nasaaccess-tethys-guide">
-<h1><span class="section-number">3. </span>NASAaccess Tethys Guide<a class="headerlink" href="#nasaaccess-tethys-guide" title="Permalink to this heading"></a></h1>
+  <div class="section" id="nasaaccess-tethys-web-based-app-guide">
+<h1><span class="section-number">3. </span>NASAaccess Tethys web-based app Guide<a class="headerlink" href="#nasaaccess-tethys-web-based-app-guide" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://anaconda.org/conda-forge/r-nasaaccess"><img alt="Platform" src="https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg" /></a>
 <a class="reference external image-reference" href="https://anaconda.org/conda-forge/r-nasaaccess"><img alt="Version" src="https://anaconda.org/conda-forge/r-nasaaccess/badges/version.svg" /></a>
 <a class="reference external image-reference" href="https://anaconda.org/conda-forge/r-nasaaccess"><img alt="Downloads" src="https://anaconda.org/conda-forge/r-nasaaccess/badges/downloads.svg" /></a>
@@ -120,7 +120,7 @@ functions by calling the <cite>r-nasaaccess</cite> conda package (<a class="refe
 <blockquote>
 <div><ul class="simple">
 <li><p>After registration with <a class="reference external" href="https://www.earthdata.nasa.gov/">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>netrc</em>) with <a class="reference external" href="https://www.earthdata.nasa.gov/">Earthdata</a> credentials stored in it to streamline the retrieval access to <a class="reference external" href="https://www.nasa.gov/">NASA</a> servers.</p></li>
-<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the <em>NASAaccess</em> package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget</a>.</p></li>
+<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the <em>NASAaccess</em> package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget</a>. The manual steps for creating <em>.netrc</em> file has been discussed in <a class="reference external" href="nasaaccess_R.html">NASAaccess R package installation</a>.</p></li>
 </ul>
 </div></blockquote>
 </dd>
@@ -454,9 +454,9 @@ The screenshots shown below give the details needed in creating GeoServer worksp
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="source-code">
-<h2><span class="section-number">3.5. </span>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
-<p>The NASAaccess source code is available on Github:</p>
+<div class="section" id="source-code-documentation">
+<h2><span class="section-number">3.5. </span>Source Code &amp; Documentation<a class="headerlink" href="#source-code-documentation" title="Permalink to this heading"></a></h2>
+<p>The NASAaccess Tethys web-based application source code and documentation are available on Github:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference external" href="https://github.com/imohamme/tethys_nasaaccess">https://github.com/imohamme/tethys_nasaaccess</a></p></li>

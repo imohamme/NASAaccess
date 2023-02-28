@@ -36,7 +36,7 @@ About
 
 
    NASAaccess R package  <nasaaccess_R>
-   NASAaccess Conda Python library <nasaaccess_python>
+   NASAaccess Conda python package <nasaaccess_python>
    NASAaccess Tethys web-based App <nasaaccess_tethys>
 
 
