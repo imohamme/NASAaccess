@@ -62,6 +62,7 @@ rm(login2,password2)
 
 
 writeLines(paste('machine', 'urs.earthdata.nasa.gov', 'login', login, 'password', password, sep = " "),'~/.netrc')
+cat("", file = '~/.urs_cookies')
 ##check the machine type to decide on _netrc file creation
 if(.Platform$OS.type != "unix")
 {
