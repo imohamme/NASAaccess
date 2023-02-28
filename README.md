@@ -108,7 +108,7 @@ been installed and browse the help pages of the various functions of
 
 - After registration with [Earthdata](https://www.earthdata.nasa.gov/)
   *NASAaccess* software package users should create a reference file
-  (*netrc*) with [Earthdata](https://www.earthdata.nasa.gov/)
+  (*.netrc*) with [Earthdata](https://www.earthdata.nasa.gov/)
   credentials stored in it to streamline the retrieval access to
   [NASA](https://www.nasa.gov/ "The National Aeronautics and Space Administration")
   servers.
@@ -118,7 +118,7 @@ been installed and browse the help pages of the various functions of
     [NASA](https://www.nasa.gov/ "The National Aeronautics and Space Administration")
     [GES DISC](https://disc.gsfc.nasa.gov/) logging information in it is
     needed to execute the *NASAaccess* package commands. Accessing data
-    at NASA servers is further explained at
+    from NASA servers is further explained at
     [Here](https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget).
 
 - To install *NASAaccess* package in a conda environment run the
@@ -135,8 +135,6 @@ single machines and local servers can be found at
 [readthedocs](https://nasaaccess.readthedocs.io/en/latest/nasaaccess_tethys.html).
 
 ## **Is there a walk through examples for NASAaccess software?**
-
-Yes!
 
 Software users are encouraged to visit
 (<https://imohamme.github.io/NASAaccess/>) to learn more on *NASAaccess*
