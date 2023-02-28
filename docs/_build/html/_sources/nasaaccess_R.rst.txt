@@ -21,11 +21,11 @@ On a local machine the user should have installed the following programs as well
 
   * NASAaccess R package needs a user registration access with `Earthdata <https://earthdata.nasa.gov/>`_. Users should set up a registration account(s) with `Earthdata <https://earthdata.nasa.gov/>`_ login as well as well as authorizing `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ data access.  Please refer to https://disc.gsfc.nasa.gov/data-access for further details.
 
-  * Installing `curl <https://curl.se/>`_ software .  Since Mac users have `curl <https://curl.se/>`_ as part of macOS build, Windows users should make sure that their local machines build have `curl <https://curl.se/>`_ installed properly.
+  * Installing `curl <https://curl.se/>`_ software .  Since Mac users have `curl <https://curl.se/>`_ as part of macOS build, Windows OS machines users should make sure that their local machines build have `curl <https://curl.se/>`_ installed properly.
 
   * Checking if you can run `curl <https://curl.se/>`_ from your command prompt.  Type `curl --help` and you should see the help pages for the `curl <https://curl.se/>`_ program once everything is defined correctly.
 
-  * After successful installation of **NASAaccess** software package (*discussed in next section*) users should find that a reference file (*.netrc*) with `Earthdata <https://earthdata.nasa.gov/>`_ credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers has been created in user machine *Home* directory.
+  * *After successful installation of* **NASAaccess** *software package as discussed in next section users should find that a reference file* *(.netrc) with* `Earthdata <https://earthdata.nasa.gov/>`_ *credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers has been created in user machine Home directory*.
 
 
 
@@ -34,12 +34,12 @@ On a local machine the user should have installed the following programs as well
 Manual creation of the *netrc* file
 ====================================
 
-The *.netrc* file and the *_netrc* file (only for Windows machines) are generated automatically when installing the *NASAaccess* software package. However, if the user wants to create theses access files manually here are the steps needed.
+The *.netrc* file and the *_netrc* file (only for Windows OS machines) are generated automatically when installing the *NASAaccess* software package. However, if the user wants to create theses access files manually here are the steps needed.
 
 
-#. Define `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. For convienent installation, the user should go with the machine default `HOME` directory. In many Winodws machines `HOME` directory is the user personal `Documents` folder (i.e., C:\/Users\/yourname\/Documents).
+#. Define `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. For convenient installation, the user should go with the machine default `HOME` directory. In many Winodws machines `HOME` directory is the user personal `Documents` folder (i.e., C:\\Users\\yourname\\Documents).
 
-    #. Create .netrc file in your `Home` directory (*_netrc file creation is only needed for Windows machines*). Run these commands in your command prompt. 
+    #. Create .netrc file in your `Home` directory (*_netrc file creation is only needed for Windows OS machines*). Run these commands in your command prompt. 
 
           ::
 
@@ -60,7 +60,7 @@ The *.netrc* file and the *_netrc* file (only for Windows machines) are generate
                   Replace <uid> with your user name and <password> with your Earthdata Login password.
 
 
-    #. Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The `_netrc` and `.netrc` files should be identical.
+    #. Open your .netrc and _netrc file(s) by any text editor and remove the quotations before machine and after your password. The .netrc and _netrc file(s) should be without any quotation marks to get the curl working. The contents of the `_netrc` and `.netrc` files should be identical.
 
 
 
@@ -79,11 +79,11 @@ The *.netrc* file and the *_netrc* file (only for Windows machines) are generate
                   In your *.netrc* file <uid> is your user name and <password> is your Earthdata Login password.
 
 
-    #. For Windows users the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* identical to the *.netrc* file explained above.
+    #. For Windows OS machines user the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* identical to the *.netrc* file explained above.
 
 
-Curl installation on Windows
-=============================
+Curl installation on Windows OS machines
+=========================================
 
 Here are some instructions that might help in installing curl on Windows OS machines:
 
@@ -109,7 +109,9 @@ Within Rstudio or R terminal run the following commands to install NASAaccess:
 
 
           library(devtools)
+
           install_github("nasa/NASAaccess", build_vignettes = TRUE)
+
           library(NASAaccess)
 
 

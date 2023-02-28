@@ -46,7 +46,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. NASAaccess R package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#manual-creation-of-the-netrc-file">1.1.1. Manual creation of the <em>netrc</em> file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#curl-installation-on-windows">1.1.2. Curl installation on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curl-installation-on-windows-os-machines">1.1.2. Curl installation on Windows OS machines</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#nasaaccess-r-package-installation">1.2. NASAaccess R Package Installation</a></li>
@@ -93,19 +93,19 @@
 <li><p><a class="reference external" href="https://cloud.r-project.org/">Installing R software</a></p></li>
 <li><p><a class="reference external" href="https://www.rstudio.com/">Installing Rstudio software</a> (Optional)</p></li>
 <li><p>NASAaccess R package needs a user registration access with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a>. Users should set up a registration account(s) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> login as well as well as authorizing <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> data access.  Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p></li>
-<li><p>Installing <a class="reference external" href="https://curl.se/">curl</a> software .  Since Mac users have <a class="reference external" href="https://curl.se/">curl</a> as part of macOS build, Windows users should make sure that their local machines build have <a class="reference external" href="https://curl.se/">curl</a> installed properly.</p></li>
+<li><p>Installing <a class="reference external" href="https://curl.se/">curl</a> software .  Since Mac users have <a class="reference external" href="https://curl.se/">curl</a> as part of macOS build, Windows OS machines users should make sure that their local machines build have <a class="reference external" href="https://curl.se/">curl</a> installed properly.</p></li>
 <li><p>Checking if you can run <a class="reference external" href="https://curl.se/">curl</a> from your command prompt.  Type <cite>curl –help</cite> and you should see the help pages for the <a class="reference external" href="https://curl.se/">curl</a> program once everything is defined correctly.</p></li>
-<li><p>After successful installation of <strong>NASAaccess</strong> software package (<em>discussed in next section</em>) users should find that a reference file (<em>.netrc</em>) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> credentials stored in it to streamline the retrieval access to <a class="reference external" href="https://www.nasa.gov/">NASA</a> servers has been created in user machine <em>Home</em> directory.</p></li>
+<li><p><em>After successful installation of</em> <strong>NASAaccess</strong> <em>software package as discussed in next section users should find that a reference file</em> <em>(.netrc) with</em> <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> <em>credentials stored in it to streamline the retrieval access to `NASA &lt;https://www.nasa.gov/&gt;`_ servers has been created in user machine Home directory</em>.</p></li>
 </ul>
 </div></blockquote>
 <div class="section" id="manual-creation-of-the-netrc-file">
 <h3><span class="section-number">1.1.1. </span>Manual creation of the <em>netrc</em> file<a class="headerlink" href="#manual-creation-of-the-netrc-file" title="Permalink to this heading"></a></h3>
-<p>The <em>.netrc</em> file and the <em>_netrc</em> file (only for Windows machines) are generated automatically when installing the <em>NASAaccess</em> software package. However, if the user wants to create theses access files manually here are the steps needed.</p>
+<p>The <em>.netrc</em> file and the <em>_netrc</em> file (only for Windows OS machines) are generated automatically when installing the <em>NASAaccess</em> software package. However, if the user wants to create theses access files manually here are the steps needed.</p>
 <ol class="arabic">
-<li><p>Define <cite>HOME</cite> variable in your Environment Variables by picking any directory you want to be referenced as your <cite>HOME</cite> directory. For convienent installation, the user should go with the machine default <cite>HOME</cite> directory. In many Winodws machines <cite>HOME</cite> directory is the user personal <cite>Documents</cite> folder (i.e., C:/Users/yourname/Documents).</p>
+<li><p>Define <cite>HOME</cite> variable in your Environment Variables by picking any directory you want to be referenced as your <cite>HOME</cite> directory. For convenient installation, the user should go with the machine default <cite>HOME</cite> directory. In many Winodws machines <cite>HOME</cite> directory is the user personal <cite>Documents</cite> folder (i.e., C:\Users\yourname\Documents).</p>
 <blockquote>
 <div><ol class="arabic">
-<li><p>Create .netrc file in your <cite>Home</cite> directory (<em>_netrc file creation is only needed for Windows machines</em>). Run these commands in your command prompt.</p>
+<li><p>Create .netrc file in your <cite>Home</cite> directory (<em>_netrc file creation is only needed for Windows OS machines</em>). Run these commands in your command prompt.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">%</span><span class="n">HOME</span><span class="o">%</span>
 <span class="n">echo</span><span class="o">.</span> <span class="o">&gt;</span> <span class="o">.</span><span class="n">netrc</span>
@@ -123,7 +123,7 @@
 </div>
 </div></blockquote>
 </li>
-<li><p>Open your _netrc file by any text editor and remove the quotations before machine and after your password. The _netrc file should be without any quotation marks to get the curl working. The <cite>_netrc</cite> and <cite>.netrc</cite> files should be identical.</p></li>
+<li><p>Open your .netrc and _netrc file(s) by any text editor and remove the quotations before machine and after your password. The .netrc and _netrc file(s) should be without any quotation marks to get the curl working. The contents of the <cite>_netrc</cite> and <cite>.netrc</cite> files should be identical.</p></li>
 <li><p>The <em>.netrc</em> file at the user machine <em>Home</em> directory with the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is depcited below for your reference. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">NASA earth data wiki</a>. The <em>.netrc</em> file should look like:</p>
 <blockquote>
 <div><div class="figure align-center">
@@ -135,14 +135,14 @@
 </div>
 </div></blockquote>
 </li>
-<li><p>For Windows users the <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information should be saved in a file <em>_netrc</em> identical to the <em>.netrc</em> file explained above.</p></li>
+<li><p>For Windows OS machines user the <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information should be saved in a file <em>_netrc</em> identical to the <em>.netrc</em> file explained above.</p></li>
 </ol>
 </div></blockquote>
 </li>
 </ol>
 </div>
-<div class="section" id="curl-installation-on-windows">
-<h3><span class="section-number">1.1.2. </span>Curl installation on Windows<a class="headerlink" href="#curl-installation-on-windows" title="Permalink to this heading"></a></h3>
+<div class="section" id="curl-installation-on-windows-os-machines">
+<h3><span class="section-number">1.1.2. </span>Curl installation on Windows OS machines<a class="headerlink" href="#curl-installation-on-windows-os-machines" title="Permalink to this heading"></a></h3>
 <p>Here are some instructions that might help in installing curl on Windows OS machines:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -159,7 +159,9 @@
 <p>Within Rstudio or R terminal run the following commands to install NASAaccess:</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span>
+
 <span class="n">install_github</span><span class="p">(</span><span class="s2">&quot;nasa/NASAaccess&quot;</span><span class="p">,</span> <span class="n">build_vignettes</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+
 <span class="n">library</span><span class="p">(</span><span class="n">NASAaccess</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -215,9 +217,9 @@
 </pre></div>
 </div>
 </div></blockquote>
-<div class="figure align-center" id="id12">
+<div class="figure align-center" id="id11">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-2-1.png"><img alt="White Oak Bayou watershed" src="_images/unnamed-chunk-2-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<p class="caption"><span class="caption-text">The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">The geographic layout of the White Oak Bayou watershed. Whiteoak Bayou is a tributary for the Buffalo Bayou River (Harris County, Texas).</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
 </div>
 <p>In order to use NASAaccess we also need a digital elevation model (DEM) raster layer. Let’s see the White Oak Bayou watershed DEM and a more closer look at the study watershed example.</p>
 <blockquote>
@@ -237,9 +239,9 @@
 </pre></div>
 </div>
 </div></blockquote>
-<div class="figure align-center" id="id13">
+<div class="figure align-center" id="id12">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-3-1.png"><img alt="White Oak Bayou watershed (DEM)" src="_images/unnamed-chunk-3-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<p class="caption"><span class="caption-text">The White Oak Bayou watershed with Digital elevation model in meters.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">The White Oak Bayou watershed with Digital elevation model in meters.</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
 </div>
 <p>Now, let’s examine <cite>GPMpolyCentroid</cite> function.</p>
 <blockquote>
@@ -270,9 +272,9 @@
 </pre></div>
 </div>
 </div></blockquote>
-<div class="figure align-center" id="id14">
+<div class="figure align-center" id="id13">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-9-1.png"><img alt="White Oak Bayou watershed with GPM grid" src="_images/unnamed-chunk-9-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<p class="caption"><span class="caption-text">The White Oak Bayou watershed with GPM remote sensing data.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">The White Oak Bayou watershed with GPM remote sensing data.</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </div>
 <p>We note here that GPMpolyCentroid has given us the <a class="reference external" href="https://gpm.nasa.gov/data/imerg">GPM</a> data grid that falls within a specified watershed and assigns a pseudo rainfall gauge located at the centroid of the watershed a weighted-average daily rainfall data as specified by the time period selected (i.e., 2019-08-01 to 2019-08-03).</p>
 <p>Let’s examine the rainfall data just obtained by <cite>GPMpolyCentroid</cite> over the White Oak Bayou study watershed during the time period selected.</p>
@@ -302,9 +304,9 @@
 </pre></div>
 </div>
 </div></blockquote>
-<div class="figure align-center" id="id15">
+<div class="figure align-center" id="id14">
 <a class="reference internal image-reference" href="_images/unnamed-chunk-10-1.png"><img alt="GPM rainfall over White Oak Bayou watershed" src="_images/unnamed-chunk-10-1.png" style="width: 672.0px; height: 384.0px;" /></a>
-<p class="caption"><span class="caption-text">GPM precipitation time series over the White Oak Bayou watershed during 1-3 August 2019.</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">GPM precipitation time series over the White Oak Bayou watershed during 1-3 August 2019.</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
 </div>
 <p>More examples on NASAaccess functionalities can be found <a class="reference external" href="https://imohamme.github.io/NASAaccess/articles/About.html">Here</a>.</p>
 </div>
