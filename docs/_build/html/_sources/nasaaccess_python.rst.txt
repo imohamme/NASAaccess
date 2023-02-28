@@ -28,9 +28,9 @@ On a local machine the user should have installed the following programs as well
 
   * *NASAaccess* software needs a user registration access with `Earthdata <https://earthdata.nasa.gov/>`_. Users should set up a registration account(s) with `Earthdata <https://earthdata.nasa.gov/>`_ login as well as well as authorizing `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ data access.  Please refer to https://disc.gsfc.nasa.gov/data-access for further details.
 
-  * After registration with `Earthdata <https://earthdata.nasa.gov/>`_ *NASAaccess* software package users should create a reference file (*netrc*) with `Earthdata <https://earthdata.nasa.gov/>`_ credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers.
+  * After registration with `Earthdata <https://earthdata.nasa.gov/>`_ *NASAaccess* software package users should create a reference file (*.netrc*) with `Earthdata <https://earthdata.nasa.gov/>`_ credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers.
 
-      * Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at `NASA earth data wiki <https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget>`_. The manual steps for creating the *.netrc* file has been discussed in `NASAaccess R package installation  <nasaaccess_R>`_. The *.netrc* file should look like:
+      * Creating the *.netrc* file at the user machine *Home* directory and storing the user `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at `NASA earth data wiki <https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget>`_. The manual steps for creating the *.netrc* file has been discussed in `NASAaccess R package installation  <nasaaccess_R.html>`_. The *.netrc* file should look like:
 
 
         .. figure::  images/netrc.png
@@ -45,7 +45,7 @@ On a local machine the user should have installed the following programs as well
                   In your *.netrc* file <uid> is your user name and <password> is your Earthdata Login password.
 
 
-      * For Windows OS machines user the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* beside the *.netrc* file explained above. Define a `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. In many machines `HOME` directory is already set to be your personal `Documents` folder (i.e., `C:\/Users\/yourname\/Documents`). Store your netrc file(s) in your `Documents` or the specfied `HOME` directory.
+      * For Windows OS machines user the `NASA <https://www.nasa.gov/>`_ `GES DISC <https://disc.gsfc.nasa.gov/>`_ logging information should be saved in a file *\_netrc* beside the *.netrc* file explained above. Define a `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. In many machines `HOME` directory is already set to be your personal `Documents` folder (i.e., `C:\\Users\\yourname\\Documents`). Store your netrc file(s) in your `Documents` or the specfied `HOME` directory.
 
 
 NASAaccess Conda Package Installation

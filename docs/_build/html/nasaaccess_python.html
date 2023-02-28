@@ -44,13 +44,13 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="nasaaccess_R.html">1. NASAaccess R package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. NASAaccess Conda library</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. NASAaccess Conda Python library</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nasaaccess-conda-package-installation">2.2. NASAaccess Conda Package Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started-with-the-nasaaccess-conda-package">2.3. Getting Started with the NASAaccess Conda package</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nasaaccess_tethys.html">3. NASAaccess Tethys App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nasaaccess_tethys.html">3. NASAaccess Tethys web-based App</a></li>
 </ul>
 
         </div>
@@ -90,10 +90,10 @@
 <div><ul>
 <li><p>Installing <a class="reference external" href="https://docs.anaconda.com/anaconda/install/index.html">Anaconda</a>  or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a>.</p></li>
 <li><p><em>NASAaccess</em> software needs a user registration access with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a>. Users should set up a registration account(s) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> login as well as well as authorizing <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> data access.  Please refer to <a class="reference external" href="https://disc.gsfc.nasa.gov/data-access">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p></li>
-<li><p>After registration with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>netrc</em>) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> credentials stored in it to streamline the retrieval access to <a class="reference external" href="https://www.nasa.gov/">NASA</a> servers.</p>
+<li><p>After registration with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>.netrc</em>) with <a class="reference external" href="https://earthdata.nasa.gov/">Earthdata</a> credentials stored in it to streamline the retrieval access to <a class="reference external" href="https://www.nasa.gov/">NASA</a> servers.</p>
 <blockquote>
 <div><ul>
-<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">NASA earth data wiki</a>. The manual steps for creating the <em>.netrc</em> file has been discussed in <a class="reference external" href="nasaaccess_R">NASAaccess R package installation</a>. The <em>.netrc</em> file should look like:</p>
+<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information in it is needed to execute the NASAaccess package commands. Accessing data at NASA servers is further explained at <a class="reference external" href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget">NASA earth data wiki</a>. The manual steps for creating the <em>.netrc</em> file has been discussed in <a class="reference external" href="nasaaccess_R.html">NASAaccess R package installation</a>. The <em>.netrc</em> file should look like:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/netrc.png"><img alt="netrc file layout" src="_images/netrc.png" style="width: 476.4px; height: 318.0px;" /></a>
 </div>
@@ -102,7 +102,7 @@
 <p>In your <em>.netrc</em> file &lt;uid&gt; is your user name and &lt;password&gt; is your Earthdata Login password.</p>
 </div>
 </li>
-<li><p>For Windows OS machines user the <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information should be saved in a file <em>_netrc</em> beside the <em>.netrc</em> file explained above. Define a <cite>HOME</cite> variable in your Environment Variables by picking any directory you want to be referenced as your <cite>HOME</cite> directory. In many machines <cite>HOME</cite> directory is already set to be your personal <cite>Documents</cite> folder (i.e., <cite>C:/Users/yourname/Documents</cite>). Store your netrc file(s) in your <cite>Documents</cite> or the specfied <cite>HOME</cite> directory.</p></li>
+<li><p>For Windows OS machines user the <a class="reference external" href="https://www.nasa.gov/">NASA</a> <a class="reference external" href="https://disc.gsfc.nasa.gov/">GES DISC</a> logging information should be saved in a file <em>_netrc</em> beside the <em>.netrc</em> file explained above. Define a <cite>HOME</cite> variable in your Environment Variables by picking any directory you want to be referenced as your <cite>HOME</cite> directory. In many machines <cite>HOME</cite> directory is already set to be your personal <cite>Documents</cite> folder (i.e., <cite>C:\Users\yourname\Documents</cite>). Store your netrc file(s) in your <cite>Documents</cite> or the specfied <cite>HOME</cite> directory.</p></li>
 </ul>
 </div></blockquote>
 </li>

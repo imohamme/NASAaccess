@@ -25,19 +25,19 @@ On a local machine the user should have installed the following programs as well
 
   * Checking if you can run `curl <https://curl.se/>`_ from your command prompt.  Type `curl --help` and you should see the help pages for the `curl <https://curl.se/>`_ program once everything is defined correctly.
 
-  * *After successful installation of* **NASAaccess** *software package as discussed in next section users should find that a reference file* *(.netrc) with* `Earthdata <https://earthdata.nasa.gov/>`_ *credentials stored in it to streamline the retrieval access to `NASA <https://www.nasa.gov/>`_ servers has been created in user machine Home directory*.
+  * *After successful installation of NASAaccess software package as discussed in next section users should find that a reference file* *(.netrc) with* `Earthdata <https://earthdata.nasa.gov/>`_ *credentials stored in it to streamline the retrieval access from* `NASA <https://www.nasa.gov/>`_ *servers has been created in user Home directory*.
 
 
 
 
 
-Manual creation of the *netrc* file
+Manual creation of the *.netrc* file
 ====================================
 
 The *.netrc* file and the *_netrc* file (only for Windows OS machines) are generated automatically when installing the *NASAaccess* software package. However, if the user wants to create theses access files manually here are the steps needed.
 
 
-#. Define `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. For convenient installation, the user should go with the machine default `HOME` directory. In many Winodws machines `HOME` directory is the user personal `Documents` folder (i.e., C:\\Users\\yourname\\Documents).
+#. Define `HOME` variable in your Environment Variables by picking any directory you want to be referenced as your `HOME` directory. For convenient installation, the user should go with the machine default `HOME` directory. In many Winodws OS machines `HOME` directory is the user personal `Documents` folder (i.e., C:\\Users\\yourname\\Documents).
 
     #. Create .netrc file in your `Home` directory (*_netrc file creation is only needed for Windows OS machines*). Run these commands in your command prompt. 
 
@@ -60,7 +60,7 @@ The *.netrc* file and the *_netrc* file (only for Windows OS machines) are gener
                   Replace <uid> with your user name and <password> with your Earthdata Login password.
 
 
-    #. Open your .netrc and _netrc file(s) by any text editor and remove the quotations before machine and after your password. The .netrc and _netrc file(s) should be without any quotation marks to get the curl working. The contents of the `_netrc` and `.netrc` files should be identical.
+    #. Open your .netrc and _netrc file(s) by any text editor and remove the quotations before machine and after your password. The `.netrc` and `_netrc` file(s) should be without any quotation marks to get the curl working. The contents of the `_netrc` and `.netrc` files should be identical.
 
 
 
