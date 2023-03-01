@@ -36,7 +36,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4.0</span>
       </span>
     </div>
 
@@ -137,13 +137,6 @@
 <li><p><a href="https://www.r-project.org/" class="external-link">Installing R software</a></p></li>
 <li><p><a href="https://posit.co/" class="external-link">Installing Rstudio software</a> (OPTIONAL)</p></li>
 <li><p><em>NASAaccess</em> R package needs a user registration access with <a href="https://www.earthdata.nasa.gov/" class="external-link">Earthdata</a>. Users should set up a registration account(s) with <a href="https://www.earthdata.nasa.gov/" class="external-link">Earthdata</a> login as well as well as authorizing <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> <a href="https://disc.gsfc.nasa.gov/" class="external-link">GES DISC</a> data access. Please refer to <a href="https://disc.gsfc.nasa.gov/data-access" class="external-link uri">https://disc.gsfc.nasa.gov/data-access</a> for further details.</p></li>
-<li>
-<p>After registration with <a href="https://www.earthdata.nasa.gov/" class="external-link">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>netrc</em>) with <a href="https://www.earthdata.nasa.gov/" class="external-link">Earthdata</a> credentials stored in it to streamline the retrieval access to <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> servers.</p>
-<ul>
-<li><p>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> <a href="https://disc.gsfc.nasa.gov/" class="external-link">GES DISC</a> logging information in it is needed to execute the <em>NASAaccess</em> package commands. Accessing data at NASA servers is further explained at <a href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget" class="external-link">Here</a>.</p></li>
-<li><p>For Windows users the <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> <a href="https://disc.gsfc.nasa.gov/" class="external-link">GES DISC</a> logging information should be saved in a file <strong>_netrc</strong> beside the <strong>.netrc</strong> file and stored in <em>Home</em> directory. In many Winodws machines <em>HOME</em> directory is the user personal ‘Documents’ folder (i.e., C:).</p></li>
-</ul>
-</li>
 <li><p>Installing <a href="https://curl.se/" class="external-link"><em>curl</em></a> software . Since Mac users have <a href="https://curl.se/" class="external-link"><em>curl</em></a> as part of macOS build, Windows users should make sure that their local machines build have <a href="https://curl.se/" class="external-link"><em>curl</em></a> installed properly.</p></li>
 <li><p>Checking if you can run <a href="https://curl.se/" class="external-link"><em>curl</em></a> from your command prompt. Type <code>curl --help</code> and you should see the help pages for the <a href="https://curl.se/" class="external-link"><em>curl</em></a> program once everything is defined correctly.</p></li>
 <li>
@@ -161,7 +154,15 @@
 <h3 id="conda-package">
 <strong>Conda Package</strong><a class="anchor" aria-label="anchor" href="#conda-package"></a>
 </h3>
-<p>To install <em>NASAaccess</em> package in a conda environment run the following:</p>
+<ul>
+<li>
+<p>After registration with <a href="https://www.earthdata.nasa.gov/" class="external-link">Earthdata</a> <em>NASAaccess</em> software package users should create a reference file (<em>.netrc</em>) with <a href="https://www.earthdata.nasa.gov/" class="external-link">Earthdata</a> credentials stored in it to streamline the retrieval access from <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> servers.</p>
+<ul>
+<li>Creating the <em>.netrc</em> file at the user machine <em>Home</em> directory and storing the user <a href="https://www.nasa.gov/" title="The National Aeronautics and Space Administration" class="external-link">NASA</a> <a href="https://disc.gsfc.nasa.gov/" class="external-link">GES DISC</a> logging information in it is needed to execute the <em>NASAaccess</em> package commands. Accessing data from NASA servers is further explained at <a href="https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget" class="external-link">Here</a>.</li>
+</ul>
+</li>
+<li><p>To install <em>NASAaccess</em> package in a conda environment run the following:</p></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge r<span class="op">-</span>nasaaccess</span></code></pre></div>
 </div>
 <div class="section level3">
@@ -175,7 +176,6 @@
 <h2 id="is-there-a-walk-through-examples-for-nasaaccess-software">
 <strong>Is there a walk through examples for NASAaccess software?</strong><a class="anchor" aria-label="anchor" href="#is-there-a-walk-through-examples-for-nasaaccess-software"></a>
 </h2>
-<p>Yes!</p>
 <p>Software users are encouraged to visit (<a href="https://imohamme.github.io/NASAaccess/" class="external-link uri">https://imohamme.github.io/NASAaccess/</a>) to learn more on <em>NASAaccess</em> functionality and capabilities.</p>
 </div>
 <div class="section level2">
