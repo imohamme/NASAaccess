@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4.2</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
                         <h4 data-toc-skip class="author">Ibrahim N.
 Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2023-03-21</h4>
+            <h4 data-toc-skip class="date">2023-04-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GPM.Rmd" class="external-link"><code>vignettes/GPM.Rmd</code></a></small>
       <div class="hidden name"><code>GPM.Rmd</code></div>
@@ -125,29 +125,29 @@ Houston, TX:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap" class="external-link">ggmap</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: ggplot2</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Google's Terms of Service: <span style="color: #0000BB; font-style: italic;">&lt;</span></span></span>
-<span><span class="co"><span style="color: #0000BB; font-style: italic;">#&gt; </span><span style="color: #00BBBB; font-style: italic;">ℹ</span><span style="font-style: italic;"> Please cite </span><span style="color: #0000BB; font-style: italic;">ggmap</span><span style="font-style: italic;"> if you use it! Use `citation("ggmap")` for details.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">ℹ</span> Google's Terms of Service: <span style="color: #0000BB; font-style: italic;">&lt;https://mapsplatform.google.com&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">ℹ</span> Please cite <span style="color: #0000BB;">ggmap</span> if you use it! Use `citation("ggmap")` for details.</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/raster" class="external-link">raster</a></span><span class="op">)</span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Loading required package: sp</span></span></span>
+<span><span class="co">#&gt; Loading required package: sp</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://rgdal.r-forge.r-project.org" class="external-link">rgdal</a></span><span class="op">)</span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Please note that rgdal will be retired during 2023,</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; plan transition to sf/stars/terra functions using GDAL and PROJ</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; at your earliest convenience.</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; rgdal: version: 1.6-5, (SVN revision 1199)</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Geospatial Data Abstraction Library extensions to R successfully loaded</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Loaded GDAL runtime: GDAL 3.4.2, released 2022/03/08</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Path to GDAL shared files: /Users/imohamme/Library/R/x86_64/4.2/library/rgdal/gdal</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; GDAL binary built with GEOS: FALSE </span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Path to PROJ shared files: /Users/imohamme/Library/R/x86_64/4.2/library/rgdal/proj</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; PROJ CDN enabled: FALSE</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Linking to sp version:1.6-0</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; To mute warnings of possible GDAL/OSR exportToProj4() degradation,</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</span></span></span>
+<span><span class="co">#&gt; Please note that rgdal will be retired during 2023,</span></span>
+<span><span class="co">#&gt; plan transition to sf/stars/terra functions using GDAL and PROJ</span></span>
+<span><span class="co">#&gt; at your earliest convenience.</span></span>
+<span><span class="co">#&gt; See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution</span></span>
+<span><span class="co">#&gt; rgdal: version: 1.6-5, (SVN revision 1199)</span></span>
+<span><span class="co">#&gt; Geospatial Data Abstraction Library extensions to R successfully loaded</span></span>
+<span><span class="co">#&gt; Loaded GDAL runtime: GDAL 3.4.2, released 2022/03/08</span></span>
+<span><span class="co">#&gt; Path to GDAL shared files: /Users/imohamme/Library/R/x86_64/4.2/library/rgdal/gdal</span></span>
+<span><span class="co">#&gt; GDAL binary built with GEOS: FALSE </span></span>
+<span><span class="co">#&gt; Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]</span></span>
+<span><span class="co">#&gt; Path to PROJ shared files: /Users/imohamme/Library/R/x86_64/4.2/library/rgdal/proj</span></span>
+<span><span class="co">#&gt; PROJ CDN enabled: FALSE</span></span>
+<span><span class="co">#&gt; Linking to sp version:1.6-0</span></span>
+<span><span class="co">#&gt; To mute warnings of possible GDAL/OSR exportToProj4() degradation,</span></span>
+<span><span class="co">#&gt; use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</span></span>
 <span></span>
-<span><span class="co"><span style="font-style: italic;">#Reading input data</span></span></span>
+<span><span class="co">#Reading input data</span></span>
 <span><span class="va">dem_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, </span>
 <span>                        <span class="st">"DEM_TX.tif"</span>, </span>
 <span>                        package <span class="op">=</span> <span class="st">"NASAaccess"</span><span class="op">)</span></span>
@@ -162,26 +162,26 @@ Houston, TX:</p>
 <span></span>
 <span></span>
 <span><span class="va">shape</span> <span class="op">&lt;-</span> <span class="fu">rgdal</span><span class="fu">::</span><span class="fu"><a href="http://rgdal.r-forge.r-project.org/reference/rgdal-deprecated.html" class="external-link">readOGR</a></span><span class="op">(</span><span class="va">shape_path</span><span class="op">)</span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; OGR data source with driver: ESRI Shapefile </span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Source: "/Users/imohamme/Library/R/x86_64/4.2/library/NASAaccess/extdata/basin.shp", layer: "basin"</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; with 1 features</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; It has 4 fields</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Integer64 fields read as strings:  OBJECTID disID</span></span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; Warning: OGR support is provided by the sf and terra packages among others</span></span>
+<span><span class="co">#&gt; OGR data source with driver: ESRI Shapefile </span></span>
+<span><span class="co">#&gt; Source: "/Users/imohamme/Library/R/x86_64/4.2/library/NASAaccess/extdata/basin.shp", layer: "basin"</span></span>
+<span><span class="co">#&gt; with 1 features</span></span>
+<span><span class="co">#&gt; It has 4 fields</span></span>
+<span><span class="co">#&gt; Integer64 fields read as strings:  OBJECTID disID</span></span>
 <span><span class="va">shape.df</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">fortify</a></span><span class="op">(</span><span class="va">shape</span><span class="op">)</span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Regions defined for each Polygons</span></span></span>
+<span><span class="co">#&gt; Regions defined for each Polygons</span></span>
 <span></span>
 <span></span>
 <span></span>
 <span></span>
 <span></span>
-<span><span class="co"><span style="font-style: italic;">#plot the watershed data</span></span></span>
+<span><span class="co">#plot the watershed data</span></span>
 <span><span class="va">myMap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html" class="external-link">get_stamenmap</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="op">-</span><span class="fl">96</span>,</span>
 <span>                                bottom <span class="op">=</span> <span class="fl">29.7</span>,</span>
 <span>                                right <span class="op">=</span> <span class="op">-</span><span class="fl">95.2</span>,</span>
@@ -189,18 +189,18 @@ Houston, TX:</p>
 <span>                                            maptype <span class="op">=</span> <span class="st">"terrain"</span>, </span>
 <span>                                            crop <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                             zoom <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; </span><span style="color: #00BBBB; font-style: italic;">ℹ</span><span style="font-style: italic;"> Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</span></span>
 <span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html" class="external-link">ggmap</a></span><span class="op">(</span><span class="va">myMap</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html" class="external-link">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shape.df</span>, </span>
 <span>               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>, y <span class="op">=</span> <span class="va">lat</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span>, </span>
 <span>               fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; </span><span style="color: #00BBBB; font-style: italic;">ℹ</span><span style="font-style: italic;"> Please use `linewidth` instead.</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; </span><span style="color: #555555; font-style: italic;">This warning is displayed once every 8 hours.</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; </span><span style="color: #555555; font-style: italic;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; </span><span style="color: #555555; font-style: italic;">generated.</span></span></span></code></pre></div>
+<span><span class="co">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use `linewidth` instead.</span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span></code></pre></div>
 <p><img src="GPM_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
 <p>The geographic layout of the White Oak Bayou watershed example used
 in this demonstration is depicted above. Whiteoak Bayou is a tributary
@@ -401,29 +401,29 @@ one day. You can experiment this function with yesterday data, nice!</p>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] rgdal_1.6-5   raster_3.6-20 sp_1.6-0      ggmap_3.0.1   ggplot2_3.4.1</span></span>
+<span><span class="co">#&gt; [1] rgdal_1.6-5   raster_3.6-20 sp_1.6-0      ggmap_3.0.2   ggplot2_3.4.2</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] terra_1.7-18        tidyselect_1.2.0    xfun_0.37          </span></span>
+<span><span class="co">#&gt;  [1] terra_1.7-23        tidyselect_1.2.0    xfun_0.38          </span></span>
 <span><span class="co">#&gt;  [4] bslib_0.4.2         purrr_1.0.1         lattice_0.20-45    </span></span>
-<span><span class="co">#&gt;  [7] colorspace_2.1-0    vctrs_0.5.2         generics_0.1.3     </span></span>
-<span><span class="co">#&gt; [10] htmltools_0.5.4     yaml_2.3.7          utf8_1.2.3         </span></span>
+<span><span class="co">#&gt;  [7] colorspace_2.1-0    vctrs_0.6.1         generics_0.1.3     </span></span>
+<span><span class="co">#&gt; [10] htmltools_0.5.5     yaml_2.3.7          utf8_1.2.3         </span></span>
 <span><span class="co">#&gt; [13] rlang_1.1.0         pkgdown_2.0.7       jquerylib_0.1.4    </span></span>
-<span><span class="co">#&gt; [16] pillar_1.8.1        glue_1.6.2          withr_2.5.0        </span></span>
+<span><span class="co">#&gt; [16] pillar_1.9.0        glue_1.6.2          withr_2.5.0        </span></span>
 <span><span class="co">#&gt; [19] jpeg_0.1-10         lifecycle_1.0.3     plyr_1.8.8         </span></span>
-<span><span class="co">#&gt; [22] stringr_1.5.0       munsell_0.5.0       gtable_0.3.1       </span></span>
+<span><span class="co">#&gt; [22] stringr_1.5.0       munsell_0.5.0       gtable_0.3.3       </span></span>
 <span><span class="co">#&gt; [25] ragg_1.2.5          RgoogleMaps_1.4.5.3 codetools_0.2-18   </span></span>
 <span><span class="co">#&gt; [28] memoise_2.0.1       evaluate_0.20       labeling_0.4.2     </span></span>
-<span><span class="co">#&gt; [31] knitr_1.42          fastmap_1.1.0       curl_5.0.0         </span></span>
+<span><span class="co">#&gt; [31] knitr_1.42          fastmap_1.1.1       curl_5.0.0         </span></span>
 <span><span class="co">#&gt; [34] fansi_1.0.4         highr_0.10          Rcpp_1.0.10        </span></span>
-<span><span class="co">#&gt; [37] scales_1.2.1        cachem_1.0.6        desc_1.4.2         </span></span>
+<span><span class="co">#&gt; [37] scales_1.2.1        cachem_1.0.7        desc_1.4.2         </span></span>
 <span><span class="co">#&gt; [40] jsonlite_1.8.4      farver_2.1.1        systemfonts_1.0.4  </span></span>
 <span><span class="co">#&gt; [43] fs_1.6.1            textshaping_0.3.6   png_0.1-8          </span></span>
-<span><span class="co">#&gt; [46] digest_0.6.31       stringi_1.7.12      dplyr_1.1.0        </span></span>
-<span><span class="co">#&gt; [49] grid_4.2.2          rprojroot_2.0.3     cli_3.6.0          </span></span>
+<span><span class="co">#&gt; [46] digest_0.6.31       stringi_1.7.12      dplyr_1.1.1        </span></span>
+<span><span class="co">#&gt; [49] grid_4.2.2          rprojroot_2.0.3     cli_3.6.1          </span></span>
 <span><span class="co">#&gt; [52] tools_4.2.2         bitops_1.0-7        magrittr_2.0.3     </span></span>
-<span><span class="co">#&gt; [55] sass_0.4.5          tibble_3.1.8        crayon_1.5.2       </span></span>
-<span><span class="co">#&gt; [58] tidyr_1.3.0         pkgconfig_2.0.3     rmarkdown_2.20     </span></span>
+<span><span class="co">#&gt; [55] sass_0.4.5          tibble_3.2.1        crayon_1.5.2       </span></span>
+<span><span class="co">#&gt; [58] tidyr_1.3.0         pkgconfig_2.0.3     rmarkdown_2.21     </span></span>
 <span><span class="co">#&gt; [61] httr_1.4.5          rstudioapi_0.14     R6_2.5.1           </span></span>
 <span><span class="co">#&gt; [64] compiler_4.2.2</span></span></code></pre></div>
 </div>
