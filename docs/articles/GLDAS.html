@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NASAaccess</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">4.0.0</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
                         <h4 data-toc-skip class="author">Ibrahim N.
 Mohammed</h4>
             
-            <h4 data-toc-skip class="date">2023-04-20</h4>
+            <h4 data-toc-skip class="date">2024-01-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nasa/NASAaccess/blob/HEAD/vignettes/GLDAS.Rmd" class="external-link"><code>vignettes/GLDAS.Rmd</code></a></small>
       <div class="hidden name"><code>GLDAS.Rmd</code></div>
@@ -121,10 +121,20 @@ output gridded air temperature (maximum and minimum) data in degrees
 </h2>
 <p>Let’s use the example watersheds that we introduced with
 <code>GPMswat</code> and <code>GPMpolyCentroid</code>. Please visit
-<em>NASAaccess</em> <a href=".%5CGPM.pdf">GPM</a> functions for more
+<em>NASAaccess</em> <a href="GPM.html">GPM</a> functions for more
 information.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nasa/NASAaccess" class="external-link">NASAaccess</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co">#Reading input data</span></span>
+<span></span>
+<span><span class="va">dem_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,</span>
+<span>                        <span class="st">"DEM_TX.tif"</span>,</span>
+<span>                        package <span class="op">=</span> <span class="st">"NASAaccess"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">shape_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,</span>
+<span>                          <span class="st">"basin.shp"</span>, </span>
+<span>                          package <span class="op">=</span> <span class="st">"NASAaccess"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nasa/NASAaccess" class="external-link">NASAaccess</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/GLDASwat.html">GLDASwat</a></span><span class="op">(</span>Dir <span class="op">=</span> <span class="st">"./GLDASwat/"</span>,</span>
 <span>                  watershed <span class="op">=</span> <span class="va">shape_path</span>,</span>
@@ -158,10 +168,16 @@ Noah Land Surface Model L4 3 hourly 0.25 x 0.25 degree V2.1</a>.</p>
 grid points</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shape</span>, </span>
-<span>          fill <span class="op">=</span> <span class="cn">NA</span>, </span>
-<span>          colour <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/" class="external-link">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'tidyterra'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">shape</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'red'</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">GLDASwat.table</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">LONG</span>,y<span class="op">=</span><span class="va">LAT</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="GLDAS_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 <p>We note here that <code>GLDASwat</code> has given us all the <a href="https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_3H_2.1/summary" class="external-link">GLDAS</a>
@@ -197,6 +213,7 @@ that gives daily maximum and minimum air temperature in degrees ‘C’.</p>
 outputs</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/" class="external-link">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="va">GLDASpolyCentroid.tempMaster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata/GLDASpolyCentroid'</span>,</span>
 <span>                              <span class="st">'temp_Master.txt'</span>, </span>
 <span>                                package <span class="op">=</span> <span class="st">'NASAaccess'</span><span class="op">)</span></span>
@@ -204,10 +221,10 @@ outputs</p>
 <span><span class="va">GLDASpolyCentroid.table</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">GLDASpolyCentroid.tempMaster</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#plot</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shape</span>, </span>
-<span>          fill <span class="op">=</span> <span class="cn">NA</span>, </span>
-<span>          colour <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">shape</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'red'</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">GLDASpolyCentroid.table</span>,</span>
 <span>             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">LONG</span>,y<span class="op">=</span><span class="va">LAT</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">96</span>,<span class="op">-</span><span class="fl">95.2</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">29.7</span>,<span class="fl">30</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -222,40 +239,42 @@ weighted-average daily maximum and minimum air temperature data.</p>
 </h2>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; R version 4.2.2 (2022-10-31)</span></span>
-<span><span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
-<span><span class="co">#&gt; Running under: macOS Big Sur ... 10.16</span></span>
+<span><span class="co">#&gt; R version 4.3.0 (2023-04-21)</span></span>
+<span><span class="co">#&gt; Platform: x86_64-apple-darwin20 (64-bit)</span></span>
+<span><span class="co">#&gt; Running under: macOS Ventura 13.6.3</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Matrix products: default</span></span>
-<span><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib</span></span>
-<span><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib </span></span>
+<span><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; locale:</span></span>
 <span><span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; time zone: America/New_York</span></span>
+<span><span class="co">#&gt; tzcode source: internal</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; attached base packages:</span></span>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] ggplot2_3.4.2 sf_1.0-12     raster_3.6-20 sp_1.6-0     </span></span>
+<span><span class="co">#&gt; [1] tidyterra_0.5.1 ggplot2_3.4.4   terra_1.7-55   </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] tidyselect_1.2.0   terra_1.7-23       xfun_0.38          bslib_0.4.2       </span></span>
-<span><span class="co">#&gt;  [5] purrr_1.0.1        lattice_0.20-45    colorspace_2.1-0   vctrs_0.6.1       </span></span>
-<span><span class="co">#&gt;  [9] generics_0.1.3     htmltools_0.5.5    yaml_2.3.7         utf8_1.2.3        </span></span>
-<span><span class="co">#&gt; [13] rlang_1.1.0        e1071_1.7-13       pkgdown_2.0.7      jquerylib_0.1.4   </span></span>
-<span><span class="co">#&gt; [17] pillar_1.9.0       withr_2.5.0        glue_1.6.2         DBI_1.1.3         </span></span>
-<span><span class="co">#&gt; [21] lifecycle_1.0.3    stringr_1.5.0      munsell_0.5.0      gtable_0.3.3      </span></span>
-<span><span class="co">#&gt; [25] ragg_1.2.5         codetools_0.2-18   memoise_2.0.1      evaluate_0.20     </span></span>
-<span><span class="co">#&gt; [29] knitr_1.42         fastmap_1.1.1      class_7.3-20       fansi_1.0.4       </span></span>
-<span><span class="co">#&gt; [33] highr_0.10         Rcpp_1.0.10        KernSmooth_2.23-20 scales_1.2.1      </span></span>
-<span><span class="co">#&gt; [37] classInt_0.4-9     cachem_1.0.7       desc_1.4.2         jsonlite_1.8.4    </span></span>
-<span><span class="co">#&gt; [41] farver_2.1.1       systemfonts_1.0.4  fs_1.6.1           textshaping_0.3.6 </span></span>
-<span><span class="co">#&gt; [45] digest_0.6.31      stringi_1.7.12     dplyr_1.1.1        grid_4.2.2        </span></span>
-<span><span class="co">#&gt; [49] rprojroot_2.0.3    rgdal_1.6-5        cli_3.6.1          tools_4.2.2       </span></span>
-<span><span class="co">#&gt; [53] magrittr_2.0.3     sass_0.4.5         proxy_0.4-27       tibble_3.2.1      </span></span>
-<span><span class="co">#&gt; [57] pkgconfig_2.0.3    rmarkdown_2.21     rstudioapi_0.14    R6_2.5.1          </span></span>
-<span><span class="co">#&gt; [61] units_0.8-1        compiler_4.2.2</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] sass_0.4.8         utf8_1.2.4         generics_0.1.3     tidyr_1.3.0       </span></span>
+<span><span class="co">#&gt;  [5] class_7.3-21       KernSmooth_2.23-20 stringi_1.8.3      digest_0.6.34     </span></span>
+<span><span class="co">#&gt;  [9] magrittr_2.0.3     evaluate_0.23      grid_4.3.0         fastmap_1.1.1     </span></span>
+<span><span class="co">#&gt; [13] jsonlite_1.8.8     e1071_1.7-14       DBI_1.2.0          purrr_1.0.2       </span></span>
+<span><span class="co">#&gt; [17] fansi_1.0.6        scales_1.3.0       codetools_0.2-19   textshaping_0.3.7 </span></span>
+<span><span class="co">#&gt; [21] jquerylib_0.1.4    cli_3.6.2          rlang_1.1.3        units_0.8-5       </span></span>
+<span><span class="co">#&gt; [25] munsell_0.5.0      withr_2.5.2        cachem_1.0.8       yaml_2.3.8        </span></span>
+<span><span class="co">#&gt; [29] tools_4.3.0        memoise_2.0.1      dplyr_1.1.4        colorspace_2.1-0  </span></span>
+<span><span class="co">#&gt; [33] vctrs_0.6.5        R6_2.5.1           proxy_0.4-27       lifecycle_1.0.4   </span></span>
+<span><span class="co">#&gt; [37] classInt_0.4-10    stringr_1.5.1      fs_1.6.3           ragg_1.2.7        </span></span>
+<span><span class="co">#&gt; [41] pkgconfig_2.0.3    desc_1.4.3         pkgdown_2.0.7      pillar_1.9.0      </span></span>
+<span><span class="co">#&gt; [45] bslib_0.6.1        gtable_0.3.4       glue_1.7.0         Rcpp_1.0.12       </span></span>
+<span><span class="co">#&gt; [49] sf_1.0-14          systemfonts_1.0.5  highr_0.10         xfun_0.41         </span></span>
+<span><span class="co">#&gt; [53] tibble_3.2.1       tidyselect_1.2.0   rstudioapi_0.15.0  knitr_1.45        </span></span>
+<span><span class="co">#&gt; [57] farver_2.1.1       htmltools_0.5.7    rmarkdown_2.25     compiler_4.3.0</span></span></code></pre></div>
 </div>
   </div>
 
