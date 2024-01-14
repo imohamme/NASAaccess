@@ -181,6 +181,8 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
 
           #reorder the rows
           NEX <- terra::flip(NEX,direction="v")
+          ###rotate the raster to obtain the longitudes extent -180 to 180
+          NEX <- terra::rotate(NEX)
           ncdf4::nc_close(nc)
           # Convert raster to points
           NEX.points <- terra::as.points(NEX, na.rm = TRUE)
@@ -265,6 +267,8 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
 
               #reorder the rows
               NEX <- terra::flip(NEX,direction="v")
+              ###rotate the raster to obtain the longitudes extent -180 to 180
+              NEX <- terra::rotate(NEX)
               ncdf4::nc_close(nc)
 
               ### Obtaining daily climate values at NEX grids near the IMERG grids that has been defined and explained earlier, convert units from kg m^-2 s^-1 to mm day^-1 by multiplying with 86400 (60*60*24)
@@ -325,6 +329,8 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
               values(NEX_min) <- t(ncdf4::ncvar_get(nc_min,typemin, start = c(1,1,dayjuilan) , count = c(-1, -1 ,1)))
               #reorder the rows
               NEX_min <- terra::flip(NEX_min,direction="v")
+              ###rotate the raster to obtain the longitudes extent -180 to 180
+              NEX <- terra::rotate(NEX_min)
               ncdf4::nc_close(nc_min)
               # Reading the tmax ncdf file
               test5<-file.info(paste('./temp/',filename_max,sep= ''))$size
@@ -344,6 +350,8 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
 
               #reorder the rows
               NEX_max <- terra::flip(NEX_max,direction="v")
+              ###rotate the raster to obtain the longitudes extent -180 to 180
+              NEX <- terra::rotate(NEX_max)
               ncdf4::nc_close(nc_max)
 
               ### Obtaining daily climate values at NEX grids near the IMERG grids that has been defined and explained earlier, convert units to C by substracting 273.16
