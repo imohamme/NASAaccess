@@ -51,7 +51,7 @@ The \command{GPM_NRT} function relies on 'curl' tool to transfer data from \acro
 DEM = "LowerMekong_dem.tif", start = "2022-6-1", end = "2022-6-10")}
 }
 \author{
-Ibrahim Mohammed, \email{ibrahim.mohammed@nasa.gov}
+Ibrahim Mohammed, \email{ibrahim.mohammed@ku.ac.ae}
 }
 \keyword{IMERG}
 \keyword{NASA}

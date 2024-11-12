@@ -11,15 +11,16 @@ Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/version.svg)](https:
 Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/downloads.svg)](https://anaconda.org/conda-forge/r-nasaaccess)
 [![Anaconda-Server
 Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg)](https://anaconda.org/conda-forge/r-nasaaccess)
-[![](https://img.shields.io/readthedocs/nasaaccess?style=social)](https://nasaaccess.readthedocs.io/en/latest/index.html)
-[![](https://img.shields.io/github/stars/nasa/nasaaccess?style=social)](https://github.com/nasa/NASAaccess)
+[![NASAaccess
+readthedocs](https://img.shields.io/readthedocs/nasaaccess?style=social)](https://nasaaccess.readthedocs.io/en/latest/index.html)
+[![NASAaccess](https://img.shields.io/github/stars/nasa/nasaaccess?style=social)](https://github.com/nasa/NASAaccess)
 
 <!-- ![lifecycle](https://img.shields.io/badge/lifecycle-stable-sucess.svg?style=plastic&logo=appveyor)
 <!-- ![GitHub Downloads](https://img.shields.io/github/downloads/nasa/NASAaccess/total?style=plastic)
 &#10;<!-- badges: end -->
 
 [*Ibrahim N.
-Mohammed*](https://science.gsfc.nasa.gov/sed/bio/ibrahim.mohammed "Ibrahim N. Mohammed")
+Mohammed*](https://www.ku.ac.ae/college-people/ibrahim-mohammed/ "Ibrahim N. Mohammed")
 
 ## **What is NASAaccess?**
 
@@ -45,7 +46,7 @@ remote sensing gridded time series data as well.
 ## **Where to find the NASAaccess software?**
 
 - R package can be downloaded from GitHub at
-  <https://github.com/nasa/NASAaccess>.
+  <https://github.com/imohamme/NASAaccess>.
 
 - Conda package can be installed directly from *Anaconda* by searching
   for `r-nasaaccess`.
@@ -56,7 +57,7 @@ remote sensing gridded time series data as well.
 ## **How NASAaccess software is distributed?**
 
 *NASAaccess* is an open-source software package under [NASA Open Source
-Agreement v1.3](https://opensource.org/license/nasa1-3-php/).
+Agreement v1.3](https://opensource.org/license/nasa1-3-php).
 
 ## **What is needed to install the NASAaccess software on my local machine?**
 
@@ -96,7 +97,7 @@ local machine:
 
   - `library(devtools)`
 
-  - `install_github("nasa/NASAaccess", build_vignettes = TRUE)`
+  - `install_github("imohamme/NASAaccess", build_vignettes = TRUE)`
 
   - `library(NASAaccess)`
 
@@ -128,7 +129,7 @@ message.
     [GES DISC](https://disc.gsfc.nasa.gov/) logging information in it is
     done automatically to execute the *NASAaccess* package commands.
     Accessing data from NASA servers is further explained at
-    [Here](https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget).
+    [Here](https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget).
     The [GES DISC](https://disc.gsfc.nasa.gov/) user registration access
     logging information will be processed by masking in the terminal on
     any major OS. Without providing [GES
@@ -155,30 +156,32 @@ Software users are encouraged to visit
 (<https://imohamme.github.io/NASAaccess/>) to learn more on *NASAaccess*
 functionality and capabilities.
 
-## **How to cite R NASAaccess package?**
+## **How to cite NASAaccess Platform?**
+
+### **R Package**
 
 ``` r
 citation(package = 'NASAaccess')
 #> To cite package 'NASAaccess' in publications use:
 #> 
-#>   Mohammed I (2023). _NASAaccess: Downloading and Reformatting Tool for
-#>   NASA Earth Observation Data Products_. R package version 3.4.3,
-#>   <https://github.com/nasa/NASAaccess>.
+#>   Mohammed I (2024). _NASAaccess: Downloading and Reformatting Tool for
+#>   NASA Earth Observation Data Products_. R package version 4.1.0,
+#>   <https://github.com/imohamme/NASAaccess>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {{NASAaccess}: Downloading and Reformatting Tool for NASA Earth Observation Data Products},
 #>     author = {Ibrahim Mohammed},
-#>     year = {2023},
-#>     institution = {National Aeronautics and Space Administration, Goddard Space Flight Center},
-#>     address = {Greenbelt, Maryland},
-#>     note = {R package version 3.4.3},
-#>     url = {https://github.com/nasa/NASAaccess},
+#>     year = {2024},
+#>     institution = {Khalifa University, Civil and Environmental Engineering},
+#>     address = {P. O. Box 127788, Abu Dhabi, UAE},
+#>     note = {R package version 4.1.0},
+#>     url = {https://github.com/imohamme/NASAaccess},
 #>   }
 ```
 
-## Reference
+### **Reference**
 
 Mohammed, I.N., Bustamante, E.G.R., Bolten, J.D., Nelson, E.J., 2023.
 Technical note: NASAaccess – a tool for access, reformatting, and

@@ -1,4 +1,4 @@
-###1/10/24
+###11/2/24
 #' CMIP6 climate data from NASA NEX-GDDP
 #'
 #' This function downloads climate change data of rainfall and air temperature from \acronym{NASA} Earth Exchange Global Daily Downscaled Projections \acronym{NEX-GDDP-CMIP6} \acronym{AMES} servers, extracts data from grids within a specified watershed shapefile, and then generates tables in a format that any hydrological model requires for rainfall or air temperature data input. The function also generates the climate stations file input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected climatological grids that fall within the specified watershed. The \acronym{NASA} Earth Exchange Global Daily Downscaled Projections \acronym{NEX-GDDP-CMIP6} data set is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model \acronym{GCM} runs conducted under the Coupled Model Intercomparison Project Phase 6 \acronym{CMIP6} and across two of the four "Tier 1" greenhouse gas emissions scenarios known as Shared Socioeconomic Pathways \acronym{SSPs}.
@@ -12,7 +12,7 @@
 #' @param slice A scenario from the Shared Socioeconomic Pathways (SSPs). It's value can be \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, \acronym{'ssp585'}, or \acronym{'historical'}.
 #'
 #' @details A user should visit \url{https://disc.gsfc.nasa.gov/information/documents} Data Access document to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} \acronym{GESDISC} Data Access to successfully work with this function.
-#' The function accesses \acronym{NASA} Goddard Space Flight Center server for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/}), and \acronym{NASA} AMES Research Center server for \acronym{NEX-GDDP-CMIP6}
+#' The function accesses \acronym{NASA} Goddard Space Flight Center server for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/}), and \acronym{NASA} AMES Research Center server for \acronym{NEX-GDDP-CMIP6}
 #' climate change data products at \url{https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6}.  The function uses variable name ('pr') for rainfall in \acronym{NEX-GDDP-CMIP6} data products and variable name ('tas') for \acronym{NEX-GDDP-CMIP6} minimum ('tasmin') and maximum ('tasmax')
 #' air temperature data products. The \command{NEX_GDDP_CMIP6} function outputs gridded rainfall data in 'mm' and gridded air temperature (maximum and minimum) data in degrees 'C'.
 #'
@@ -23,12 +23,12 @@
 #' (Wood et al. 2002; Wood et al. 2004; Maurer et al. 2008; Thrasher et al. 2012).  The \acronym{NEX-GDDP-CMIP6} climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km).
 #' The \command{NEX_GDDP_CMIP6} downscales the \acronym{NEX-GDDP-CMIP6} data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by Mohammed et al. (2018).
 #'
-#' The \command{NEX_GDDP_CMIP6} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDDP-CMIP6}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDDP_CMIP6} or any other function part of the this package (\acronym{NASAaccess}).
+#' The \command{NEX_GDDP_CMIP6} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDDP-CMIP6}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDDP_CMIP6} or any other function part of the this package (\acronym{NASAaccess}).
 #' @note
 #' \code{start} should be equal to or greater than 2015-Jan-01 for \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, or \acronym{'ssp585'} \acronym{SSPs} climate scenario.
 #'
 #' \code{start} should be equal to or greater than 1950-Jan-01 and \code{end} should be equal to or less than 2014-Dec-31 for the \acronym{'historical'} \acronym{GCM} retrospective climate data.
-#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
+#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@ku.ac.ae}
 #'
 #' @keywords NASA NEX-GDDP-CMIP6 Climate Change CMIP6
 #' @return A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with hydrological models and
@@ -66,10 +66,10 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
   if(file.exists('~/.netrc')==TRUE)
   {
 
-    url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/'
+    url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/'
     url.GDDP.input <- 'https://ds.nccs.nasa.gov/thredds/ncss/grid/AMES/NEX/GDDP-CMIP6/'
     url.catalog.input <- paste('https://ds.nccs.nasa.gov/thredds/catalog/AMES/NEX/GDDP-CMIP6/',model,slice,'catalog.html',sep="/")
-    myvarIMERG <- 'precipitationCal'
+    myvarIMERG <- 'precipitation'
     myvarNAME <- 'climate'
     #check the DATASHARE NEX-GDDP availability
     if(httr::status_code(GET(url.catalog.input))==200)
@@ -423,7 +423,7 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
   {
     cat('Sorry!','  \n')
     cat('You need to create two files named ".netrc" and ".urs_cookies" at your home Directory.','  \n')
-    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget','  \n')
+    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget','  \n')
     cat('Thank you.','  \n')
   }
 

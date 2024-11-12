@@ -16,7 +16,7 @@
 #' The \acronym{GLDAS} V2.1 simulation started on January 1, 2000 using the conditions from the \acronym{GLDAS} V2.0 simulation. The \acronym{GLDAS} V2.1 simulation was forced with National Oceanic and Atmospheric Administration \acronym{NOAA}, Global Data Assimilation System \acronym{GDAS} atmospheric analysis fields (Derber et al., 1991), the disaggregated Global Precipitation Climatology Project \acronym{GPCP} precipitation fields (Adler et al., 2003), and the Air Force Weather Agency’s AGRicultural METeorological modeling system \acronym{AGRMET} radiation fields which became available for March 1, 2001 onward.
 #' @note
 #' \command{start} should be equal to or greater than 2000-Jan-01.
-#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
+#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@ku.ac.ae}
 #' @keywords NASA GLDAS Air Temperature
 #' @return A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with \acronym{SWAT}, and
 #' a scalar of maximum and minimum air temperature gridded data values at each point within the study watershed in ascii format needed by \acronym{SWAT} model weather inputs will be stored at \code{Dir}.
@@ -256,7 +256,7 @@ GLDASwat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lowe
   {
     cat('Sorry!','  \n')
     cat('You need to create two files named ".netrc" and ".urs_cookies" at your home Directory.','  \n')
-    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget','  \n')
+    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget','  \n')
     cat('Make sure that the ".netrc" file contain the follwoing line with your credentials: ','  \n')
     cat('machine urs.earthdata.nasa.gov login uid_goes_here password password_goes_here','  \n')
     cat('Thank you.','  \n')

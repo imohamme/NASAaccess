@@ -1,90 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/_build/html/genindex.html</loc>
-  </url>
-  <url>
-    <loc>/_build/html/index.html</loc>
-  </url>
-  <url>
-    <loc>/_build/html/nasaaccess_R.html</loc>
-  </url>
-  <url>
-    <loc>/_build/html/nasaaccess_python.html</loc>
-  </url>
-  <url>
-    <loc>/_build/html/nasaaccess_tethys.html</loc>
-  </url>
-  <url>
-    <loc>/_build/html/search.html</loc>
-  </url>
-  <url>
-    <loc>/articles/About.html</loc>
-  </url>
-  <url>
-    <loc>/articles/GLDAS.html</loc>
-  </url>
-  <url>
-    <loc>/articles/GPM.html</loc>
-  </url>
-  <url>
-    <loc>/articles/NEXGDDP-CMIP6.html</loc>
-  </url>
-  <url>
-    <loc>/articles/NEXGDDP.html</loc>
-  </url>
-  <url>
-    <loc>/articles/NEXGDPP.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GLDASpolyCentroid.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GLDASwat.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GPM_NRT.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GPMpolyCentroid.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GPMswat.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NEX_GDDP_CMIP5.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NEX_GDDP_CMIP6.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NEX_GDPP_CMIP5.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NEX_GDPP_CMIP6.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NEX_GDPPswat.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://github.com/imohamme/NASAaccess/404.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/LICENSE-text.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/_build/html/genindex.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/_build/html/index.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/_build/html/nasaaccess_R.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/_build/html/nasaaccess_python.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/_build/html/nasaaccess_tethys.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/_build/html/search.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/About.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/GLDAS.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/GPM.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/NEXGDDP-CMIP6.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/NEXGDDP.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/NEXGDPP.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/articles/index.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/authors.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/index.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/news/index.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/GLDASpolyCentroid.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/GLDASwat.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/GPM_NRT.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/GPMpolyCentroid.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/GPMswat.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/NEX_GDDP_CMIP5.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/NEX_GDDP_CMIP6.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/NEX_GDPP_CMIP5.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/NEX_GDPP_CMIP6.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/NEX_GDPPswat.html</loc></url>
+<url><loc>https://github.com/imohamme/NASAaccess/reference/index.html</loc></url>
 </urlset>
+

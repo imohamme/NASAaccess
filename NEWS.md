@@ -1,3 +1,7 @@
+# NASAaccess 4.1.0
+* Updating contacts.
+* Migration to GPM Version 07 Data.
+
 # NASAaccess 4.0.0
 * Removing raster, rgeos, regal, maptools and transition to terra!
 * Fixing CMIP6 server access

@@ -19,7 +19,7 @@
 #' \command{start} should be equal to or greater than 2000-Jun-01.
 #'
 #' \command{end} the minimum latency is 1 day.
-#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
+#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@ku.ac.ae}
 #' @keywords NASA IMERG Near Real Time NRT Precipitation
 #' @return A table that includes points ID, Point file name, Lat, Long, and Elevation information, and
 #' a scalar of rainfall gridded data values at each point within the study watershed in ascii format needed by hydrological model weather inputs will be stored at \code{Dir}.
@@ -262,7 +262,7 @@ GPM_NRT=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'LowerMekon
   {
     cat('Sorry!','  \n')
     cat('You need to create two files ".netrc" and ".urs_cookies" at your home Directory.','  \n')
-    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget','  \n')
+    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget','  \n')
     cat('Make sure that the ".netrc" file contains the follwoing line with your credentials: ','  \n')
     cat('machine urs.earthdata.nasa.gov login uid_goes_here password password_goes_here','  \n')
     cat('Thank you.','  \n')

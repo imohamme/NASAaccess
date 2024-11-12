@@ -41,7 +41,7 @@ This function downloads climate change data of rainfall and air temperature from
 }
 \details{
 A user should visit \url{https://disc.gsfc.nasa.gov/information/documents} Data Access document to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} \acronym{GESDISC} Data Access to successfully work with this function.
-The function accesses \acronym{NASA} Goddard Space Flight Center server for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/}), and \acronym{NASA} AMES Research Center server for \acronym{NEX-GDDP-CMIP6}
+The function accesses \acronym{NASA} Goddard Space Flight Center server for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/}), and \acronym{NASA} AMES Research Center server for \acronym{NEX-GDDP-CMIP6}
 climate change data products at \url{https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6}.  The function uses variable name ('pr') for rainfall in \acronym{NEX-GDDP-CMIP6} data products and variable name ('tas') for \acronym{NEX-GDDP-CMIP6} minimum ('tasmin') and maximum ('tasmax')
 air temperature data products. The \command{NEX_GDDP_CMIP6} function outputs gridded rainfall data in 'mm' and gridded air temperature (maximum and minimum) data in degrees 'C'.
 
@@ -52,7 +52,7 @@ The Bias-Correction Spatial Disaggregation \acronym{BCSD} method used in generat
 (Wood et al. 2002; Wood et al. 2004; Maurer et al. 2008; Thrasher et al. 2012).  The \acronym{NEX-GDDP-CMIP6} climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km).
 The \command{NEX_GDDP_CMIP6} downscales the \acronym{NEX-GDDP-CMIP6} data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by Mohammed et al. (2018).
 
-The \command{NEX_GDDP_CMIP6} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDDP-CMIP6}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDDP_CMIP6} or any other function part of the this package (\acronym{NASAaccess}).
+The \command{NEX_GDDP_CMIP6} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDDP-CMIP6}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDDP_CMIP6} or any other function part of the this package (\acronym{NASAaccess}).
 }
 \note{
 \code{start} should be equal to or greater than 2015-Jan-01 for \acronym{'ssp126'}, \acronym{'ssp245'}, \acronym{'ssp370'}, or \acronym{'ssp585'} \acronym{SSPs} climate scenario.
@@ -85,7 +85,7 @@ Wood, A.W., E.P. Maurer, A. Kumar, and D.P. Lettenmaier, 2002: Long-range experi
 Wood, A.W., L.R. Leung, V. Sridhar, and D.P. Lettenmaier, 2004: Hydrologic implications of dynamical and statistical approaches to downscaling climate model outputs. Climatic Change, 15,189-216, doi: 10.1023/B:CLIM.0000013685.99609.9e
 }
 \author{
-Ibrahim Mohammed, \email{ibrahim.mohammed@nasa.gov}
+Ibrahim Mohammed, \email{ibrahim.mohammed@ku.ac.ae}
 }
 \keyword{CMIP6}
 \keyword{Change}

@@ -56,7 +56,7 @@ Derber, J. C., D. F. Parrish, and S. J. Lord (1991), The New Global Operational 
 Rodell, M., P. R. Houser, U. Jambor, J. Gottschalck, K. Mitchell, C.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich, J. K. Entin*, J. P. Walker, D. Lohmann, and D. Toll (2004), The Global Land Data Assimilation System, B. Am. Meteorol. Soc., 85, 381-394, doi:10.1175/bams-85-3-381.
 }
 \author{
-Ibrahim Mohammed, \email{ibrahim.mohammed@nasa.gov}
+Ibrahim Mohammed, \email{ibrahim.mohammed@ku.ac.ae}
 }
 \keyword{Air}
 \keyword{GLDAS}

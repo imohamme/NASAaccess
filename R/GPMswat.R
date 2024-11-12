@@ -1,4 +1,4 @@
-###8/1/24
+###Nov/05/24
 #' SWAT rainfall data from NASA GPM
 #'
 #' This function downloads rainfall remote sensing data of \acronym{TRMM} and \acronym{IMERG} from \acronym{NASA} \acronym{GSFC} servers, extracts data from grids within a specified watershed shapefile, and then generates tables in a format that \acronym{SWAT} requires for rainfall data input. The function also generates the rainfall stations file input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected grids that fall within the specified watershed.
@@ -7,7 +7,7 @@
 #' @param DEM A study watershed digital elevation model raster in a geographic projection crs='+proj=longlat +datum=WGS84'.
 #' @param start Beginning date for gridded rainfall data.
 #' @param end Ending date for gridded rainfall data.
-#' @details A user should visit \url{https://disc.gsfc.nasa.gov/information/documents} Data Access document to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} GESDISC Data Access to successfully work with this function. The function accesses \acronym{NASA} Goddard Space Flight Center server address for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/}), and \acronym{NASA} Goddard Space Flight Center server address for \acronym{TRMM} remote sensing data products (\url{https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_RT/TRMM_3B42RT_Daily.7/}).  The function uses variable name ('precipitationCal') for rainfall in \acronym{IMERG} data products and variable name ('precipitation') for \acronym{TRMM} rainfall data products. Units for gridded rainfall data are 'mm'.
+#' @details A user should visit \url{https://disc.gsfc.nasa.gov/information/documents} Data Access document to register with the Earth Observing System Data and Information System (\acronym{NASA Earthdata}) and then authorize \acronym{NASA} GESDISC Data Access to successfully work with this function. The function accesses \acronym{NASA} Goddard Space Flight Center server address for \acronym{IMERG} remote sensing data products at (\url{https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/}), and \acronym{NASA} Goddard Space Flight Center server address for \acronym{TRMM} remote sensing data products (\url{https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_RT/TRMM_3B42RT_Daily.7/}).  The function uses variable name ('precipitation') for rainfall in \acronym{IMERG} data products and variable name ('precipitation') for \acronym{TRMM} rainfall data products. Units for gridded rainfall data are 'mm'.
 #'
 #' \acronym{IMERG} dataset is the GPM Level 3 \acronym{IMERG} *Final* Daily 0.1 x 0.1 deg (GPM_3IMERGDF) derived from the half-hourly GPM_3IMERGHH. The derived result represents the final estimate of the daily accumulated precipitation. The dataset is produced at the \acronym{NASA} Goddard Earth Sciences (GES) Data and Information Services Center (DISC) by simply summing the valid precipitation retrievals for the day in GPM_3IMERGHH and giving the result in (mm) \url{https://gpm.nasa.gov/data/directory}.
 #'
@@ -19,7 +19,7 @@
 #' The \command{GPMswat} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation \acronym{IMERG}/\acronym{TRMM} netcdf daily global files is designed to work seamlessly given that appropriate logging information are stored in the ".netrc" file and the cookies file ".urs_cookies" as explained in registering with the Earth Observing System Data and Information System. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{GPMswat}.
 #' @note
 #' \command{start} should be equal to or greater than 2000-Mar-01.
-#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@nasa.gov}
+#' @author Ibrahim Mohammed, \email{ibrahim.mohammed@@ku.ac.ae}
 #' @keywords NASA IMERG TRMM Precipitation
 #' @return A table that includes points ID, Point file name, Lat, Long, and Elevation information formatted to be read with \acronym{SWAT}, and
 #' a scalar of rainfall gridded data values at each point within the study watershed in ascii format needed by \acronym{SWAT} model weather inputs will be stored at \code{Dir}.
@@ -48,9 +48,9 @@ GPMswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lower
     {
 
 
-        url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.06/'
+        url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/'
         url.TRMM.input <- 'https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_RT/TRMM_3B42RT_Daily.7'
-        myvarIMERG <- 'precipitationCal'
+        myvarIMERG <- 'precipitation'
         myvarTRMM <- 'precipitation'
         ####Before getting to work on this function do this check
         if (as.Date(start) >= as.Date('2000-03-01'))
@@ -378,7 +378,7 @@ GPMswat=function(Dir='./SWAT_INPUT/', watershed ='LowerMekong.shp', DEM = 'Lower
   {
     cat('Sorry!','  \n')
     cat('You need to create two files named ".netrc" and ".urs_cookies" at your home Directory.','  \n')
-    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget','  \n')
+    cat('Instructions on creating the ".netrc" and the ".urs_cookies" files can be accessed at https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget','  \n')
     cat('Make sure that the ".netrc" file contains the follwoing line with your credentials: ','  \n')
     cat('machine urs.earthdata.nasa.gov login uid_goes_here password password_goes_here','  \n')
     cat('Thank you.','  \n')

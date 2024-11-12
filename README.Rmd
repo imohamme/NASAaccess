@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![DOI](https://zenodo.org/badge/175226662.svg)](https://zenodo.org/badge/latestdoi/175226662)[![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/version.svg)](https://anaconda.org/conda-forge/r-nasaaccess) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/downloads.svg)](https://anaconda.org/conda-forge/r-nasaaccess) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg)](https://anaconda.org/conda-forge/r-nasaaccess) [![](https://img.shields.io/readthedocs/nasaaccess?style=social)](https://nasaaccess.readthedocs.io/en/latest/index.html) [![](https://img.shields.io/github/stars/nasa/nasaaccess?style=social)](https://github.com/nasa/NASAaccess)
+[![DOI](https://zenodo.org/badge/175226662.svg)](https://zenodo.org/badge/latestdoi/175226662)[![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/version.svg)](https://anaconda.org/conda-forge/r-nasaaccess) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/downloads.svg)](https://anaconda.org/conda-forge/r-nasaaccess) [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-nasaaccess/badges/platforms.svg)](https://anaconda.org/conda-forge/r-nasaaccess) [![NASAaccess readthedocs](https://img.shields.io/readthedocs/nasaaccess?style=social)](https://nasaaccess.readthedocs.io/en/latest/index.html) [![NASAaccess](https://img.shields.io/github/stars/nasa/nasaaccess?style=social)](https://github.com/nasa/NASAaccess)
 
 ```{=html}
 <!-- ![lifecycle](https://img.shields.io/badge/lifecycle-stable-sucess.svg?style=plastic&logo=appveyor)
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 ```
-[*Ibrahim N. Mohammed*](https://science.gsfc.nasa.gov/sed/bio/ibrahim.mohammed "Ibrahim N. Mohammed")
+[*Ibrahim N. Mohammed*](https://www.ku.ac.ae/college-people/ibrahim-mohammed/ "Ibrahim N. Mohammed")
 
 ## **What is NASAaccess?**
 
@@ -33,7 +33,7 @@ knitr::opts_chunk$set(
 
 ## **Where to find the NASAaccess software?**
 
--   R package can be downloaded from GitHub at <https://github.com/nasa/NASAaccess>.
+-   R package can be downloaded from GitHub at <https://github.com/imohamme/NASAaccess>.
 
 -   Conda package can be installed directly from *Anaconda* by searching for `r-nasaaccess`.
 
@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 
 ## **How NASAaccess software is distributed?**
 
-*NASAaccess* is an open-source software package under [NASA Open Source Agreement v1.3](https://opensource.org/license/nasa1-3-php/).
+*NASAaccess* is an open-source software package under [NASA Open Source Agreement v1.3](https://opensource.org/license/nasa1-3-php).
 
 ## **What is needed to install the NASAaccess software on my local machine?**
 
@@ -63,7 +63,7 @@ On a local machine the user should have installed the following programs as well
 
     -   `library(devtools)`
 
-    -   `install_github("nasa/NASAaccess", build_vignettes = TRUE)`
+    -   `install_github("imohamme/NASAaccess", build_vignettes = TRUE)`
 
     -   `library(NASAaccess)`
 
@@ -72,7 +72,7 @@ Within the Rstudio help tab the user can verify that the package has been instal
 ### **Conda Package**
 -   *NASAaccess* conda package needs a user registration access with [Earthdata](https://www.earthdata.nasa.gov/). Users should set up a registration account(s) with [Earthdata](https://www.earthdata.nasa.gov/) login as well as well as authorizing [NASA](https://www.nasa.gov/ "The National Aeronautics and Space Administration") [GES DISC](https://disc.gsfc.nasa.gov/) data access. Please refer to <https://disc.gsfc.nasa.gov/information/documents> Data Access section for further details.
 
-    -   Creating the *.netrc* file at the user machine *Home* directory and storing the user [NASA](https://www.nasa.gov/ "The National Aeronautics and Space Administration") [GES DISC](https://disc.gsfc.nasa.gov/) logging information in it is done automatically to execute the *NASAaccess* package commands. Accessing data from NASA servers is further explained at [Here](https://wiki.earthdata.nasa.gov/display/EL/How+To+Access+Data+With+cURL+And+Wget). The [GES DISC](https://disc.gsfc.nasa.gov/) user registration access logging information will be processed by masking in the terminal on any major OS. Without providing [GES DISC](https://disc.gsfc.nasa.gov/) user registration access logging information, the user will receive '*You need to provide your Earthdata GES DISC login to proceed...*' message.
+    -   Creating the *.netrc* file at the user machine *Home* directory and storing the user [NASA](https://www.nasa.gov/ "The National Aeronautics and Space Administration") [GES DISC](https://disc.gsfc.nasa.gov/) logging information in it is done automatically to execute the *NASAaccess* package commands. Accessing data from NASA servers is further explained at [Here](https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget). The [GES DISC](https://disc.gsfc.nasa.gov/) user registration access logging information will be processed by masking in the terminal on any major OS. Without providing [GES DISC](https://disc.gsfc.nasa.gov/) user registration access logging information, the user will receive '*You need to provide your Earthdata GES DISC login to proceed...*' message.
     
     
 -   To install *NASAaccess* package in a conda environment run the following:
@@ -89,13 +89,14 @@ Full details on installing the web-based application of *NASAaccess* on single m
 
 Software users are encouraged to visit (<https://imohamme.github.io/NASAaccess/>) to learn more on *NASAaccess* functionality and capabilities.
 
-## **How to cite R NASAaccess package?**
+## **How to cite NASAaccess Platform?**
 
+### **R Package**
 ```{r}
 citation(package = 'NASAaccess')
 
 ```
 
-## Reference
+### **Reference**
 
 Mohammed, I.N., Bustamante, E.G.R., Bolten, J.D., Nelson, E.J., 2023. Technical note: NASAaccess – a tool for access, reformatting, and visualization of remotely sensed earth observation and climate data. Hydrol. Earth Syst. Sci. 27, 3621-3642, https://doi.org/10.5194/hess-27-3621-2023

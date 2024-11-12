@@ -85,7 +85,7 @@ dim(GLDASwat.table)
 
 Now, let's see the location of the `GLDASwat` generated grid points
 
-```{r}
+```{r, fig.alt="GLDAS data grids that fall within the boundaries of the White Oak Bayou watershed"}
 library(ggplot2)
 library(tidyterra)
 ggplot(shape) + 
@@ -134,7 +134,7 @@ GLDASpolyCentroid(Dir = "./GLDASpolyCentroid/",
 
 Now let's examine the `GLDASpolyCentroid` generated outputs
 
-```{r}
+```{r, fig.alt="A pseudo air temperature gauge located at the centroid of the White Oak Bayou watershed"}
 library(ggplot2)
 library(tidyterra)
 GLDASpolyCentroid.tempMaster <- system.file('extdata/GLDASpolyCentroid',
