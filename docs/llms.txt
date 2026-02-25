@@ -5,7 +5,7 @@ Mohammed*](https://www.ku.ac.ae/college-people/ibrahim-mohammed/ "Ibrahim N. Moh
 
 ## **What is NASAaccess?**
 
-*NASAaccess* is a software application in the form of a
+*NASAaccess* is a software program application in the form of a
 [R](https://www.r-project.org/about.html) package, a
 [conda](https://docs.conda.io/en/latest/) package, and a
 [Tethys](https://www.tethysplatform.org/) web application. *NASAaccess*
@@ -145,19 +145,19 @@ functionality and capabilities.
 citation(package = 'NASAaccess')
 #> To cite package 'NASAaccess' in publications use:
 #> 
-#>   Mohammed I (2024). _NASAaccess: Downloading and Reformatting Tool for
-#>   NASA Earth Observation Data Products_. R package version 4.1.0,
+#>   Mohammed I (2026). _NASAaccess: Downloading and Reformatting Tool for
+#>   NASA Earth Observation Data Products_. R package version 4.2.0,
 #>   <https://github.com/imohamme/NASAaccess>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {{NASAaccess}: Downloading and Reformatting Tool for NASA Earth Observation Data Products},
+#>     title = {NASAaccess: Downloading and Reformatting Tool for NASA Earth Observation Data Products},
 #>     author = {Ibrahim Mohammed},
-#>     year = {2024},
+#>     year = {2026},
 #>     institution = {Khalifa University, Civil and Environmental Engineering},
 #>     address = {P. O. Box 127788, Abu Dhabi, UAE},
-#>     note = {R package version 4.1.0},
+#>     note = {R package version 4.2.0},
 #>     url = {https://github.com/imohamme/NASAaccess},
 #>   }
 ```
