@@ -135,7 +135,7 @@ the ".netrc" and ".urs_cookies" files can be accessed at
 <https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget>.
 It is imperative to say here that a user machine should have 'curl'
 installed as a prerequisite to run `NEX_GDDP_CMIP5` or any other
-function part of the this package (NASAaccess).
+function part of this package (NASAaccess).
 
 ## Note
 

@@ -15,7 +15,7 @@ NASA Earth Observation Data Products*. R package version 4.2.0,
 <https://github.com/imohamme/NASAaccess>.
 
     @Manual{,
-      title = {{NASAaccess}: Downloading and Reformatting Tool for NASA Earth Observation Data Products},
+      title = {NASAaccess: Downloading and Reformatting Tool for NASA Earth Observation Data Products},
       author = {Ibrahim Mohammed},
       year = {2026},
       institution = {Khalifa University, Civil and Environmental Engineering},
