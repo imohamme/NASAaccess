@@ -1,3 +1,9 @@
+# NASAaccess 4.2.0
+* Updating contacts.
+* Fixing GPM Version 07 Data links.
+* changing 'precipitationCal' variable to 'precipitation' in accordance with GPM Version 07
+* Changing CMIP5 data server to OPeNDAP
+
 # NASAaccess 4.1.0
 * Updating contacts.
 * Migration to GPM Version 07 Data.

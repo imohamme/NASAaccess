@@ -1,0 +1,207 @@
+# CMIP6 climate data from NASA NEX-GDDP
+
+This function downloads climate change data of rainfall and air
+temperature from NASA Earth Exchange Global Daily Downscaled Projections
+NEX-GDDP-CMIP6 AMES servers, extracts data from grids within a specified
+watershed shapefile, and then generates tables in a format that any
+hydrological model requires for rainfall or air temperature data input.
+The function also generates the climate stations file input (file with
+columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected
+climatological grids that fall within the specified watershed. The NASA
+Earth Exchange Global Daily Downscaled Projections NEX-GDDP-CMIP6 data
+set is comprised of downscaled climate scenarios for the globe that are
+derived from the General Circulation Model GCM runs conducted under the
+Coupled Model Intercomparison Project Phase 6 CMIP6 and across two of
+the four "Tier 1" greenhouse gas emissions scenarios known as Shared
+Socioeconomic Pathways SSPs.
+
+## Usage
+
+``` r
+NEX_GDDP_CMIP6(
+  Dir = "./INPUT/",
+  watershed = "LowerMekong.shp",
+  DEM = "LowerMekong_dem.tif",
+  start = "2060-12-1",
+  end = "2060-12-3",
+  model = "MIROC6",
+  type = "pr",
+  slice = "ssp245"
+)
+```
+
+## Arguments
+
+- Dir:
+
+  A directory name to store gridded climate data and stations files.
+
+- watershed:
+
+  A study watershed shapefile spatially describing polygon(s) in a
+  geographic projection crs = '+proj=longlat +ellps=WGS84 +datum=WGS84
+  +no_defs'.
+
+- DEM:
+
+  A study watershed digital elevation model raster in a geographic
+  projection crs = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'.
+
+- start:
+
+  Beginning date for gridded climate data.
+
+- end:
+
+  Ending date for gridded climate data.
+
+- model:
+
+  A climate modeling center and name from the World Climate Research
+  Programme WCRP global climate projections through the Coupled Model
+  Intercomparison Project 6 CMIP6 (e.g., MIROC6 which is the sixth
+  version of the Model for Interdisciplinary Research on Climate MIROC
+  model).
+
+- type:
+
+  A flux data type. It's value can be 'pr' for precipitation or 'tas'
+  for air temperature.
+
+- slice:
+
+  A scenario from the Shared Socioeconomic Pathways (SSPs). It's value
+  can be 'ssp126', 'ssp245', 'ssp370', 'ssp585', or 'historical'.
+
+## Value
+
+A table that includes points ID, Point file name, Lat, Long, and
+Elevation information formatted to be read with hydrological models and
+a scalar of climate change gridded data values at each point within the
+study watershed in ascii format needed by hydrological model weather
+inputs will be stored at `Dir`.
+
+## Details
+
+A user should visit <https://disc.gsfc.nasa.gov/information/documents>
+Data Access document to register with the Earth Observing System Data
+and Information System (NASA Earthdata) and then authorize NASA GESDISC
+Data Access to successfully work with this function. The function
+accesses NASA Goddard Space Flight Center server for IMERG remote
+sensing data products at
+(<https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/>),
+and NASA AMES Research Center server for NEX-GDDP-CMIP6 climate change
+data products at
+<https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6>.
+The function uses variable name ('pr') for rainfall in NEX-GDDP-CMIP6
+data products and variable name ('tas') for NEX-GDDP-CMIP6 minimum
+('tasmin') and maximum ('tasmax') air temperature data products. The
+`NEX_GDDP_CMIP6` function outputs gridded rainfall data in 'mm' and
+gridded air temperature (maximum and minimum) data in degrees 'C'.
+
+NEX-GDDP-CMIP6 dataset is comprised of downscaled climate scenarios for
+the globe that are derived from the General Circulation Model GCM runs
+conducted under the Coupled Model Intercomparison Project Phase 6 CMIP6
+(Eyring et al. 2016) and across the four "Tier 1" greenhouse gas
+emissions scenarios known as Shared Socioeconomic Pathways SSPs (O'Neil
+et al. 2016; Meinshausen et al. 2020). The CMIP6 GCM runs were developed
+in support of the Sixth Assessment Report of the Intergovernmental Panel
+on Climate Change IPCC AR6. This data set includes downscaled
+projections from the 35 models and scenarios for which daily scenarios
+were produced and distributed under CMIP6. Please visit NCCS
+Dataportal - Datashare technical note
+<https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf>
+to ensure that the requested model and greenhouse gas emissions scenario
+(SSPs) is available on the server before you execute your run. The
+Bias-Correction Spatial Disaggregation BCSD method used in generating
+the NEX-GDDP-CMIP6 data set is a statistical downscaling algorithm
+specifically developed to address the current limitations of the global
+GCM outputs (Wood et al. 2002; Wood et al. 2004; Maurer et al. 2008;
+Thrasher et al. 2012). The NEX-GDDP-CMIP6 climate projections is
+downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees
+(approximately 25 km x 25 km). The `NEX_GDDP_CMIP6` downscales the
+NEX-GDDP-CMIP6 data to grid points of 0.1 degrees x 0.1 degrees
+following nearest point methods described by Mohammed et al. (2018).
+
+The `NEX_GDDP_CMIP6` function relies on 'curl' tool to transfer data
+from NASA servers to a user machine, using HTTPS supported protocol. The
+'curl' command embedded in this function to fetch precipitation/air
+temperature NEX-GDDP-CMIP6/ netcdf annual global files is designed to
+work seamlessly by appending appropriate logging information to the
+".netrc" file and the cookies file ".urs_cookies". The ".netrc" and
+".urs_cookies" files need to be stored at local directory before running
+any function in this package. Instructions on creating the ".netrc" and
+".urs_cookies" files can be accessed at
+<https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget>.
+It is imperative to say here that a user machine should have 'curl'
+installed as a prerequisite to run `NEX_GDDP_CMIP6` or any other
+function part of the this package (NASAaccess).
+
+## Note
+
+`start` should be equal to or greater than 2015-Jan-01 for 'ssp126',
+'ssp245', 'ssp370', or 'ssp585' SSPs climate scenario.
+
+`start` should be equal to or greater than 1950-Jan-01 and `end` should
+be equal to or less than 2014-Dec-31 for the 'historical' GCM
+retrospective climate data.
+
+## References
+
+Eyring, V., Bony, S., Meehl, G.A., Senior, C.A., Stevens, B., and et
+al., 2016. Overview of the Coupled Model Intercomparison Project Phase 6
+(CMIP6) experimental design and organization. Geoscientific Model
+Development, 9, 1937-1958, doi: 10.5194/gmd-9-1937-2016
+
+Maurer, E. P. and Hidalgo, H. G., 2008. Utility of daily vs. monthly
+large-scale climate data: an intercomparison of two statistical
+downscaling methods. Hydrology and Earth System Sciences, 12, 551-563,
+doi: 10.5194/hess-12-551-2008.
+
+Meinshausen, M., Nicholls, Z.R.J., Lewis, J., Gidden, M.J., Vogel, E.,
+and et al., 2020. The shared socio-economic pathway (SSP) greenhouse gas
+concentrations and their extensions to 2500. Geoscientific Model
+Development, 13, 3571-3605, doi: 10.5194/gmd-13-3571-2020
+
+Meinshausen, M., Smith, S.J., Calvin, K., Daniel, J.S., Kainuma, M.L.T.,
+and et al., 2011. The RCP greenhouse gas concentrations and their
+extensions from 1765 to 2300. Climatic Change, 109, 213-241, doi:
+10.1007/s10584-011-0156-z.
+
+Mohammed, I.N., Bolten, J., Srinivasan, R., and V. Lakshmi, 2018.
+Improved Hydrological Decision Support System for the Lower Mekong River
+Basin Using Satellite-Based Earth Observations. Remote Sensing, 10, 885,
+doi: 10.3390/rs10060885.
+
+O'Neill, B.C., Tebaldi, C., van Vuuren, D.P., Eyring, V.,
+Friedlingstein, and et al., 2016. The Scenario Model Intercomparison
+Project (ScenarioMIP) for CMIP6. Geoscientific Model Development, 9,
+3461-3482, doi: 10.5194/gmd-9-3461-2016
+
+Thrasher, B., Maurer, E. P., McKellar, C., and P. B. Duffy, 2012.
+Technical Note: Bias correcting climate model simulated daily
+temperature extremes with quantile mapping. Hydrology and Earth System
+Sciences, 16(9), 3309-3314, doi:1 0.5194/hess-16-3309-2012
+
+Wood, A.W., E.P. Maurer, A. Kumar, and D.P. Lettenmaier, 2002:
+Long-range experimental hydrologic forecasting for the eastern United
+States. J. Geophysical Research-Atmospheres, 107, 4429, doi:
+10.1029/2001JD000659.
+
+Wood, A.W., L.R. Leung, V. Sridhar, and D.P. Lettenmaier, 2004:
+Hydrologic implications of dynamical and statistical approaches to
+downscaling climate model outputs. Climatic Change, 15,189-216, doi:
+10.1023/B:CLIM.0000013685.99609.9e
+
+## Author
+
+Ibrahim Mohammed, <ibrahim.mohammed@ku.ac.ae>
+
+## Examples
+
+``` r
+#Lower Mekong basin example
+if (FALSE) NEX_GDDP_CMIP6(Dir = "./INPUT/", watershed = "LowerMekong.shp",
+DEM = "LowerMekong_dem.tif", start = "2060-12-1", end = "2060-12-3",
+model = 'MIROC6', type = 'pr', slice = 'ssp245') # \dontrun{}
+```

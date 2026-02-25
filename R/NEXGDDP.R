@@ -1,4 +1,4 @@
-###Nov/5/24
+###Feb/25/26
 #' CMIP5 climate data from NASA NEX-GDDP
 #'
 #' This function downloads climate change data of rainfall and air temperature from \acronym{NASA} Earth Exchange Global Daily Downscaled Projections \acronym{NEX-GDDP} \acronym{GSFC} servers, extracts data from grids within a specified watershed shapefile, and then generates tables in a format that any hydrological model requires for rainfall or air temperature data input. The function also generates the climate stations file input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected climatological grids that fall within the specified watershed. The \acronym{NASA} Earth Exchange Global Daily Downscaled Projections \acronym{NEX-GDDP} dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model \acronym{GCM} runs conducted under the Coupled Model Intercomparison Project Phase 5 \acronym{CMIP5} and across two of the four greenhouse gas emissions scenarios known as Representative Concentration Pathways \acronym{RCPs} (rcp45, rcp85).
@@ -16,7 +16,7 @@
 #' \acronym{NEX-GDDP} dataset is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model \acronym{GCM} runs conducted under the Coupled Model Intercomparison Project Phase 5 \acronym{CMIP5} (Taylor et al. 2012) and across two of the four greenhouse gas emissions scenarios known as Representative Concentration Pathways \acronym{RCPs} (Meinshausen et al. 2011). The \acronym{CMIP5} \acronym{GCM} runs were developed in support of the Fifth Assessment Report of the Intergovernmental Panel on Climate Change \acronym{IPCC AR5}. This dataset includes downscaled projections from the 21 models and scenarios for which daily scenarios were produced and distributed under \acronym{CMIP5}.
 #' The Bias-Correction Spatial Disaggregation \acronym{BCSD} method used in generating the \acronym{NEX-GDDP} dataset is a statistical downscaling algorithm specifically developed to address the current limitations of the global \acronym{GCM} outputs (Wood et al. 2002; Wood et al. 2004; Maurer et al. 2008; Thrasher et al. 2012).  The \acronym{NEX-GDDP} climate projections is downscaled at a spatial resolution of 0.25 degrees x 0.25 degrees (approximately 25 km x 25 km). The \command{NEX_GDDP_CMIP5} downscales the \acronym{NEX-GDDP} data to grid points of 0.1 degrees x 0.1 degrees following nearest point methods described by Mohammed et al. (2018).
 #'
-#' The \command{NEX_GDDP_CMIP5} function relies on 'curl' tool to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol.  The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDDP}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDDP_CMIP5} or any other function part of the this package (\acronym{NASAaccess}).
+#' The \command{NEX_GDDP_CMIP5} function relies on 'curl and 'netcdf' tools to transfer data from \acronym{NASA} servers to a user machine, using HTTPS supported protocol. The 'curl' command embedded in this function to fetch precipitation/air temperature \acronym{GPM IMERG}/ netcdf annual global files is designed to work seamlessly by appending appropriate logging information to the ".netrc" file and the cookies file ".urs_cookies". The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. The 'nc_open' command embedded in this function to fetch precipitation/air temperature \acronym{NEX-GDDP}/ netcdf daily global files is designed to work seamlessly by appending appropriate logging information and access dataset through \acronym{OPeNDAP} using the \acronym{DAP2} protocol \url{https://www.opendap.org/}. The accessed netcdf file will be cached to a temporary location within a user machine. The ".netrc" and ".urs_cookies" files need to be stored at local directory before running any function in this package. Instructions on creating the ".netrc" and ".urs_cookies" files can be accessed at \url{https://urs.earthdata.nasa.gov/documentation/for_users/data_access/curl_and_wget}. It is imperative to say here that a user machine should have 'curl' installed as a prerequisite to run \command{NEX_GDDP_CMIP5} or any other function part of the this package (\acronym{NASAaccess}).
 #' @note
 #' \code{start} should be equal to or greater than 2006-Jan-01 for \acronym{'rcp45'} or \acronym{'rcp85'} \acronym{RCP} climate scenario.
 #'
@@ -55,15 +55,18 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
   if(file.exists('~/.netrc')==TRUE)
   {
     url.IMERG.input <- 'https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGDF.07/'
-    url.GDDP.input <- 'https://portal.nccs.nasa.gov/datashare/NEXGDDP/BCSD/'
+    url.OPeNDAP <- 'https://ds.nccs.nasa.gov/thredds/catalog/bypass/NEX-GDDP/bcsd/'
     myvarIMERG <- 'precipitation'
     myvarNAME <- 'climate'
-    #check the DATASHARE NEX-GDDP availability
-    if(httr::status_code(GET(url.GDDP.input))==200)
+
+    if(type=='pr'){url.OPeNDAP.input <- paste(paste(url.OPeNDAP,slice,'r1i1p1',type,'catalog.html?dataset=bypass/NEX-GDDP/bcsd',slice,'r1i1p1',type,model,sep='/'),'.ncml',sep='')}
+    if(type=='tas'){url.OPeNDAP.input <- paste(url.OPeNDAP,slice,'/','r1i1p1','/',type,'max','/','catalog.html?dataset=bypass/NEX-GDDP/bcsd/',slice,'/','r1i1p1','/',type,'max','/', model,'.ncml', sep='')}
+
+    #check the DATASHARE NEX-GDDP OpeNDAP availability
+    if(httr::status_code(GET(url.OPeNDAP.input))==200)
     {
 
-      if(type=='pr'){ftp <- paste(url.GDDP.input,slice,'/','day','/','atmos','/',type,'/','r1i1p1','/','v1.0','/',sep='')}
-      if(type=='tas'){ftp_min <- paste(url.GDDP.input,slice,'/','day','/','atmos','/',type,'min','/','r1i1p1','/','v1.0','/',sep='');ftp_max <- paste(url.GDDP.input,slice,'/','day','/','atmos','/',type,'max','/','r1i1p1','/','v1.0','/',sep='')}
+
       ####Before getting to work on this function do this check on start and end dates
       if (as.Date(start) >= as.Date('1950-01-01') &  as.Date(end) <= as.Date('2100-12-31') & slice == 'rcp85' | slice == 'rcp45' | slice == 'historical')
       {
@@ -144,27 +147,26 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
 
           rm(IMERG)
           # The NEX-GDDP data grid information
-          # Use the same dummy date defined above since NEX-GDDP has data from 1950 to 2100.
-          # Using dummy date and file info for a file in the NEX-GDDP dataset
+          # Use the the first date available from NEX-GDDP data (i.e., either 1950/1/1 or 2006/1/1).
           # downloading one file
-          if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
+
           type.start<-ifelse(isTRUE(type=="pr")==TRUE,type,paste(type,'min',sep=''))
+          filename.start <- paste(paste('https://ds.nccs.nasa.gov/thredds/dodsC/bypass/NEX-GDDP/bcsd',slice,'r1i1p1',type.start,model,sep='/'),'.ncml',sep='')
 
-
-          filename.start <- paste(paste(type.start,'day','BCSD',slice,'r1i1p1',model,format(time_period[1],"%Y"),sep = '_'),'.nc',sep="")
-          myurl <- paste(ifelse(isTRUE(type=="pr")==TRUE,ftp,ftp_min),filename.start,sep = '')
-          utils::download.file(quiet = T, method = 'curl', url = myurl, destfile = paste('./temp/',filename.start,sep= ''), mode = 'wb', extra = '-k')
-
-          test2<-file.info(paste('./temp/',filename.start,sep= ''))$size
-          stopifnot('The NEX GDDP server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.' = test2 > 7.0e6)
           #reading ncdf file
-          nc<-ncdf4::nc_open( paste('./temp/',filename.start,sep= '') )
-          #since geographic info for all NEX files are the same
+          nc<-ncdf4::nc_open( filename.start )
+          #since geographic info and dates for all NEX files are the same
+          #Future data has a reference date of 2006-01-01 and historical data has a reference date of 1950-01-01
+          date_ref <- ifelse(isTRUE(slice=="historical")==TRUE,as.character('1950-01-01'),as.character('2006-01-01'))
+          date_ref <- as.Date(date_ref)
+
+
+
           ###evaluate these values at one time!
           ###getting the x values (longitudes in degrees east, 0 to +360) so it needed to be converted to -180 to 180)
-          nc.long.NEXGDDP<-ncdf4::ncvar_get(nc,nc$dim[[3]])
+          nc.long.NEXGDDP<-ncdf4::ncvar_get(nc,nc$dim[[2]])
           ####getting the y values (latitudes in degrees north, -90 to +90)
-          nc.lat.NEXGDDP<-ncdf4::ncvar_get(nc,nc$dim[[2]])
+          nc.lat.NEXGDDP<-ncdf4::ncvar_get(nc,nc$dim[[1]])
           #getting the climate data for one data as a dummy matrix
           catch <- ifelse(isTRUE(type=="pr")==TRUE,type,paste(type,'min',sep=""))
           # create a raster
@@ -244,16 +246,15 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
             if(format(timestart,"%m-%d") != "02-29")
             {
               #Here I want to have a Julian date for a fixed non-leap year. The NEX-GDPP data has 365 days for every year!
+              OpeNDAP_year_timestart <- as.numeric(format(timestart,'%Y')) - as.numeric(format(date_ref,'%Y')) + 1
               dayjuilan <- as.numeric(format(as.Date(paste('2063',format(timestart,'%m'),format(timestart,'%d'),sep="-")),"%j"))
-              filename <- paste(type,'_day_BCSD_',slice,'_r1i1p1_',model,'_',format(timestart,"%Y"),'.nc',sep = '')
-              myurl <- paste(ftp,filename,sep = '')
+
+              myurl <- paste(paste('https://ds.nccs.nasa.gov/thredds/dodsC/bypass/NEX-GDDP/bcsd',slice,'r1i1p1',type,model,sep='/'),'.ncml',sep='')
               # downloading file
-              if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
-              if(file.exists(paste('./temp/',filename,sep= ''))==FALSE){utils::download.file(quiet = T, method = 'curl', url = myurl, destfile = paste('./temp/',filename,sep= ''), mode = 'wb', extra = '-k')}
-              # Reading the ncdf file
-              test3<-file.info(paste('./temp/',filename,sep= ''))$size
-              stopifnot('The NEX GDDP server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.' = test3 > 6.0e6)
-              nc <- ncdf4::nc_open( paste('./temp/',filename,sep = '') )
+              nc <- ncdf4::nc_open( myurl )
+              # finding the time index matching the requested date
+              target_value<- nc$dim[[3]]$vals[(1+365*(OpeNDAP_year_timestart-1)):(365*OpeNDAP_year_timestart)][dayjuilan]
+              target_index <- which(nc$dim[[3]]$vals == target_value)
               # create a raster
               NEX<-terra::rast(nrows=length(nc.lat.NEXGDDP),
                                ncols=length(nc.long.NEXGDDP),
@@ -263,7 +264,7 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
                                ymax=nc.lat.NEXGDDP[NROW(nc.lat.NEXGDDP)],
                                crs='+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
               ###transpose the data and save the daily climate data values in a raster
-              values(NEX) <- t(ncdf4::ncvar_get(nc,type, start = c(1,1,dayjuilan) , count = c(-1, -1 ,1)))
+              values(NEX) <- t(ncdf4::ncvar_get(nc, type, start = c(1, 1, target_index), count = c(-1, -1, 1)))
 
               #reorder the rows
               NEX <- terra::flip(NEX,direction="v")
@@ -305,17 +306,17 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
               dayjuilan <- as.numeric(format(as.Date(paste('2063',format(timestart,'%m'),format(timestart,'%d'),sep="-")),"%j"))
               typemin <- paste(type,'min',sep='')
               typemax <- paste(type,'max',sep='')
-              filename_min <- paste(typemin,'_day_BCSD_',slice,'_r1i1p1_',model,'_',format(timestart,"%Y"),'.nc',sep = '')
-              filename_max <- paste(typemax,'_day_BCSD_',slice,'_r1i1p1_',model,'_',format(timestart,"%Y"),'.nc',sep = '')
-              myurl_min <- paste(ftp_min,filename_min,sep = '')
-              myurl_max <- paste(ftp_max,filename_max,sep = '')
+
+
+              myurl_min <- paste('https://ds.nccs.nasa.gov/thredds/dodsC/bypass/NEX-GDDP/bcsd/',slice,'/','r1i1p1','/',typemin,'/',model,'.ncml',sep = '')
+              myurl_max <- paste('https://ds.nccs.nasa.gov/thredds/dodsC/bypass/NEX-GDDP/bcsd/',slice,'/','r1i1p1','/',typemax,'/',model,'.ncml',sep = '')
+
               # downloading file
-              if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
-              if(file.exists(paste('./temp/',filename_min,sep= ''))==FALSE|file.exists(paste('./temp/',filename_max,sep= ''))==FALSE){utils::download.file(quiet = T, method = 'curl', url = myurl_min, destfile = paste('./temp/',filename_min,sep= ''), mode = 'wb', extra = '-k');utils::download.file(quiet = T, method = 'curl', url = myurl_max, destfile = paste('./temp/',filename_max,sep= ''), mode = 'wb', extra = '-k')}
-              # Reading the tasmin ncdf file
-              test4<-file.info(paste('./temp/',filename_min,sep= ''))$size
-              stopifnot('The NEX GDDP server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.' = test4 > 6.0e6)
-              nc_min <- ncdf4::nc_open( paste('./temp/',filename_min,sep = '') )
+
+              nc_min <- ncdf4::nc_open( myurl_min )
+              # finding the time index matching the requested date
+              target_value<- nc$dim[[3]]$vals[(1+365*(OpeNDAP_year_timestart-1)):(365*OpeNDAP_year_timestart)][dayjuilan]
+              target_index <- which(nc$dim[[3]]$vals == target_value)
               # create a raster
               NEX_min<-terra::rast(nrows=length(nc.lat.NEXGDDP),
                                ncols=length(nc.long.NEXGDDP),
@@ -326,16 +327,15 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
                                crs='+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
 
               ###transpose the data and save the daily climate data values in a raster
-              values(NEX_min) <- t(ncdf4::ncvar_get(nc_min,typemin, start = c(1,1,dayjuilan) , count = c(-1, -1 ,1)))
+              values(NEX_min) <- t(ncdf4::ncvar_get(nc_min,typemin, start = c(1,1,target_index) , count = c(-1, -1 ,1)))
               #reorder the rows
               NEX_min <- terra::flip(NEX_min,direction="v")
               ###rotate the raster to obtain the longitudes extent -180 to 180
               NEX <- terra::rotate(NEX_min)
               ncdf4::nc_close(nc_min)
               # Reading the tmax ncdf file
-              test5<-file.info(paste('./temp/',filename_max,sep= ''))$size
-              stopifnot('The NEX GDDP server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.' = test5 > 6.0e6)
-              nc_max <- ncdf4::nc_open( paste('./temp/',filename_max,sep = '') )
+
+              nc_max <- ncdf4::nc_open( myurl_max )
               # create a raster
               NEX_max<-terra::rast(nrows=length(nc.lat.NEXGDDP),
                                    ncols=length(nc.long.NEXGDDP),
@@ -346,7 +346,7 @@ NEX_GDDP_CMIP5=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
                                    crs='+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs')
 
               ###transpose the data and save the daily climate data values in a raster
-              values(NEX_max) <- t(ncdf4::ncvar_get(nc_max,typemax, start = c(1,1,dayjuilan) , count = c(-1, -1 ,1)))
+              values(NEX_max) <- t(ncdf4::ncvar_get(nc_max,typemax, start = c(1,1,target_index) , count = c(-1, -1 ,1)))
 
               #reorder the rows
               NEX_max <- terra::flip(NEX_max,direction="v")

@@ -1,4 +1,4 @@
-###11/2/24
+###2/21/26
 #' CMIP6 climate data from NASA NEX-GDDP
 #'
 #' This function downloads climate change data of rainfall and air temperature from \acronym{NASA} Earth Exchange Global Daily Downscaled Projections \acronym{NEX-GDDP-CMIP6} \acronym{AMES} servers, extracts data from grids within a specified watershed shapefile, and then generates tables in a format that any hydrological model requires for rainfall or air temperature data input. The function also generates the climate stations file input (file with columns: ID, File NAME, LAT, LONG, and ELEVATION) for those selected climatological grids that fall within the specified watershed. The \acronym{NASA} Earth Exchange Global Daily Downscaled Projections \acronym{NEX-GDDP-CMIP6} data set is comprised of downscaled climate scenarios for the globe that are derived from the General Circulation Model \acronym{GCM} runs conducted under the Coupled Model Intercomparison Project Phase 6 \acronym{CMIP6} and across two of the four "Tier 1" greenhouse gas emissions scenarios known as Shared Socioeconomic Pathways \acronym{SSPs}.
@@ -193,7 +193,7 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
         # Using dummy date and file info for a file in the NEX-GDDP-CMIP6 dataset
         # downloading one file
         if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
-	      utils::download.file(quiet = T, method = 'curl', url = 'https://ds.nccs.nasa.gov/thredds/ncss/grid/AMES/NEX/GDDP-CMIP6/ACCESS-CM2/ssp585/r1i1p1f1/tasmax/tasmax_day_ACCESS-CM2_ssp585_r1i1p1f1_gn_2015.nc?var=tasmax&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=2015-09-01T12%3A00%3A00Z&time_end=2015-09-02T12%3A00%3A00Z&timeStride=1', destfile = paste('./temp/','tasmax_day_ssp585_r1i1p1f1_ACCESS-CM2_2015.nc',sep= ''), mode = 'wb', extra = '-k')
+	      utils::download.file(quiet = T, method = 'curl', url = 'https://ds.nccs.nasa.gov/thredds/ncss/grid/AMES/NEX/GDDP-CMIP6/ACCESS-CM2/ssp585/r1i1p1f1/tasmax/tasmax_day_ACCESS-CM2_ssp585_r1i1p1f1_gn_2015_v2.0.nc?var=tasmax&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=2015-09-01T12%3A00%3A00Z&time_end=2015-09-02T12%3A00%3A00Z&timeStride=1', destfile = paste('./temp/','tasmax_day_ssp585_r1i1p1f1_ACCESS-CM2_2015.nc',sep= ''), mode = 'wb', extra = '-k')
 	      test2<-file.info(paste('./temp/','tasmax_day_ssp585_r1i1p1f1_ACCESS-CM2_2015.nc',sep= ''))$size
         stopifnot('The NEX GDDP server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.' = test2 > 6.0e6)
         #reading ncdf file
@@ -280,7 +280,7 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
           timeend <- timestart + 1
           timeyear <- format(timestart,"%Y")
           filename <- paste(type,'_day_',slice,'_',Variant,'_',model,'_',as.character(timestart),'_',as.character(timeend),'.nc',sep = '')
-          myurl <- paste(ftp,timeyear,'.nc?','var=',type,'&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
+          myurl <- paste(ftp,timeyear,'_v2.0','.nc?','var=',type,'&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
 
             # downloading file
             if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
@@ -329,8 +329,8 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
 
           filename_min <- paste(typemin,'_day_',slice,'_',Variant,'_',model,'_',as.character(timestart),'_',as.character(timeend),'.nc',sep = '')
           filename_max <- paste(typemax,'_day_',slice,'_',Variant,'_',model,'_',as.character(timestart),'_',as.character(timeend),'.nc',sep = '')
-          myurl_min <- paste(ftp_min,timeyear,'.nc?','var=',type,'min','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
-          myurl_max <- paste(ftp_max,timeyear,'.nc?','var=',type,'max','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
+          myurl_min <- paste(ftp_min,timeyear,'_v2.0','.nc?','var=',type,'min','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
+          myurl_max <- paste(ftp_max,timeyear,'_v2.0','.nc?','var=',type,'max','&disableLLSubset=on&disableProjSubset=on&horizStride=1&time_start=',as.character(timestart),'T12%3A00%3A00Z&time_duration=P1D','&timeStride=1',sep = '')
             # downloading file
             if(dir.exists('./temp/')==FALSE){dir.create('./temp/')}
             if(file.exists(paste('./temp/',filename_min,sep= ''))==FALSE|file.exists(paste('./temp/',filename_max,sep= ''))==FALSE){utils::download.file(quiet = T, method = 'curl', url = myurl_min, destfile = paste('./temp/',filename_min,sep= ''), mode = 'wb', extra = '-k');utils::download.file(quiet = T, method = 'curl', url = myurl_max, destfile = paste('./temp/',filename_max,sep= ''), mode = 'wb', extra = '-k')}
@@ -353,7 +353,7 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
             #reorder the rows
             NEX_min <- terra::flip(NEX_min,direction="v")
             ###rotate the raster to obtain the longitudes extent -180 to 180
-            NEX <- terra::rotate(NEX_min)
+            NEX_min <- terra::rotate(NEX_min)
             ncdf4::nc_close(nc_min)
             # Reading the tmax ncdf file
             test5<-file.info(paste('./temp/',filename_max,sep= ''))$size
@@ -375,7 +375,7 @@ NEX_GDDP_CMIP6=function(Dir='./INPUT/', watershed ='LowerMekong.shp', DEM = 'Low
             #reorder the rows
             NEX_max <- terra::flip(NEX_max,direction="v")
             ###rotate the raster to obtain the longitudes extent -180 to 180
-            NEX <- terra::rotate(NEX_max)
+            NEX_max <- terra::rotate(NEX_max)
             ncdf4::nc_close(nc_max)
 
             ### Obtaining daily climate values at NEX grids near the IMERG grids that has been defined and explained earlier, convert units to C by substracting 273.16
